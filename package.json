@@ -1,0 +1,14 @@
+{
+  "name": "gallery",
+  "version": "0.0.1",
+  "description": "A little marketing site, a little bit CMS and Blog, a web presence for Gallery 13 in all",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "sane-cli": "0.0.24"
+  }
+}
