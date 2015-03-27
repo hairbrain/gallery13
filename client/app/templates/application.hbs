@@ -4,6 +4,7 @@
             <div class="col-xs-12 col-xs-offset-0 line-after">
                 <h1>Gallery 13</h1>
                 <div class="pull-right">
+                    {{#link-to 'user'}}users{{/link-to}} |
                     {{#link-to 'index'}}pages{{/link-to}}
                 </div>
             </div>
@@ -12,17 +13,16 @@
     <div class="container">
         <div class="navbar-header">
             <div class="navbar-toggle" data-toggle="" data-target=".navbar-collapse">
-
                 {{#link-to 'index'}}Home{{/link-to}} |
+                {{#link-to 'artists'}}Artists{{/link-to}} |
                 {{#link-to 'event.index'}}Events{{/link-to}} |
-                {{#link-to 'user'}}Users{{/link-to}} |
             </div>
         </div>
         <div class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
                 <li class="active">{{#link-to 'index'}}Home{{/link-to}}</li>
+                <li class="">{{#link-to 'artists'}}Artists{{/link-to}}</li>
                 <li class="">{{#link-to 'event.index'}}Events{{/link-to}}</li>
-                <li class="">{{#link-to 'user'}}Users{{/link-to}}</li>
             </ul>
         </div>
     </div>
