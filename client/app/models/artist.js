@@ -7,5 +7,6 @@ export default DS.Model.extend({
   bio: DS.attr('string'),
   press: DS.attr('string'),
   description: DS.attr('string'),
-  featureImage: DS.attr('string')
+  featureImage: DS.attr('string'),
+  images: DS.hasMany('image')
 });
