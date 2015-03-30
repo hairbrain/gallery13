@@ -1,6 +1,7 @@
-<h2>Artist Template</h2>
 {{#link-to 'artists'}}+all artists{{/link-to}} |
-
+    <!--todo: add links here to sub routes -->
+{{#link-to 'artist.index' this}}{{name}}{{/link-to}} |
+{{#link-to 'artist.bio' this}}biography{{/link-to}}
 <hr>
 <div class="col-sm-12">
     <div class="col-sm-4">
@@ -8,7 +9,7 @@
         <h1>Meet, {{name}}</h1>
         <p>{{statement}}</p>
         <div class="artist-description">{{markdown-to-html markdown=description}}</div>
-        <!--            <ul class="list-unstyled artists-list">-->
+
         <div class="image-thumbnail-container">
             {{#each image in images}}
                 <div class="col-sm-6" {{action 'enlargeImage' image on='mouseEnter'}}>
@@ -18,23 +19,12 @@
                     </div>
                     <p>&nbsp;</p>
                 </div>
-                <!--                <li>-->
-
-
-                <!--                </li>-->
-
             {{/each}}
-            <!--            </ul>-->
+
         </div>
     </div>
     <div class="col-sm-8">
-        <div class="featured-image">
-            <img {{bind-attr src=enlargedImage.path}} class="img-responsive"/>
-            <div class="well-sm">
-                <p>{{enlargedImage.title}}</p>
-                <p>{{enlargedImage.description}}</p>
-            </div>
-        </div>
+        {{outlet}}
     </div>
 </div>
-{{outlet}}
+

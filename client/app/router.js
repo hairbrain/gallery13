@@ -11,15 +11,14 @@ Router.map(function() {
 
   this.resource('event', function() {});
   this.resource('user', function() {});
-  this.route('artists', function() {
-
-  });
+  this.route('artists', function() {});
   this.resource('artist', { path: '/artist/:artist_slug' }, function() {
-    //this.route('bio', {path: '/bio'});
-    //this.route('statement', {path: '/statement'});
-    //this.route('press', {path: '/press'});
+    this.route('index', { path:'/'});
+    this.route('bio');
+    this.route('statement');
+    this.route('press');
   });
-  this.resource('images', function() {});
+  //this.resource('images', function() {});
 
   adminRouter(this);
 });

@@ -1,2 +1,8 @@
-<h3>Artist Index</h3>
+<div class="featured-image">
+    <img {{bind-attr src=enlargedImage.path}} class="img-responsive"/>
+    <div class="well-sm">
+        <p>{{enlargedImage.title}}</p>
+        <p>{{enlargedImage.description}}</p>
+    </div>
+</div>
 {{outlet}}
