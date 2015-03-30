@@ -1,6 +1,6 @@
 {{#link-to 'artists'}}+all artists{{/link-to}} |
     <!--todo: add links here to sub routes -->
-{{#link-to 'artist.index' this}}{{name}}{{/link-to}} |
+{{#link-to 'artist.index' this}}artist{{/link-to}} |
 {{#link-to 'artist.bio' this}}biography{{/link-to}} |
 {{#link-to 'artist.statement' this}}statement{{/link-to}} |
 {{#link-to 'artist.press' this}}press{{/link-to}}
@@ -14,19 +14,23 @@
 
         <div class="image-thumbnail-container">
             {{#each image in model.images}}
-                <div class="col-sm-6" {{action 'enlargeImage' image on='mouseEnter'}}>
-                    <img src="{{image.path}}" class="img-responsive"/>
-                    <div class="img-thumbnail">
-                        <p>{{image.title}}</p>
-                    </div>
-                    <p>&nbsp;</p>
+                <div class="col-sm-6">
+                    {{#link-to 'artist.image' image }}
+                        <img src="{{image.path}}" class="img-responsive"/>
+                        <div class="img-thumbnail">
+                            <p>{{image.title}}</p>
+                        </div>
+                        <p>&nbsp;</p>
+                    {{/link-to}}
                 </div>
             {{/each}}
 
         </div>
+        {{#link-to 'artist.edit' this classNames="btn btn-default"}}EDIT{{/link-to}}
     </div>
     <div class="col-sm-8">
         {{outlet}}
     </div>
+
 </div>
 
