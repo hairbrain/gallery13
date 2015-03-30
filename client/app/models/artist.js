@@ -8,5 +8,5 @@ export default DS.Model.extend({
   press: DS.attr('string'),
   description: DS.attr('string'),
   featureImage: DS.attr('string'),
-  images: DS.hasMany('image')
+  images: DS.hasMany('image', { async: true })
 });

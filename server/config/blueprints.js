@@ -126,7 +126,7 @@ module.exports.blueprints = {
   *                                                                          *
   ***************************************************************************/
 
-  // populate: true,
+  populate: true,
 
   /****************************************************************************
   *                                                                           *
@@ -147,4 +147,7 @@ module.exports.blueprints = {
 
   // defaultLimit: 30
 
+  ember: {
+    sideload: true
+  }
 };

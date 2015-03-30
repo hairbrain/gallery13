@@ -17,7 +17,7 @@ module.exports = {
 
     order : { type: 'float' },
 
-    artist : { type: 'belongsTo' }
+    artist : { model: 'artist' }
   }
 };
 

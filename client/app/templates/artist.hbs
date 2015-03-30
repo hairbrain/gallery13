@@ -1,19 +1,21 @@
 {{#link-to 'artists'}}+all artists{{/link-to}} |
     <!--todo: add links here to sub routes -->
 {{#link-to 'artist.index' this}}{{name}}{{/link-to}} |
-{{#link-to 'artist.bio' this}}biography{{/link-to}}
+{{#link-to 'artist.bio' this}}biography{{/link-to}} |
+{{#link-to 'artist.statement' this}}statement{{/link-to}} |
+{{#link-to 'artist.press' this}}press{{/link-to}}
 <hr>
 <div class="col-sm-12">
     <div class="col-sm-4">
 
-        <h1>Meet, {{name}}</h1>
-        <p>{{statement}}</p>
-        <div class="artist-description">{{markdown-to-html markdown=description}}</div>
+        <h1>Meet, {{model.name}}</h1>
+        <p>{{markdown-to-html markdown=model.statement}}</p>
+        <div class="artist-description">{{markdown-to-html markdown=model.description}}</div>
 
         <div class="image-thumbnail-container">
-            {{#each image in images}}
+            {{#each image in model.images}}
                 <div class="col-sm-6" {{action 'enlargeImage' image on='mouseEnter'}}>
-                    <img {{bind-attr src=image.path }} class="img-responsive" {{bind-attr alt=image.title}}/>
+                    <img src="{{image.path}}" class="img-responsive"/>
                     <div class="img-thumbnail">
                         <p>{{image.title}}</p>
                     </div>

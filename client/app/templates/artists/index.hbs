@@ -6,7 +6,7 @@
         <div class="col-sm-4 col-sm-offset-1-no">
             <ul class="list-unstyled artists-list">
 
-                {{#each artist in model}}
+                {{#each model as |artist|}}
                     <li {{action 'showFeaturedArtistImage' artist on='mouseEnter'}} >
                         {{#link-to 'artist' artist}}
                             {{artist.name}}
@@ -22,7 +22,7 @@
             <div class="featured-image">
                 <img {{bind-attr src=featuredArtistImage}} class="img-responsive"/>
                 <div class="well-sm">
-                    <p>{{featuredArtistCaption}}</p>
+                    <p>{{markdown-to-html markdown=featuredArtistCaption}}</p>
                 </div>
             </div>
             {{outlet}}

@@ -21,7 +21,12 @@ module.exports = {
 
     description : { type: 'string' },
 
-    featureImage : { type: 'string' }
+    featureImage : { type: 'string' },
+
+    images : {
+      collection: 'image',
+      via: 'artist'
+    }
   }
 };
 
