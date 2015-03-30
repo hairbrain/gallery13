@@ -1,0 +1,23 @@
+<div class="container">
+    {{#each images as |image|}}
+        {{#with image}}
+
+            <div class="form-group">
+                <label for="title">Title</label>
+                {{input type="text" value=title class='form-control'}}
+            </div>
+            <div class="form-group">
+                <label for="path">Path</label>
+                {{input type="text" value=path class='form-control'}}
+            </div>
+            <div class="form-group">
+                <label for="description">Description</label>
+                {{input type="text" value=description class='form-control'}}
+            </div>
+            <div class="form-group">
+                <label for="order">Order</label>
+                {{input type="text" value=order class='form-control'}}
+            </div>
+        {{/with}}
+    {{/each}}
+</div>
