@@ -6,7 +6,7 @@ export default Ember.Route.extend({
   },
 
   actions: {
-    createArtist: function(model) {
+    updateArtist: function(model) {
       var _this = this;
       //var userId = this.session.get('user.id');
       model.save();
