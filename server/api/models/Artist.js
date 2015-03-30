@@ -23,6 +23,8 @@ module.exports = {
 
     featureImage : { type: 'string' },
 
+    order : { type: 'number' },
+
     images : {
       collection: 'image',
       via: 'artist'

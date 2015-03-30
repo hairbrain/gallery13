@@ -8,5 +8,6 @@ export default DS.Model.extend({
   press: DS.attr('string'),
   description: DS.attr('string'),
   featureImage: DS.attr('string'),
+  order: DS.attr('number'),
   images: DS.hasMany('image')
 });

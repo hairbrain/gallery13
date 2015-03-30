@@ -13,11 +13,9 @@
                         {{/link-to}}
                     </li>
                 {{/each}}
-                <li>
-                    <!--<button {{action 'createNew'}} ></button>-->
-                    {{#link-to 'artists.new' classNames="btn btn-sm btn-default"}}add new artist{{/link-to}}
-                </li>
+
             </ul>
+            {{#link-to 'artists.new' classNames="btn btn-sm btn-default"}}add new artist{{/link-to}}
         </div>
         <div class="col-sm-7 col-sm-offset-1">
             <div class="featured-image">
