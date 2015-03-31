@@ -1,0 +1,27 @@
+<div class="row border">
+    <div class="caption">
+        <h2>Artist Images</h2>
+        <button class="btn btn-default">new artist image</button>
+        <hr>
+    </div>
+    <div class="image-row">
+        {{#each images as |image|}}
+            {{#with image}}
+                <div class="image-preview-container">
+                    <div class="image-preview">
+                        <img {{bind-attr src=path}} {{bind-attr alt=description}} class="img-thumbnail img-preview"/>
+                    </div>
+                    <div class="border">
+                        <h3>{{title}}</h3>
+                        <p>{{description}}</p>
+                    </div>
+                    <div class="controls">
+                        <hr>
+                        <button class="btn btn-default">edit</button>&nbsp;
+                        <button class="btn btn-default">delete</button>
+                    </div>
+                </div>
+            {{/with}}
+        {{/each}}
+    </div>
+</div>

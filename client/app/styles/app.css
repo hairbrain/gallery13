@@ -132,7 +132,7 @@ div {
     width: auto;
 }
 
-.img-thumbnail img {
+.img-thumbnail img, .img-preview {
     /*width: 50px;*/
     /*height: auto;*/
     max-height: 150px;
