@@ -4,6 +4,9 @@
         <button class="btn btn-default">new artist image</button>
         <hr>
     </div>
+    <div class="image-editor-container">
+        {{outlet}}
+    </div>
     <div class="image-row">
         {{#each images as |image|}}
             {{#with image}}
@@ -17,7 +20,7 @@
                     </div>
                     <div class="controls">
                         <hr>
-                        <button class="btn btn-default">edit</button>&nbsp;
+                        {{#link-to 'artist.edit.image' id classNames="btn btn-default"}}edit{{/link-to}}&nbsp;
                         <button class="btn btn-default">delete</button>
                     </div>
                 </div>

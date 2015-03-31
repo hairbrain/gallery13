@@ -20,7 +20,11 @@ Router.map(function() {
     this.route('statement');
     this.route('press');
     this.route('image', { path: '/image/:image_id' });
-    this.route('edit');
+    this.route('edit', function() {
+      this.route('image', {
+        path: '/edit-image/:image_id'
+      });
+    });
   });
   //this.resource('images', function() {});
 
