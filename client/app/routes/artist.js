@@ -1,6 +1,9 @@
 import Ember from 'ember';
 
 export default Ember.Route.extend({
+  titleToken: function(model) {
+    return model.get('name');
+  },
   model: function(params) {
     var artist = this.store.find("artist", {'slug': params.artist_slug });
     return artist;
