@@ -12,10 +12,9 @@ export default Ember.Route.extend({
     //console.log('Catchall controller, ', controller);
     //console.log('Catchall model, ', model);
 
-    model.forEach(function(item) {
-      templateName = item._data.layout;
-      _this.render('pages.' + templateName);
-    });
+    templateName = model._data.layout;
+    _this.render('pages.' + templateName);
+
 
   }
 });
