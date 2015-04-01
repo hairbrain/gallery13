@@ -2,7 +2,7 @@ import Ember from 'ember';
 
 export default Ember.Route.extend({
   model: function(params) {
-    console.log('Catchall PARAMS, ', params);
+    //console.log('Catchall PARAMS, ', params);
     return this.store.find('page', { slug: params.slug });
   },
   renderTemplate: function(controller, model) {
@@ -14,7 +14,5 @@ export default Ember.Route.extend({
 
     templateName = model._data.layout;
     _this.render('pages.' + templateName);
-
-
   }
 });

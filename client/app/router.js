@@ -34,6 +34,7 @@ Router.map(function() {
   adminRouter(this);
   this.resource('pages', function() {
     this.route('edit', { path: ':page_id' });
+    this.route('new');
   });
   this.route('catchall', { path: '/*slug' });
 });
