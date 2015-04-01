@@ -26,7 +26,10 @@ Router.map(function() {
       });
     });
   });
-  //this.resource('images', function() {});
+
+  this.route('blog', function() {
+    this.resource('post', { path: ':post_slug' }, function() {});
+  });
 
   adminRouter(this);
 });
