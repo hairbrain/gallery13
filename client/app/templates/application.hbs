@@ -5,7 +5,7 @@
                 <h1>Gallery 13</h1>
                 <div class="pull-right">
                     {{#link-to 'user'}}users{{/link-to}} |
-                    {{#link-to 'index'}}pages{{/link-to}}
+                    {{#link-to 'pages'}}pages{{/link-to}}
                 </div>
             </div>
         </div>
@@ -17,6 +17,10 @@
                 {{#link-to 'artists'}}Artists{{/link-to}} |
                 {{#link-to 'event.index'}}Events{{/link-to}} |
                 {{#link-to 'blog'}}Blog{{/link-to}} |
+                {{#each model as |page|}}
+                    {{#link-to 'catchall' page}} {{page.navLabel}} {{/link-to}} |
+                {{/each}}
+                <a href="/about">About</a>
             </div>
         </div>
         <div class="collapse navbar-collapse">
@@ -25,6 +29,9 @@
                 <li class="">{{#link-to 'artists'}}Artists{{/link-to}}</li>
                 <li class="">{{#link-to 'event.index'}}Events{{/link-to}}</li>
                 <li class="">{{#link-to 'blog'}}Blog{{/link-to}}</li>
+                {{#each model as |page|}}
+                    <li>{{#link-to 'catchall' page}} {{page.navLabel}} {{/link-to}}</li>
+                {{/each}}
             </ul>
         </div>
     </div>

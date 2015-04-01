@@ -32,6 +32,10 @@ Router.map(function() {
   });
 
   adminRouter(this);
+  this.resource('pages', function() {
+    this.route('edit', { path: ':page_id' });
+  });
+  this.route('catchall', { path: '/*slug' });
 });
 
 export default Router;
