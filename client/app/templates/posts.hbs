@@ -1,0 +1,10 @@
+<h1>{{title}}</h1>
+<h2>&nbsp;by {{author.name}}&nbsp;&nbsp;<small class="text-muted">({{format-date date}})</small></h2>
+<hr>
+<div class="intro lead">
+    {{{markdown-to-html markdown=excerpt}}}
+</div>
+<div class="below-the-fold">
+    {{{markdown-to-html markdown=body}}}
+</div>
+{{outlet}}
