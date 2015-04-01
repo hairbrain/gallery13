@@ -37,4 +37,4 @@ var app = new EmberApp();
     destDir: 'fonts'
   });
 
-  module.exports = app.toTree();
+module.exports = app.toTree();

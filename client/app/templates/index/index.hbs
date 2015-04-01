@@ -1,17 +1,16 @@
 <div class="row">
     <div class="image-row col-xs-12" style="">
-        {{#each imageData in model}}
+            {{#each imageData in model}}
 
-            <div class="" style="">
-                <img {{bind-attr src=imageData.image}} {{bind-attr alt=imageData.description}} class="img-thumbnail"/>
-                <div {{bind-attr class=":border"}}>
-                    <h3>{{imageData.title}}</h3>
-                    <h2>{{imageData.subtitle}}</h2>
-                    <p>{{imageData.description}}</p>
+                <div class="" style="">
+                    <img {{bind-attr src=imageData.image}} {{bind-attr alt=imageData.description}} class="img-thumbnail"/>
+                    <div {{bind-attr class=":border"}}>
+                        <h3>{{imageData.title}}</h3>
+                        <h2>{{imageData.subtitle}}</h2>
+                        <p>{{imageData.description}}</p>
+                    </div>
                 </div>
-            </div>
 
-        {{/each}}
+            {{/each}}
     </div>
-
 </div>

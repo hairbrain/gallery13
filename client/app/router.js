@@ -27,8 +27,8 @@ Router.map(function() {
     });
   });
 
-  this.route('blog', function() {
-    this.resource('post', { path: ':post_slug' }, function() {});
+  this.resource('blog', function() {
+    this.route('post', { path: ':post_slug' }, function() {});
   });
 
   adminRouter(this);
