@@ -8,5 +8,6 @@ export default DS.Model.extend({
   layout: DS.attr('string', { defaultValue: 'standard-layout'}),
   excerpt: DS.attr('string'),
   body: DS.attr('string'),
-  order: DS.attr('number')
+  order: DS.attr('number'),
+  images: DS.hasMany('image')
 });

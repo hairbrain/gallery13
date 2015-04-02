@@ -1,6 +1,9 @@
 import Ember from 'ember';
 
 export default Ember.Route.extend({
+  titleToken: function(model) {
+    return model.get('title');
+  },
   model: function(params) {
     //console.log('Catchall PARAMS, ', params);
     return this.store.find('page', { slug: params.slug });
@@ -13,6 +16,6 @@ export default Ember.Route.extend({
     //console.log('Catchall model, ', model);
 
     templateName = model._data.layout;
-    _this.render('pages.' + templateName);
+    _this.render('pages.layouts.' + templateName);
   }
 });

@@ -33,6 +33,15 @@
         <label for="" class="col-sm-2 control-label">Layout</label>
         <div class="col-sm-10">
             {{input value=layout class="form-control" placeholder="standard-layout"}}
+            {{#button-select selected=layout class="btn-group" role="group"}}
+                {{#button-option value='standard' class='btn btn-default btn-sm'}}Standard{{/button-option}}
+                {{#button-option value='two-column' class='btn btn-default btn-sm'}}2 Column{{/button-option}}
+                {{#button-option value='two-column-image-right' class='btn btn-default btn-sm'}}2 Column - Image Right{{/button-option}}
+                {{#button-option value='two-column-image-left' class='btn btn-default btn-sm'}}2 Column - Image Left{{/button-option}}
+                {{#button-option value='two-column-rotator-right' class='btn btn-default btn-sm'}}2 Column - Rotator Right{{/button-option}}
+                {{#button-option value='two-column-rotator-left' class='btn btn-default btn-sm'}}2 Column - Rotator Left{{/button-option}}
+            {{/button-select}}
+
         </div>
     </div>
     <div class="form-group">

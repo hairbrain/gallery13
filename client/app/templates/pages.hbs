@@ -8,6 +8,9 @@
     {{#link-to 'pages.new' classNames='btn btn-sm btn-default'}}Create new page{{/link-to}}
 </div>
 <div class="row">
+    {{outlet}}
+</div>
+<div class="row">
     <div class="col-xs-12" style="">
         <table class="table table-condensed">
             <thead>
@@ -17,7 +20,7 @@
                 <th>nav label</th>
                 <th>layout</th>
                 <th>excerpt</th>
-                <th>body</th>
+                <!--<th>body</th>-->
                 <th>order</th>
                 <th>actions</th>
             </tr>
@@ -41,15 +44,15 @@
                     <th>
                         <p>{{page.excerpt}}</p>
                     </th>
-                    <th>
-                        <p>{{page.body}}</p>
-                    </th>
+                    <!--<th>-->
+                        <!--<p>{{page.body}}</p>-->
+                    <!--</th>-->
                     <th>
                         <p>{{page.order}}</p>
                     </th>
                     <th>
                         {{#link-to 'pages.edit' page classNames='btn btn-sm btn-default'}}
-                            <span class="glyphicon glyphicon-fullscreen"></span>
+                            <span class="glyphicon glyphicon-edit"></span>
                         {{/link-to}}
                     </th>
                 </tr>
@@ -62,4 +65,4 @@
 
     </div>
 </div>
-{{outlet}}
+
