@@ -22,5 +22,5 @@ export default Ember.Route.extend({
       //    return model.save();
       //  }).then(() => this.transitionTo('s.users.user', user));
     }
-  }
+}
 });

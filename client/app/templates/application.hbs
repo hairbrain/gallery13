@@ -13,25 +13,25 @@
     <div class="container">
         <div class="navbar-header">
             <div class="navbar-toggle" data-toggle="" data-target=".navbar-collapse">
-                {{#link-to 'index'}}Home{{/link-to}} |
                 {{#link-to 'artists'}}Artists{{/link-to}} |
+                <a href="">Exhibitions</a>
                 {{#link-to 'event.index'}}Events{{/link-to}} |
-                {{#link-to 'blog'}}Blog{{/link-to}} |
                 {{#each model as |page|}}
                     {{#link-to 'catchall' page}} {{page.navLabel}} {{/link-to}} |
                 {{/each}}
-                <a href="/about">About</a>
+                {{#link-to 'blog'}}Blog{{/link-to}}
+
             </div>
         </div>
         <div class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
-                <li class="active">{{#link-to 'index'}}Home{{/link-to}}</li>
                 <li class="">{{#link-to 'artists'}}Artists{{/link-to}}</li>
-                <li class="">{{#link-to 'event.index'}}Events{{/link-to}}</li>
-                <li class="">{{#link-to 'blog'}}Blog{{/link-to}}</li>
+                <li><a href="">Exhibitions</a></li>
+                <li class="">{{#link-to 'event.index'}}Calendar of Events{{/link-to}}</li>
                 {{#each model as |page|}}
                     <li>{{#link-to 'catchall' page}} {{page.navLabel}} {{/link-to}}</li>
                 {{/each}}
+                <li class="">{{#link-to 'blog'}}Blog{{/link-to}}</li>
             </ul>
         </div>
     </div>

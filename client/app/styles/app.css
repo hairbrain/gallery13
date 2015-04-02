@@ -99,6 +99,11 @@ div.container a.brand {
     padding: 8px 20px 12px 40px;
 }
 
+.navbar-nav .active {
+    border: 1px solid gray;
+    border-radius: 10px;
+}
+
 .line-after {
     /* border-bottom: solid 1px black; */
     border-bottom: 1pt solid rgb(226, 226, 226);

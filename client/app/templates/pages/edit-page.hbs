@@ -38,13 +38,13 @@
     <div class="form-group">
         <label for="" class="col-sm-2 control-label">excerpt</label>
         <div class="col-sm-10">
-            {{textarea value=excerpt class="form-control" placeholder="standard"}}
+            {{textarea value=excerpt class="form-control" placeholder="a cute little summary for the page (get your markdown on)"}}
         </div>
     </div>
     <div class="form-group">
         <label for="" class="col-sm-2 control-label">body</label>
         <div class="col-sm-10">
-            {{textarea value=body class="form-control" placeholder="standard" cols="80" rows="6"}}
+            {{textarea value=body class="form-control" placeholder="this is where the meat of things goes. (get your markdown on here too)" cols="80" rows="6"}}
         </div>
     </div>
     <div class="form-group">
@@ -54,4 +54,5 @@
         </div>
     </div>
     <button class="btn btn-default" {{action 'update' model}}>Done Editing</button>
+    <button class="btn btn-default" {{action 'delete' model}}>Delete page</button>
 </form>
