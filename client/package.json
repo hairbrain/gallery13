@@ -41,7 +41,6 @@
     "ember-admin-bootstrap": "0.0.3",
     "ember-button-select": "^0.2.0",
     "ember-cli-loading": "0.0.4",
-    "ember-cli-select": "0.0.2",
     "ember-moment": "^1.1.1"
   }
 }

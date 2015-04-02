@@ -37,6 +37,18 @@ Router.map(function() {
     this.route('new');
   });
   this.route('catchall', { path: '/*slug' });
+  this.route('event-manager', function() {
+    this.route('edit', {
+      path: '/edit/:event_id'
+    }, function() {
+      this.route('images', function() {
+        this.route('edit', {
+          path: '/edit/:image_id'
+        });
+      });
+    });
+    this.route('new');
+  });
 });
 
 export default Router;
