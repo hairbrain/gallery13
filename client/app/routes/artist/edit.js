@@ -17,6 +17,11 @@ export default Ember.Route.extend({
       //    model.set('location', latlong);
       //    return model.save();
       //  }).then(() => this.transitionTo('s.users.user', user));
+    },
+    deleteImage: function(model) {
+      //var artist = model.artist;
+      //model.delete();
+      //this.transitionTo('artist.edit', artist);
     }
   }
 });
