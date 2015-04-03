@@ -17,8 +17,8 @@
         <div class="navbar-header">
             <div class="navbar-toggle" data-toggle="" data-target=".navbar-collapse">
                 {{#link-to 'artists'}}Artists{{/link-to}} |
-                <a href="">Exhibitions</a>
-                {{#link-to 'event.index'}}Events{{/link-to}} |
+                {{#link-to 'exhibitions'}}Exhibitions{{/link-to}} |
+                {{#link-to 'events'}}Events{{/link-to}} |
                 {{#each model as |page|}}
                     {{#link-to 'catchall' page}} {{page.navLabel}} {{/link-to}} |
                 {{/each}}
@@ -28,8 +28,8 @@
         <div class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
                 <li class="">{{#link-to 'artists'}}Artists{{/link-to}}</li>
-                <li><a href="">Exhibitions</a></li>
-                <li class="">{{#link-to 'event.index'}}Calendar of Events{{/link-to}}</li>
+                <li>{{#link-to 'exhibitions'}}Exhibitions{{/link-to}}</li>
+                <li class="">{{#link-to 'events'}}Calendar of Events{{/link-to}}</li>
                 {{#each model as |page|}}
                     <li>{{#link-to 'catchall' page}} {{page.navLabel}} {{/link-to}}</li>
                 {{/each}}

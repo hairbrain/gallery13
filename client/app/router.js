@@ -45,11 +45,16 @@ Router.map(function() {
         this.route('edit', {
           path: '/edit/:image_id'
         });
+        this.route('new');
       });
     });
     this.route('new');
   });
   this.route('events');
+  this.resource('exhibitions', function() {});
+  this.route('exhibition-manager', function() {
+    this.route('new');
+  });
 });
 
 export default Router;
