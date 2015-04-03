@@ -49,6 +49,7 @@ Router.map(function() {
     });
     this.route('new');
   });
+  this.route('events');
 });
 
 export default Router;

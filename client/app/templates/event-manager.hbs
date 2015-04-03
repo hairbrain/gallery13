@@ -24,7 +24,11 @@
                     <td>{{event.description}}</td>
                     <td>{{event.image}}</td>
                     <td>{{event.order}}</td>
-                    <td>{{#link-to 'event-manager.edit' event}}<span class="glyphicon glyphicon-edit"></span>{{/link-to}}</td>
+                    <td>
+                        {{#link-to 'event-manager.edit' event classNames='btn btn-sm btn-default'}}
+                            <span class="glyphicon glyphicon-edit"></span>
+                        {{/link-to}}
+                    </td>
                 </tr>
             {{/each}}
             </tbody>
