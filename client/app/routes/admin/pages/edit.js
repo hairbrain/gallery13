@@ -8,7 +8,7 @@ export default Ember.Route.extend({
     update: function (model) {
 
       model.save();
-      this.transitionTo('pages');
+      this.transitionTo('admin.pages');
 
     },
     layoutChanged: function(val, model) {

@@ -1,0 +1,48 @@
+<div class="row">
+    <div class="page-header">
+        <button class="btn btn-default" {{action 'updateArtist' model}}>Update Artist</button>
+    </div>
+</div>
+<!-- todo: change this to be just a read only list of images with a edit link that will direct the user to a route to edit that specific image and a button to add a new image. -->
+<!-- https://github.com/hairbrained/gallery13/issues/3 -->
+<div class="row">
+    <div role="tabpanel">
+
+        <!-- Nav tabs -->
+        <ul class="nav nav-tabs" role="tablist">
+            <li role="presentation" class="active"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Artist Profile</a></li>
+            <li role="presentation"><a href="#images" aria-controls="images" role="tab" data-toggle="tab">Images</a></li>
+            <li role="presentation"><a href="#exhibitions" aria-controls="exhibitions" role="tab" data-toggle="tab">Exhibitions</a></li>
+            <li role="presentation"><a href="#statement" aria-controls="statement" role="tab" data-toggle="tab">Statement</a></li>
+            <li role="presentation"><a href="#bio" aria-controls="bio" role="tab" data-toggle="tab">Bio</a></li>
+            <li role="presentation"><a href="#press" aria-controls="press" role="tab" data-toggle="tab">Press</a></li>
+            <li role="presentation"><a href="#preview" aria-controls="preview" role="tab" data-toggle="tab">Preview Artist Page</a></li>
+        </ul>
+
+        <!-- Tab panes -->
+        <div class="tab-content">
+            <div role="tabpanel" class="tab-pane active" id="profile">{{partial "admin/artist/form"}}</div>
+            <div role="tabpanel" class="tab-pane" id="images">{{partial "admin/artist/view-images-form"}}</div>
+            <div role="tabpanel" class="tab-pane" id="exhibitions">(coming soon)</div>
+            <div role="tabpanel" class="tab-pane" id="statement">
+                {{textarea value=statement class='form-control' rows="20"}}
+            </div>
+            <div role="tabpanel" class="tab-pane" id="bio">
+                {{textarea value=bio class='form-control' rows="20"}}
+            </div>
+            <div role="tabpanel" class="tab-pane" id="press">
+                <div class="col-md-6">
+                    <h2>Edit Here</h2>
+                    {{textarea value=press class='form-control' rows="20"}}
+                </div>
+                <div class="col-md-6">
+                    <h2>Preview</h2>
+                    {{markdown-to-html markdown=press}}
+                </div>
+            </div>
+            <div role="tabpanel" class="tab-pane" id="preview">(coming soon)</div>
+        </div>
+
+    </div>
+</div>
+{{outlet}}

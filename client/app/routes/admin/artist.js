@@ -1,13 +1,16 @@
 import Ember from 'ember';
 
 export default Ember.Route.extend({
-
   actions: {
     updateArtist: function(model) {
-      var _this = this;
+      var _this = this,
+        order = parseInt(model.get('order'));
       //var userId = this.session.get('user.id');
+      {{debugger}}
+      model.set('order', order);
+
       model.save();
-      this.transitionTo('artists');
+      this.transitionTo('admin.artists');
       //var user = this.store.find('user', userId).then(function(result) {
       //    model.set('user', result);
       //    user = result;

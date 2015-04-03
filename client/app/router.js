@@ -41,7 +41,6 @@ Router.map(function() {
   //route for dynamic pages
   this.route('catchall', { path: '/*slug' });
   this.route('admin', function() {
-
     this.route('blog');
 
     this.route('pages', function() {
@@ -61,6 +60,18 @@ Router.map(function() {
         });
       });
       this.route('new');
+    });
+
+    this.route('artists', function() {});
+    this.route('artist', { path: '/artist/:artist_id' }, function() {
+      this.route('images');
+      this.route('exhibitions');
+
+      this.route('new');
+    });
+
+    this.route('page', {
+      path: '/page/:page_id'
     });
   });
 });

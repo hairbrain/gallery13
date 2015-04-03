@@ -1,0 +1,35 @@
+<h1>Artist Manager</h1>
+{{outlet}}
+<div class="row">
+    <div class="col-xs-12">
+        {{#link-to 'admin.artist.new' classNames="btn btn-default btn-sm"}}New Artist{{/link-to}}
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-12">
+        <table class="table table-condensed">
+            <thead>
+            <th>Name</th>
+            <th>Slug</th>
+            <th>Feature Image</th>
+            <th>Order</th>
+            <th>Actions</th>
+            </thead>
+            <tbody>
+            {{#each model as |artist|}}
+                <tr>
+                    <td>{{artist.name}}</td>
+                    <td>{{artist.slug}}</td>
+                    <td><img src="{{artist.featureImage}}" class="img-preview-small" /></td>
+                    <td>{{artist.order}}</td>
+                    <td>
+                        {{#link-to 'admin.artist' artist classNames='btn btn-sm btn-default'}}
+                            <span class="glyphicon glyphicon-edit"></span>
+                        {{/link-to}}
+                    </td>
+                </tr>
+            {{/each}}
+            </tbody>
+        </table>
+    </div>
+</div>
