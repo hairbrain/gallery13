@@ -1,0 +1,23 @@
+<div class="row text-center">
+    <h2>Edit the blog posts here.</h2>
+</div>
+<div class="row">&nbsp;</div>
+<div class="row">
+    <table class="table table-condensed">
+        <thead></thead>
+        <tbody>
+        {{#each model as |post|}}
+            <tr>
+                <td>{{post.title}}</td>
+                <td>{{post.slug}}</td>
+                <td>{{ago post.date}}</td>
+                <td><img src="{{post.image}}" class="img-preview-small" /></td>
+                <td>{{post.excerpt}}</td>
+                <td><a href="" class=" btn btn-default btn-sm"><span class="glyphicon glyphicon-edit"></span></a></td>
+            </tr>
+        {{/each}}
+        </tbody>
+    </table>
+</div>
+
+{{outlet}}

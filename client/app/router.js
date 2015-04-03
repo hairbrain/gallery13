@@ -31,29 +31,37 @@ Router.map(function() {
     this.route('post', { path: ':post_slug' }, function() {});
   });
 
-  adminRouter(this);
-  this.resource('pages', function() {
-    this.route('edit', { path: ':page_id' });
-    this.route('new');
-  });
-  this.route('catchall', { path: '/*slug' });
-  this.route('event-manager', function() {
-    this.route('edit', {
-      path: '/edit/:event_id'
-    }, function() {
-      this.route('images', function() {
-        this.route('edit', {
-          path: '/edit/:image_id'
-        });
-        this.route('new');
-      });
-    });
-    this.route('new');
-  });
+  //adminRouter(this);
+
+
+
   this.route('events');
   this.resource('exhibitions', function() {});
-  this.route('exhibition-manager', function() {
-    this.route('new');
+
+  //route for dynamic pages
+  this.route('catchall', { path: '/*slug' });
+  this.route('admin', function() {
+
+    this.route('blog');
+
+    this.route('pages', function() {
+      this.route('edit', { path: ':page_id' });
+      this.route('new');
+    });
+
+    this.route('events', function() {
+      this.route('edit', {
+        path: '/edit/:event_id'
+      }, function() {
+        this.route('images', function() {
+          this.route('edit', {
+            path: '/edit/:image_id'
+          });
+          this.route('new');
+        });
+      });
+      this.route('new');
+    });
   });
 });
 

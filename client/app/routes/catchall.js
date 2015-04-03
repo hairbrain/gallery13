@@ -16,6 +16,8 @@ export default Ember.Route.extend({
     //console.log('Catchall model, ', model);
 
     templateName = model._data.layout;
-    _this.render('pages.layouts.' + templateName);
+
+    //todo: test if the layout template exists, if not return a friendly not found
+    _this.render('admin.pages.layouts.' + templateName);
   }
 });

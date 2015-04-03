@@ -1,0 +1,48 @@
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12 text-center">
+            <h1>Gallery 13 Site Administration</h1>
+        </div>
+    </div>
+    <div class="row">&nbsp;</div>
+    <div class="row">
+        <div class="col-sm-2 text-center">
+            {{#link-to 'admin'}}
+                <span class="glyphicon glyphicon-home icon-large"></span>
+                <p>Admin Home</p>
+            {{/link-to}}
+        </div>
+        <div class="col-sm-2 text-center">
+            {{#link-to 'admin.blog'}}
+                <span class="glyphicon glyphicon-th-list icon-large"></span>
+                <p>Edit Blog</p>
+            {{/link-to}}
+        </div>
+        <div class="col-sm-2 text-center">
+            {{#link-to 'admin.events'}}
+                <span class="glyphicon glyphicon-calendar icon-large"></span>
+                <p>Edit Events</p>
+            {{/link-to}}
+        </div>
+        <div class="col-sm-2 text-center">
+            {{#link-to 'admin'}}
+                <span class="glyphicon glyphicon-user icon-large"></span>
+                <p>Edit Artists</p>
+            {{/link-to}}
+        </div>
+        <div class="col-sm-2 text-center">
+            {{#link-to 'admin.pages'}}
+                <span class="glyphicon glyphicon-text-background icon-large"></span>
+                <p>Edit Pages</p>
+            {{/link-to}}
+        </div>
+        <div class="col-sm-2 text-center">
+            {{#link-to 'admin'}}
+                <span class="glyphicon glyphicon-sunglasses icon-large"></span>
+                <p>Edit Site Admins</p>
+            {{/link-to}}
+        </div>
+    </div>
+    <div class="row">&nbsp;</div>
+    {{outlet}}
+</div>
