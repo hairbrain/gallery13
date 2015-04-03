@@ -8,6 +8,7 @@ export default DS.Model.extend({
   press: DS.attr('string'),
   description: DS.attr('string'),
   featureImage: DS.attr('string'),
-  order: DS.attr('number'),
+  //todo: figure out why we're having issues saving the order!
+  //order: DS.attr('number'),
   images: DS.hasMany('image')
 });

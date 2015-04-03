@@ -23,7 +23,8 @@ module.exports = {
 
     featureImage : { type: 'string' },
 
-    order : { type: 'number' },
+    //todo: figure out why we're having issues saving the order!
+    //order : { type: 'number' },
 
     images : {
       collection: 'image',

@@ -8,23 +8,23 @@
         {{outlet}}
     </div>
     <div class="image-row">
-        {{#each images as |image|}}
-            {{#with image}}
-                <div class="image-preview-container">
-                    <div class="image-preview">
-                        <img {{bind-attr src=path}} {{bind-attr alt=description}} class="img-thumbnail img-preview"/>
-                    </div>
-                    <div class="border">
-                        <h3>{{title}}</h3>
-                        <p>{{description}}</p>
-                    </div>
-                    <div class="controls">
-                        <hr>
-                        {{#link-to 'artist.edit.image' id classNames="btn btn-default"}}edit{{/link-to}}&nbsp;
-                        <button class="btn btn-default">delete</button>
-                    </div>
+        {{#each model.images as |image|}}
+
+            <div class="image-preview-container">
+                <div class="image-preview">
+                    <img {{bind-attr src=image.path}} {{bind-attr alt=image.description}} class="img-thumbnail img-preview"/>
                 </div>
-            {{/with}}
+                <div class="border">
+                    <h3>{{image.title}}</h3>
+                    <p>{{image.description}}</p>
+                </div>
+                <div class="controls">
+                    <hr>
+                    <button class="btn btn-default">edit</button>
+                    <button class="btn btn-default">delete</button>
+                </div>
+            </div>
+
         {{/each}}
     </div>
 </div>

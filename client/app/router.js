@@ -62,12 +62,12 @@ Router.map(function() {
       this.route('new');
     });
 
-    this.route('artists', function() {});
+    this.route('artists', function() {
+      this.route('new');
+    });
     this.route('artist', { path: '/artist/:artist_id' }, function() {
       this.route('images');
       this.route('exhibitions');
-
-      this.route('new');
     });
 
     this.route('page', {

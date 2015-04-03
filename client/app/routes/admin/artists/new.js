@@ -8,10 +8,12 @@ export default Ember.Route.extend({
 
   actions: {
     updateArtist: function(model) {
-      var _this = this;
-      //var userId = this.session.get('user.id');
+      //var _this = this;
+
       model.save();
-      this.transitionTo('artists');
+      this.transitionTo('admin.artists');
+
+      //var userId = this.session.get('user.id');
       //var user = this.store.find('user', userId).then(function(result) {
       //    model.set('user', result);
       //    user = result;

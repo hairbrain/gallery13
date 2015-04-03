@@ -1,16 +1,21 @@
 import Ember from 'ember';
 
 export default Ember.Route.extend({
+  titleToken: function(model) {
+    return 'Editing: ' + model.get('name');
+  },
+  model: function(params) {
+    var artist = this.store.find("artist", params.artist_id);
+    return artist;
+  },
   actions: {
-    updateArtist: function(model) {
-      var _this = this,
-        order = parseInt(model.get('order'));
-      //var userId = this.session.get('user.id');
+    update: function(model) {
+      //var _this = this;
       {{debugger}}
-      model.set('order', order);
-
       model.save();
       this.transitionTo('admin.artists');
+
+      //var userId = this.session.get('user.id');
       //var user = this.store.find('user', userId).then(function(result) {
       //    model.set('user', result);
       //    user = result;

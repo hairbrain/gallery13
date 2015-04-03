@@ -1,6 +1,6 @@
 <div class="row">
     <div class="page-header">
-        <button class="btn btn-default" {{action 'updateArtist' model}}>Update Artist</button>
+        <button class="btn btn-default" {{action 'update' model}}>Update Artist</button>
     </div>
 </div>
 <!-- todo: change this to be just a read only list of images with a edit link that will direct the user to a route to edit that specific image and a button to add a new image. -->
@@ -25,19 +25,19 @@
             <div role="tabpanel" class="tab-pane" id="images">{{partial "admin/artist/view-images-form"}}</div>
             <div role="tabpanel" class="tab-pane" id="exhibitions">(coming soon)</div>
             <div role="tabpanel" class="tab-pane" id="statement">
-                {{textarea value=statement class='form-control' rows="20"}}
+                {{textarea value=model.statement class='form-control' rows="20"}}
             </div>
             <div role="tabpanel" class="tab-pane" id="bio">
-                {{textarea value=bio class='form-control' rows="20"}}
+                {{textarea value=model.bio class='form-control' rows="20"}}
             </div>
             <div role="tabpanel" class="tab-pane" id="press">
                 <div class="col-md-6">
                     <h2>Edit Here</h2>
-                    {{textarea value=press class='form-control' rows="20"}}
+                    {{textarea value=model.press class='form-control' rows="20"}}
                 </div>
                 <div class="col-md-6">
                     <h2>Preview</h2>
-                    {{markdown-to-html markdown=press}}
+                    {{markdown-to-html markdown=model.press}}
                 </div>
             </div>
             <div role="tabpanel" class="tab-pane" id="preview">(coming soon)</div>
