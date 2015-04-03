@@ -8,9 +8,17 @@ export default Ember.Route.extend({
   actions: {
     update: function(model) {
       var _this = this;
-      //var userId = this.session.get('user.id');
+      //todo: get current event instance
+
+      //todo: set the event on the image model
+
+      //save the base model
       model.save();
-      this.transitionTo('artists');
+
+      //todo: update this to transition back to editing the event
+      this.transitionTo('events');
+
+      //how-to-sane example
       //var user = this.store.find('user', userId).then(function(result) {
       //    model.set('user', result);
       //    user = result;
