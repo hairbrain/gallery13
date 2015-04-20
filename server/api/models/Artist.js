@@ -8,26 +8,20 @@
 module.exports = {
 
   attributes: {
-
     name : { type: 'string' },
-
     slug : { type: 'string' },
-
     statement : { type: 'string' },
-
     bio : { type: 'string' },
-
     press : { type: 'string' },
-
     description : { type: 'string' },
-
     featureImage : { type: 'string' },
-
-    //todo: figure out why we're having issues saving the order!
-    //order : { type: 'number' },
-
+    order : { type: 'float' },
     images : {
       collection: 'image',
+      via: 'artist'
+    },
+    exhibitions : {
+      collection: 'exhibition',
       via: 'artist'
     }
   }

@@ -28,7 +28,7 @@ Router.map(function() {
   });
 
   this.resource('blog', function() {
-    this.route('post', { path: ':post_slug' }, function() {});
+    this.route('post', { path: ':post_slug' }, function() { });
   });
 
   //adminRouter(this);
@@ -41,7 +41,9 @@ Router.map(function() {
   //route for dynamic pages
   this.route('catchall', { path: '/*slug' });
   this.route('admin', function() {
-    this.route('blog');
+
+    this.route('blog', function() { });
+    this.route('post', { path: '/post/:post_id' }, function() { });
 
     this.route('pages', function() {
       this.route('edit', { path: ':page_id' });
@@ -68,11 +70,17 @@ Router.map(function() {
     this.route('artist', { path: '/artist/:artist_id' }, function() {
       this.route('images');
       this.route('exhibitions');
+
+      this.route('edit-image', {
+        path: '/edit-image/:image_id'
+      });
     });
 
     this.route('page', {
       path: '/page/:page_id'
     });
+
+
   });
 });
 

@@ -6,18 +6,13 @@
 */
 
 module.exports = {
-
   attributes: {
-
     title : { type: 'string' },
-
     subtitle : { type: 'string' },
-
     description : { type: 'string' },
-
     image : { type: 'string' },
-
-    order : { type: 'float' }
+    order : { type: 'float' },
+    artist : { model: 'artist' }
   }
 };
 

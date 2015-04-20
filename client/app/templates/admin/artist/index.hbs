@@ -13,6 +13,7 @@
             <li role="presentation" class="active"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Artist Profile</a></li>
             <li role="presentation"><a href="#images" aria-controls="images" role="tab" data-toggle="tab">Images</a></li>
             <li role="presentation"><a href="#exhibitions" aria-controls="exhibitions" role="tab" data-toggle="tab">Exhibitions</a></li>
+            <li role="presentation"><a href="#description" aria-controls="description" role="tab" data-toggle="tab">Description</a></li>
             <li role="presentation"><a href="#statement" aria-controls="statement" role="tab" data-toggle="tab">Statement</a></li>
             <li role="presentation"><a href="#bio" aria-controls="bio" role="tab" data-toggle="tab">Bio</a></li>
             <li role="presentation"><a href="#press" aria-controls="press" role="tab" data-toggle="tab">Press</a></li>
@@ -24,11 +25,35 @@
             <div role="tabpanel" class="tab-pane active" id="profile">{{partial "admin/artist/form"}}</div>
             <div role="tabpanel" class="tab-pane" id="images">{{partial "admin/artist/view-images-form"}}</div>
             <div role="tabpanel" class="tab-pane" id="exhibitions">(coming soon)</div>
+            <div role="tabpanel" class="tab-pane" id="description">
+                <div class="col-md-6">
+                    <h2>Edit Here</h2>
+                    {{textarea value=model.description class='form-control' rows="20"}}
+                </div>
+                <div class="col-md-6">
+                    <h2>Preview</h2>
+                    {{markdown-to-html markdown=model.description}}
+                </div>
+            </div>
             <div role="tabpanel" class="tab-pane" id="statement">
-                {{textarea value=model.statement class='form-control' rows="20"}}
+                <div class="col-md-6">
+                    <h2>Edit Here</h2>
+                    {{textarea value=model.statement class='form-control' rows="20"}}
+                </div>
+                <div class="col-md-6">
+                    <h2>Preview</h2>
+                    {{markdown-to-html markdown=model.statement}}
+                </div>
             </div>
             <div role="tabpanel" class="tab-pane" id="bio">
-                {{textarea value=model.bio class='form-control' rows="20"}}
+                <div class="col-md-6">
+                    <h2>Edit Here</h2>
+                    {{textarea value=model.bio class='form-control' rows="20"}}
+                </div>
+                <div class="col-md-6">
+                    <h2>Preview</h2>
+                    {{markdown-to-html markdown=model.bio}}
+                </div>
             </div>
             <div role="tabpanel" class="tab-pane" id="press">
                 <div class="col-md-6">

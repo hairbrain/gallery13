@@ -13,5 +13,5 @@ export default Ember.Route.extend({
       model.save();
       this.transitionTo('admin.pages');
     }
-}
+  }
 });

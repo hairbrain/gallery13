@@ -1,7 +1,4 @@
-<div class="row text-center">
-    <h2>Edit the blog posts here.</h2>
-</div>
-<div class="row">&nbsp;</div>
+<div class="row">{{outlet}}</div>
 <div class="row">
     <table class="table table-condensed">
         <thead>
@@ -20,11 +17,15 @@
                 <td>{{ago post.date}}</td>
                 <td><img src="{{post.image}}" class="img-preview-small" /></td>
                 <td>{{post.excerpt}}</td>
-                <td><a href="" class=" btn btn-default btn-sm"><span class="glyphicon glyphicon-edit"></span></a></td>
+                <td>
+                    {{#link-to 'admin.post' post classNames="btn btn-default btn-sm"}}
+                        <span class="glyphicon glyphicon-edit"></span>
+                    {{/link-to}}
+                </td>
             </tr>
         {{/each}}
         </tbody>
     </table>
 </div>
 
-{{outlet}}
+

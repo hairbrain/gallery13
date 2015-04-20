@@ -7,9 +7,16 @@ export default Ember.Route.extend({
   },
   actions: {
     delete: function(model) {
-      model.destroyRecord();
-      this.transitionTo('admin.pages');
-      return false;
+      var self = this;
+      return model.destroyRecord().then(
+        function() {
+          self.transitionTo('admin.pages');
+        },
+        function(reason) {
+          console.log('error deleting page, reason was: ' + reason);
+          self.transitionTo('admin.pages');
+        }
+      );
     }
   }
 });

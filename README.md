@@ -67,3 +67,5 @@ Specify what it takes to deploy your app.
 * Development Browser Extensions
   * [ember inspector for chrome](https://chrome.google.com/webstore/detail/ember-inspector/bmdblncegkenkacieihfhpjfppoconhi)
   * [ember inspector for firefox](https://addons.mozilla.org/en-US/firefox/addon/ember-inspector/)
+
+[![Stories in Ready](https://badge.waffle.io/hairbrained/gallery13.svg?label=ready&title=Ready)](http://waffle.io/hairbrained/gallery13)

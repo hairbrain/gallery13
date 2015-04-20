@@ -10,26 +10,38 @@ export default Ember.Route.extend({
   },
   actions: {
     update: function(model) {
-      //var _this = this;
-      {{debugger}}
-      model.save();
-      this.transitionTo('admin.artists');
-
-      //var userId = this.session.get('user.id');
-      //var user = this.store.find('user', userId).then(function(result) {
-      //    model.set('user', result);
-      //    user = result;
-      //    return _this.geoGoogleService.getLatLongForAddress(model.get('address'));
-      //  }).then(function (response) {
-      //    var latlong = point(response.results[0].geometry.location);
-      //    model.set('location', latlong);
-      //    return model.save();
-      //  }).then(() => this.transitionTo('s.users.user', user));
+      var self = this;
+      return model.save().then(function() {
+        self.transitionTo('admin.artists');
+      }, function(reason) {
+        console.log('error saving child: ' + reason);
+        self.transitionTo('admin.artists');
+      });
     },
-    deleteImage: function(model) {
-      //var artist = model.artist;
-      //model.delete();
-      //this.transitionTo('artist.edit', artist);
+    delete: function(model) {
+      var self = this;
+      return model.destroyRecord().then(function() {
+        self.transitionTo('admin.artists');
+      }, function(reason) {
+        console.log('error deleting child: ' + reason);
+        self.transitionTo('admin.artists');
+      });
+    },
+    createNewImage: function() {
+      var self = this,
+          newImage = this.store.createRecord('image'),
+          artist = this.modelFor('admin/artist');
+
+      newImage.set('artist', artist);
+      return newImage.save().then(
+        function(savedImage) {
+          self.transitionTo('admin.artist.edit-image', savedImage);
+        },
+        function(reason) {
+          console.log('error creating new image: ' + reason);
+          self.refresh();
+        }
+      );
     }
   }
 });

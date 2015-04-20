@@ -6,17 +6,11 @@
 */
 
 module.exports = {
-
   attributes: {
-
     path : { type: 'string' },
-
     title : { type: 'string' },
-
     description : { type: 'string' },
-
     order : { type: 'float' },
-
     artist : { model: 'artist' }
   }
 };

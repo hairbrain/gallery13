@@ -5,9 +5,9 @@
             <ul class="list-unstyled blog-list">
                 {{#each model as |post|}}
                     <li>
-                        {{#link-to 'blog.post' post}}
+                        {{#link-to 'blog.post.index' post}}
                             <p>{{post.title}}&nbsp;<small class="text-muted">by {{post.author}} {{ago post.date}}</small></p>
-                            <p>{{{post.excerpt}}}</p>
+                            <p>{{{markdown-to-html markdown=post.excerpt}}}</p>
                         {{/link-to}}
                         <hr>
                     </li>

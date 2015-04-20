@@ -5,5 +5,6 @@ export default DS.Model.extend({
   subtitle: DS.attr('string'),
   description: DS.attr('string'),
   image: DS.attr('string'),
-  order: DS.attr('number')
+  order: DS.attr('number'),
+  artist: DS.belongsTo('artist')
 });
