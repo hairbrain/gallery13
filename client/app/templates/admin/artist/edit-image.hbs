@@ -7,6 +7,8 @@
     <div class="form-group">
         <label for="path">Path</label>
         {{input type="text" value=model.path class='form-control'}}
+        {{ember-filepicker }}
+        <!--options=options onSelection='fileSelected' onClose='onClose' onError='onError' -->
     </div>
     <div class="form-group">
         <label for="description">Description</label>

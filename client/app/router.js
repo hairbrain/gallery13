@@ -74,6 +74,9 @@ Router.map(function() {
       this.route('edit-image', {
         path: '/edit-image/:image_id'
       });
+      this.route('edit-exhibition', {
+        path: '/edit-exhibition/:exhibition_id'
+      });
     });
 
     this.route('page', {
