@@ -6,7 +6,7 @@ var Router = Ember.Router.extend({
   location: config.locationType
 });
 
-Router.map(function() {
+export default Router.map(function() {
   this.resource('index', { path:'/'}, function() {});
 
   this.resource('event', function() {});
@@ -86,5 +86,3 @@ Router.map(function() {
 
   });
 });
-
-export default Router;
