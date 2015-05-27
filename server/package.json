@@ -15,7 +15,8 @@
     "sails-generate-ember-blueprints": "0.0.4",
     "sails-hook-autoreload": "^0.11.5",
     "sails-hook-dev": "balderdashy/sails-hook-dev",
-    "sails-mongo": "^0.10.5"
+    "sails-mongo": "^0.10.5",
+    "sails-mysql": "^0.10.12"
   },
   "scripts": {
     "start": "node app.js",
