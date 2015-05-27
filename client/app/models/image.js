@@ -7,6 +7,6 @@ export default DS.Model.extend({
   order: DS.attr('number'),
 
   artist: DS.belongsTo('artist'),
-  event: DS.hasMany('event'),
+  // event: DS.hasMany('event'),
   // pages: DS.hasMany('page')
 });
