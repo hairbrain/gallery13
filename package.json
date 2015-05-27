@@ -9,6 +9,9 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "sane-cli": "0.0.24"
+    "sane-cli": "0.1.0-beta.1"
+  },
+  "devDependencies": {
+    "sane-auth": "^0.3.3"
   }
 }

@@ -9,6 +9,9 @@ var Router = Ember.Router.extend({
 export default Router.map(function() {
   this.resource('index', { path:'/'}, function() {});
 
+  this.route("login");
+  this.route("register");
+
   this.resource('event', function() {});
   this.resource('user', function() {});
   this.route('artists', function() {

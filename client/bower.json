@@ -17,6 +17,7 @@
     "momentjs": "~2.9.0",
     "ember-cli-moment-shim": "~0.0.3",
     "moment": "~2.9.0",
-    "bootstrap": "~3.3.4"
+    "bootstrap": "~3.3.4",
+    "ember-simple-auth": "0.7.3"
   }
 }
