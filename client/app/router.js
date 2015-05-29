@@ -71,7 +71,9 @@ export default Router.map(function() {
       this.route('new');
     });
     this.route('artist', { path: '/artist/:artist_id' }, function() {
-      this.route('images');
+      this.route('images', function() {
+        this.route('new');
+      });
       this.route('exhibitions');
 
       this.route('edit-image', {
