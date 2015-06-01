@@ -23,7 +23,7 @@ module.exports = function(environment) {
       'script-src':  "'self' 'unsafe-eval'", // add the domain here like analytics.google.com or whatver it is reaching there
       'font-src':    "'self'",
       'connect-src': "'self'",
-      'img-src':     "'self'",
+      'img-src':     "'self' data:",
       'style-src':   "'self' 'unsafe-inline'",
       'frame-src':   "'none'"
     }
