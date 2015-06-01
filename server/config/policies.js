@@ -26,20 +26,42 @@ module.exports.policies = {
    *                                                                          *
    ***************************************************************************/
 
-  // '*': true,
-  // '*': "hasToken",
-  'find': true,
-  'findall': true,
-
-  AppController: {
-    'serve': true
-  },
-  UserController: {
-    "create": true,
-  },
+  // "*": true,
+  "*": "hasToken",
+  // allow all to access Auth related
   AuthController: {
-    '*': true,
+    "*": true
+  },
+  ArtistController: {
+    "find": true,
+    "findone": true
+  },
+  EventController: {
+    "find": true,
+    "findone": true
+  },
+  ExhibitionController: {
+    "find": true,
+    "findone": true
+  },
+  ImageController: {
+    "find": true,
+    "findone": true
+  },
+  PageController: {
+    "find": true,
+    "findone": true
+  },
+  PostController: {
+    "find": true,
+    "findone": true
+  },
+  UploadController: { },
+  UserController: { },
+  AppController: {
+    "serve": true
   }
+
 
 
   /***************************************************************************

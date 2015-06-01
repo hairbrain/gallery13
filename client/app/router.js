@@ -18,7 +18,7 @@ export default Router.map(function() {
     this.route('new');
   });
   this.resource('artist', { path: '/artist/:artist_slug' }, function() {
-    this.route('index', { path:'/'});
+    // this.route('index', { path: '/artist/:artist_slug' });
     this.route('bio');
     this.route('statement');
     this.route('press');
@@ -36,13 +36,10 @@ export default Router.map(function() {
 
   //adminRouter(this);
 
-
-
   this.route('events');
   this.resource('exhibitions', function() {});
 
-  //route for dynamic pages
-  this.route('catchall', { path: '/*slug' });
+
   this.route('admin', function() {
 
     this.route('blog', function() { });
@@ -90,4 +87,6 @@ export default Router.map(function() {
 
 
   });
+  //route for dynamic pages
+  this.route('catchall', { path: '/*slug' });
 });

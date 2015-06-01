@@ -5,7 +5,7 @@ export default Ember.Route.extend({
     return 'Editing: ' + model.get('name');
   },
   model: function(params) {
-    var artist = this.store.find("artist", params.artist_id);
+    var artist = this.store.find("artist", { "slug": params.artist_slug });
     return artist;
   },
   transitionAfterAction: function(modelType, self) {
@@ -28,7 +28,8 @@ export default Ember.Route.extend({
       });
     },
     delete: function(model) {
-      var self = this;
+      var self = this,
+        modelType = model.constructor.typeKey;
       return model.destroyRecord().then(function() {
         self.transitionAfterAction(modelType, self);
       }, function(reason) {

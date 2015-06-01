@@ -1,7 +1,4 @@
 {{#if session.isAuthenticated}}
-  <p> Welcome, {{session.user.firstName}} {{session.user.lastName}}</p>
-  <a href="#" {{ action 'invalidateSession' }}>Logout</a>
-
   <div class="container">
       <div class="row">
           <div class="col-xs-12 text-center">
@@ -50,8 +47,6 @@
       <div class="row">&nbsp;</div>
       {{outlet}}
   </div>
-
-
 {{else}}
   {{login-panel}}
 {{/if}}

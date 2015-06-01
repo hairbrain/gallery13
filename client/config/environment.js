@@ -20,7 +20,7 @@ module.exports = function(environment) {
     },
     contentSecurityPolicy: {
       'default-src': "'none'",
-      'script-src':  "'self' 'unsafe-eval' '*.filepicker.com' 'api.filepicker.io'", // add the domain here like analytics.google.com or whatver it is reaching there
+      'script-src':  "'self' 'unsafe-eval'", // add the domain here like analytics.google.com or whatver it is reaching there
       'font-src':    "'self'",
       'connect-src': "'self'",
       'img-src':     "'self'",
