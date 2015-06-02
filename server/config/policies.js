@@ -57,7 +57,9 @@ module.exports.policies = {
     "findone": true
   },
   UploadController: { },
-  UserController: { },
+  UserController: {
+    "create": true
+  },
   AppController: {
     "serve": true
   }
