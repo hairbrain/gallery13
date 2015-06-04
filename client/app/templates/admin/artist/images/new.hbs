@@ -13,10 +13,11 @@
         {{input type="text" value=model.order class='form-control'}}
     </div>
         <div class="form-group">
-        <div class="image-preview">
-          <img src={{model.image.path}} alt={{model.image.description}} class="img-thumbnail img-preview"/>
-        </div>
-        <img src={{controller.model.url}}>
+        {{#if controller.model.url}}
+          <div class='image-preview'>
+            <img src={{controller.model.url}} title={{controller.model.file.name}} class='img-thumbnail img-preview' alt='Preview of Image to Upload'/>
+          </div>
+        {{/if}}
         {{image-upload-button action='queueImage'}}
     </div>
     <button class="btn btn-default" {{action 'saveArtistImage' model}}>Save</button>
