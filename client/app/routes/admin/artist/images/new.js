@@ -9,12 +9,6 @@ export default Ember.Route.extend({
       let controller = this.controller;
       let image = controller.get('model');
       image.set('file', file);
-
-      //   artist,
-      //   filename: Ember.get(file, 'name'),
-      //   filesize: Ember.get(file, 'size'),
-      //   file: file
-      // });
       file.read().then(function setPreviewUrl(url) {
         if (image.get('url') == null) {
           image.set('url', url);
@@ -27,6 +21,7 @@ export default Ember.Route.extend({
       let image = controller.get('model');
       let artist = this.modelFor('admin.artist');
       if (image) {
+        let accessToken = this.container.lookup('simple-auth-authorizer:oauth2-bearer').session.content.access_token;
         let file = image.file;
         file.upload('http://localhost:1337/api/v1/uploads/image', {
           data: {
@@ -34,7 +29,8 @@ export default Ember.Route.extend({
             title: image.title,
             description: image.description,
             order: image.order
-          }
+          },
+          headers: { Authorization: 'bearer ' + accessToken }
         }).then(function uploadSucceeded(response) {
           console.log(response);
           image.set('path', response.body.image.path);
