@@ -14,7 +14,6 @@ export default Ember.Route.extend({
           image.set('url', url);
         }
       });
-      controller.set('image', image);
     },
     saveArtistImage() {
       let controller = this.controller;
@@ -48,10 +47,9 @@ export default Ember.Route.extend({
     },
     cancelNewArtistImage() {
       let controller = this.controller;
-      let image = controller.get('image');
+      let image = controller.get('model');
       if (image) {
         image.rollback();
-        controller.set('image', null);
       }
       this.transitionTo('admin.artist');
     }

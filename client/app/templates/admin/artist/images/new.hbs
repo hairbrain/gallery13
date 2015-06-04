@@ -14,9 +14,9 @@
     </div>
         <div class="form-group">
         <div class="image-preview">
-          <img src={{image.path}} alt={{image.description}} class="img-thumbnail img-preview"/>          
+          <img src={{model.image.path}} alt={{model.image.description}} class="img-thumbnail img-preview"/>
         </div>
-        <img src={{controller.image.url}}>
+        <img src={{controller.model.url}}>
         {{image-upload-button action='queueImage'}}
     </div>
     <button class="btn btn-default" {{action 'saveArtistImage' model}}>Save</button>
