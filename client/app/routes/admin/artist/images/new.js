@@ -23,7 +23,10 @@ export default Ember.Route.extend({
       if (image) {
         let accessToken = this.container.lookup('simple-auth-authorizer:oauth2-bearer').session.content.access_token;
         let file = image.file;
-        file.upload('http://localhost:1337/api/v1/uploads/image', {
+        let host = this.store.adapterFor('application').get('host');
+        let namespace = this.store.adapterFor('application').get('namespace');
+        let url = host + '/' + namespace + '/uploads/image';
+        file.upload(url, {
           data: {
             artist: artist.get('slug'),
             title: image.title,

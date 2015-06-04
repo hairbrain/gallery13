@@ -1,3 +1,4 @@
+import Ember from 'ember';
 import DS from 'ember-data';
 
 export default DS.Model.extend({
@@ -9,4 +10,9 @@ export default DS.Model.extend({
   artist: DS.belongsTo('artist'),
   // event: DS.hasMany('event'),
   // pages: DS.hasMany('page')
+
+  fullUrl: Ember.computed('path', function () {
+    let host = this.store.adapterFor('application').get('host');
+    return host + this.get('path');
+  })
 });

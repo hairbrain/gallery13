@@ -30,6 +30,7 @@ module.exports = function(environment) {
   };
 
   if (environment === 'development') {
+    ENV.hostUrl = 'http://localhost:1337';
     //ENV.APP.LOG_RESOLVER = true;
     //ENV.APP.LOG_ACTIVE_GENERATION = true;
     // ENV.APP.LOG_TRANSITIONS = true;
@@ -50,16 +51,17 @@ module.exports = function(environment) {
   }
 
   if (environment === 'production') {
-
+    ENV.hostUrl = 'http://localhost:1337';
   }
 
   ENV['simple-auth'] = {
-  "authorizer": "simple-auth-authorizer:oauth2-bearer"
+  authorizer: "simple-auth-authorizer:oauth2-bearer",
+  crossOriginWhitelist: [ENV.hostUrl]
 };
 
 ENV['simple-auth-oauth2'] = {
-  "serverTokenEndpoint": "/api/v1/auths/login",
-  "serverTokenRevocationEndpoint": "/api/v1/auths/logout"
+  serverTokenEndpoint: ENV.hostUrl + "/api/v1/auths/login",
+  serverTokenRevocationEndpoint: ENV.hostUrl + "/api/v1/auths/logout"
 };
 
 return ENV;
