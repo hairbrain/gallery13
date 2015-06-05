@@ -5,7 +5,8 @@ import {
 
 moduleForModel('image', {
   // Specify the other units that are required for this test.
-  needs: ['model:artist']
+  // needs: ['model:artist']
+  integration: true
 });
 
 test('it exists', function(assert) {

@@ -1,6 +1,5 @@
 import Ember from 'ember';
 import config from './config/environment';
-import adminRouter from 'ember-admin/router';
 
 var Router = Ember.Router.extend({
   location: config.locationType
@@ -70,14 +69,10 @@ export default Router.map(function() {
     this.route('artist', { path: '/artist/:artist_id' }, function() {
       this.route('images', function() {
         this.route('new');
+        this.route('edit', { path: '/image/:image_id/edit' });
       });
-      this.route('exhibitions');
-
-      this.route('edit-image', {
-        path: '/edit-image/:image_id'
-      });
-      this.route('edit-exhibition', {
-        path: '/edit-exhibition/:exhibition_id'
+      this.route('exhibitions', function() {
+        this.route('edit', { path: 'exhibition/:exhibition_id/edit'});
       });
     });
 

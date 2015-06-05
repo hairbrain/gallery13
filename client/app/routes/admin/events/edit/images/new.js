@@ -7,7 +7,7 @@ export default Ember.Route.extend({
   },
   actions: {
     update: function(model) {
-      var _this = this;
+      // var _this = this;
       //todo: get current event instance
 
       //todo: set the event on the image model

@@ -9,7 +9,7 @@ export default Ember.Route.extend({
     return artist;
   },
   transitionAfterAction: function(modelType, self) {
-    if (modelType == 'artist') {
+    if (modelType === 'artist') {
       self.transitionTo('admin.artists');
     } else {
       self.transitionTo('admin.artist', self.modelFor('admin/artist'));
@@ -61,10 +61,10 @@ export default Ember.Route.extend({
       newRecord.set('artist', artist);
       return newRecord.save().then(
         function(savedRecord) {
-          self.transitionTo('admin.artist.edit-exhibition', savedRecord);
+          self.transitionTo('admin.artist.exhibitions.edit', savedRecord);
         },
         function(reason) {
-          console.log('error creating new image: ' + reason);
+          console.log('error creating new exhibition: ' + reason);
           self.refresh();
         }
       );

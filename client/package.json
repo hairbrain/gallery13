@@ -39,7 +39,6 @@
     "ember-plupload": "0.6.12"
   },
   "dependencies": {
-    "ember-admin": "0.0.9",
     "ember-admin-bootstrap": "0.0.3",
     "ember-button-select": "^0.2.0",
     "ember-cli-loading": "0.0.4",
