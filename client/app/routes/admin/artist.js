@@ -8,6 +8,15 @@ export default Ember.Route.extend({
     var artist = this.store.find("artist", { "slug": params.artist_slug });
     return artist;
   },
+  setupController(controller, model) {
+    controller.set('model', model);
+    this.store.find('image').then(function(images) {
+      if (!controller.model.get('allArtistImages')) {
+        controller.model.set('allArtistImages', Ember.A([]));
+      }
+      controller.model.set('allArtistImages', images);
+    });
+  },
   transitionAfterAction: function(modelType, self) {
     if (modelType === 'artist') {
       self.transitionTo('admin.artists');
