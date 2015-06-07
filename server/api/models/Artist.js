@@ -5,6 +5,8 @@
 * @docs        :: http://sailsjs.org/#!documentation/models
 */
 
+var slug = require('slug');
+
 module.exports = {
 
   attributes: {
@@ -24,6 +26,13 @@ module.exports = {
       collection: 'exhibition',
       via: 'artist'
     }
+  },
+
+  // Lifecycle Callbacks
+  afterValidate: function(values, next) {
+    // Create slug from artist name for url
+    values.slug = slug(values.name, {lower: true})
+    next();
   }
 };
 

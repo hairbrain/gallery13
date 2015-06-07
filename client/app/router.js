@@ -21,7 +21,7 @@ export default Router.map(function() {
     this.route('bio');
     this.route('statement');
     this.route('press');
-    this.route('image', { path: '/image/:image_id' });
+    this.route('image', { path: '/image/:slug' });
     this.route('edit', function() {
       this.route('image', {
         path: '/edit-image/:image_id'
