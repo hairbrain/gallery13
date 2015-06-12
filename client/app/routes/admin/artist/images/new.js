@@ -28,8 +28,8 @@ export default Ember.Route.extend({
         file.upload(url, {
           data: {
             artist: artist.get('slug'),
-            title: image.title,
-            description: image.description,
+            title: image.get('title'),
+            description: image.get('description'),
             order: image.order
           },
           headers: { Authorization: 'bearer ' + accessToken }
