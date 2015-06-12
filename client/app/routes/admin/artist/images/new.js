@@ -19,30 +19,29 @@ export default Ember.Route.extend({
       let controller = this.controller;
       let image = controller.get('model');
       let artist = this.modelFor('admin.artist');
-      if (image) {
+      if (image && artist) {
         let accessToken = this.container.lookup('simple-auth-authorizer:oauth2-bearer').session.content.access_token;
         let file = image.file;
         let host = this.store.adapterFor('application').get('host');
         let namespace = this.store.adapterFor('application').get('namespace');
         let url = host + '/' + namespace + '/uploads/image';
+
         file.upload(url, {
           data: {
-            artist: artist.get('slug'),
-            title: image.title,
-            description: image.description,
-            order: image.order
+            path: "/images/artists/" + artist.get('slug')
           },
           headers: { Authorization: 'bearer ' + accessToken }
         }).then(function uploadSucceeded(response) {
           console.log(response);
-          image.set('path', response.body.image.path);
+          image.set('path', response.body.path);
           image.save();
-        }, function uploadFailed() {
-          image.rollback();
-          console.error('Could not upload image.');
         }).then(
           this.transitionTo('admin.artist')
-        );
+        ).catch(function uploadFailed(error) {
+          console.error(error);
+          image.rollback();
+          console.error('Could not upload image.');
+        });
       }
     },
     cancelNewArtistImage() {

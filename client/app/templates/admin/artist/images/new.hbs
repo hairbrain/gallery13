@@ -15,6 +15,7 @@
         <div class="form-group">
         {{#if controller.model.url}}
           {{image-preview src=controller.model.url title=controller.model.file.name alt='Preview of Image to Upload'}}
+          <p>{{model.path}}</p>
         {{else}}
           {{image-upload-button action='queueImage'}}
         {{/if}}

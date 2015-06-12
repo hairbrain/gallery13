@@ -68,14 +68,15 @@ module.exports = function(environment) {
   }
 
   ENV['simple-auth'] = {
-  authorizer: "simple-auth-authorizer:oauth2-bearer",
-  crossOriginWhitelist: [ENV.hostUrl]
-};
+    authorizer: "simple-auth-authorizer:oauth2-bearer",
+    crossOriginWhitelist: [ENV.hostUrl],
+    routeAfterAuthentication: "/admin"
+  };
 
-ENV['simple-auth-oauth2'] = {
-  serverTokenEndpoint: ENV.hostUrl + "/api/v1/auths/login",
-  serverTokenRevocationEndpoint: ENV.hostUrl + "/api/v1/auths/logout"
-};
+  ENV['simple-auth-oauth2'] = {
+    serverTokenEndpoint: ENV.hostUrl + "/api/v1/auths/login",
+    serverTokenRevocationEndpoint: ENV.hostUrl + "/api/v1/auths/logout"
+  };
 
-return ENV;
+  return ENV;
 };
