@@ -40,7 +40,6 @@ export default Router.map(function() {
 
 
   this.route('admin', function() {
-
     this.route('blog', function() { });
     this.route('post', { path: '/post/:post_id' }, function() { });
 
@@ -81,6 +80,9 @@ export default Router.map(function() {
     });
 
 
+    this.route('posts', function() {
+      this.route('new');
+    });
   });
   //route for dynamic pages
   this.route('catchall', { path: '/*slug' });
