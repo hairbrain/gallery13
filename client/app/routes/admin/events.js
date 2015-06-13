@@ -7,8 +7,8 @@ export default Ember.Route.extend({
   },
   actions: {
     update: function(model) {
-      var _this = this;
-      //var userId = this.session.get('user.id');
+      // var _this = this;
+      // var userId = this.session.get('user.id');
       model.save();
       this.transitionTo('admin.events');
     },
@@ -18,7 +18,7 @@ export default Ember.Route.extend({
       this.transitionTo('admin.events');
     },
     cancel: function(model) {
-      var m = model;
+      // var m = model;
       this.transitionTo('admin.events');
     }
   }

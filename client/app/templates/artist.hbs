@@ -8,7 +8,13 @@
 <div class="col-sm-12">
     <div class="col-sm-4">
         <div>
-            <h1>{{#link-to 'admin.artist' model}} {{model.name}} {{/link-to}}</h1>
+            <h1>
+              {{#if session.isAuthenticated}}
+                {{#link-to 'admin.artist' model}} {{model.name}} {{/link-to}}
+              {{else}}
+                {{model.name}}
+              {{/if}}
+            </h1>
             <p class="text-muted">{{markdown-to-html markdown=model.statement}}</p>
         </div>
         <div class="image-thumbnail-container">
@@ -31,4 +37,3 @@
     </div>
 
 </div>
-

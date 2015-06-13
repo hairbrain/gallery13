@@ -4,8 +4,11 @@
             <div class="col-xs-12 col-xs-offset-0 line-after">
                 <h1>Gallery 13</h1>
                 <div class="pull-right">
+                  {{#if session.isAuthenticated}}
+                    <p> Welcome, {{session.user.firstName}} {{session.user.lastName}}</p>
                     {{#link-to 'admin'}}admin{{/link-to}} |
-                    <a href="/">logout</a>
+                    <a href="#" {{ action 'invalidateSession' }}>Logout</a>
+                  {{/if}}
                 </div>
             </div>
         </div>
@@ -41,8 +44,8 @@
     {{outlet}}
     <hr>
     <footer>
+        <p>Gallery13 811 LaSalle Avenue. Minneapolis MN 55402</p>
+        <p>651-592-5503 <a href="mailto:info@gallery13.com">info@gallery13.com</a></p>
         <p>&copy; 2009 - 2015 Gallery 13. All rights reserved.</p>
-        <br>
-        <p>Gallery13 IS NOT ASSOCIATED with the Gallery13 located in St.Petesrberg, Florida</p>
     </footer>
 </div>

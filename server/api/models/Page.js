@@ -6,7 +6,6 @@
 */
 
 module.exports = {
-
   attributes: {
     name : { type: 'string' },
     slug : { type: 'string' },
@@ -15,7 +14,11 @@ module.exports = {
     layout : { type: 'string' },
     excerpt : { type: 'string' },
     body : { type: 'string' },
-    order : { type: 'float' }
+    order : { type: 'float' }//,
+    //this needs to be M..N
+    // images : {
+    //   collection: 'image',
+    //   via: 'pages'
+    // }
   }
 };
-

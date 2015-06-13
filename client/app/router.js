@@ -1,13 +1,15 @@
 import Ember from 'ember';
 import config from './config/environment';
-import adminRouter from 'ember-admin/router';
 
 var Router = Ember.Router.extend({
   location: config.locationType
 });
 
-Router.map(function() {
+export default Router.map(function() {
   this.resource('index', { path:'/'}, function() {});
+
+  this.route("login");
+  this.route("register");
 
   this.resource('event', function() {});
   this.resource('user', function() {});
@@ -15,11 +17,11 @@ Router.map(function() {
     this.route('new');
   });
   this.resource('artist', { path: '/artist/:artist_slug' }, function() {
-    this.route('index', { path:'/'});
+    // this.route('index', { path: '/artist/:artist_slug' });
     this.route('bio');
     this.route('statement');
     this.route('press');
-    this.route('image', { path: '/image/:image_id' });
+    this.route('image', { path: '/image/:slug' });
     this.route('edit', function() {
       this.route('image', {
         path: '/edit-image/:image_id'
@@ -33,15 +35,11 @@ Router.map(function() {
 
   //adminRouter(this);
 
-
-
   this.route('events');
   this.resource('exhibitions', function() {});
 
-  //route for dynamic pages
-  this.route('catchall', { path: '/*slug' });
-  this.route('admin', function() {
 
+  this.route('admin', function() {
     this.route('blog', function() { });
     this.route('post', { path: '/post/:post_id' }, function() { });
 
@@ -68,14 +66,12 @@ Router.map(function() {
       this.route('new');
     });
     this.route('artist', { path: '/artist/:artist_id' }, function() {
-      this.route('images');
-      this.route('exhibitions');
-
-      this.route('edit-image', {
-        path: '/edit-image/:image_id'
+      this.route('images', function() {
+        this.route('new');
+        this.route('edit', { path: '/image/:image_id/edit' });
       });
-      this.route('edit-exhibition', {
-        path: '/edit-exhibition/:exhibition_id'
+      this.route('exhibitions', function() {
+        this.route('edit', { path: 'exhibition/:exhibition_id/edit'});
       });
     });
 
@@ -84,7 +80,10 @@ Router.map(function() {
     });
 
 
+    this.route('posts', function() {
+      this.route('new');
+    });
   });
+  //route for dynamic pages
+  this.route('catchall', { path: '/*slug' });
 });
-
-export default Router;

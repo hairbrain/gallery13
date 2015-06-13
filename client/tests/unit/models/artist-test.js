@@ -5,7 +5,10 @@ import {
 
 moduleForModel('artist', {
   // Specify the other units that are required for this test.
-  needs: []
+  needs: [
+    'model:image',
+    'model:exhibition'
+  ]
 });
 
 test('it exists', function(assert) {

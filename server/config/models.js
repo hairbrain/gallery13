@@ -17,7 +17,7 @@ module.exports.models = {
   * connections (see `config/connections.js`)                                *
   *                                                                          *
   ***************************************************************************/
-  connection: 'mongo',
+  connection: 'mysql',
 
   /***************************************************************************
   *                                                                          *
@@ -27,6 +27,6 @@ module.exports.models = {
   * See http://sailsjs.org/#/documentation/concepts/ORM/model-settings.html  *
   *                                                                          *
   ***************************************************************************/
-  migrate: 'safe' //for NoSQL this should be 'safe' and for postgres or MySQL 'alter'
+  migrate: 'alter' //for NoSQL this should be 'safe' and for postgres or MySQL 'alter'
 
 };

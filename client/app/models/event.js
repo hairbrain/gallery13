@@ -6,5 +6,5 @@ export default DS.Model.extend({
   description: DS.attr('string'),
   image: DS.attr('string'),
   order: DS.attr('number'),
-  images: DS.hasMany('image')
+  // images: DS.hasMany('image')
 });

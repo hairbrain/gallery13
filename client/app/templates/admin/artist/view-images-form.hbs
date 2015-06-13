@@ -1,7 +1,7 @@
 <div class="row">
     <div class="caption">
         <h2>Artist Images</h2>
-        <button class="btn btn-default" {{action 'createNewImage'}}>new artist image</button>
+        {{#link-to 'admin.artist.images.new' class="btn btn-default"}}New Artist Image{{/link-to}}
         <hr>
     </div>
     <div class="image-editor-container">
@@ -11,16 +11,14 @@
         {{#each model.images as |image|}}
 
             <div class="image-preview-container">
-                <div class="image-preview">
-                    <img {{bind-attr src=image.path}} {{bind-attr alt=image.description}} class="img-thumbnail img-preview"/>
-                </div>
+                {{image-preview src=image.fullUrl title=image.fullUrl alt=image.description}}
                 <div class="border">
                     <h3>{{image.title}}</h3>
                     <p>{{image.description}}</p>
                 </div>
                 <div class="controls">
                     <hr>
-                    {{#link-to 'admin.artist.edit-image' image classNames='btn btn-default'}}edit{{/link-to}}
+                    {{#link-to 'admin.artist.images.edit' image classNames='btn btn-default'}}edit{{/link-to}}
                     <button class="btn btn-default" {{action 'delete' image}}>delete</button>
                 </div>
             </div>

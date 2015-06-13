@@ -5,11 +5,20 @@ export default Ember.Route.extend({
     return 'Editing: ' + model.get('name');
   },
   model: function(params) {
-    var artist = this.store.find("artist", params.artist_id);
+    var artist = this.store.find("artist", { "slug": params.artist_slug });
     return artist;
   },
+  setupController(controller, model) {
+    controller.set('model', model);
+    this.store.find('image').then(function(images) {
+      if (!controller.model.get('allArtistImages')) {
+        controller.model.set('allArtistImages', Ember.A([]));
+      }
+      controller.model.set('allArtistImages', images);
+    });
+  },
   transitionAfterAction: function(modelType, self) {
-    if (modelType == 'artist') {
+    if (modelType === 'artist') {
       self.transitionTo('admin.artists');
     } else {
       self.transitionTo('admin.artist', self.modelFor('admin/artist'));
@@ -28,7 +37,8 @@ export default Ember.Route.extend({
       });
     },
     delete: function(model) {
-      var self = this;
+      var self = this,
+        modelType = model.constructor.typeKey;
       return model.destroyRecord().then(function() {
         self.transitionAfterAction(modelType, self);
       }, function(reason) {
@@ -60,10 +70,10 @@ export default Ember.Route.extend({
       newRecord.set('artist', artist);
       return newRecord.save().then(
         function(savedRecord) {
-          self.transitionTo('admin.artist.edit-exhibition', savedRecord);
+          self.transitionTo('admin.artist.exhibitions.edit', savedRecord);
         },
         function(reason) {
-          console.log('error creating new image: ' + reason);
+          console.log('error creating new exhibition: ' + reason);
           self.refresh();
         }
       );
