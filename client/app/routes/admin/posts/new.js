@@ -5,10 +5,18 @@ export default Ember.Route.extend({
   model: function() {
     return this.store.createRecord('post');
   },
+  setupController(controller, model) {
+    controller.set('model', model);
+    this.store.find('image').then(function(images) {
+      if (!controller.model.get('allArtistImages')) {
+        controller.model.set('allArtistImages', Ember.A([]));
+      }
+      controller.model.set('allArtistImages', images);
+    });
+  },
   actions: {
     update: function(model) {
       var _this = this;
-      debugger;
       var name = this.session.get('user.firstName'); // + ' ' + this.session.get('user.lastName');
       model.set('author', name);
       model.save()
