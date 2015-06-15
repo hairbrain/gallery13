@@ -9,7 +9,7 @@
           content=controller.model.allArtistImages
           value=model.featureImage
           optionValuePath="content.fullUrl"
-          optionLabelPath="content.path"
+          optionLabelPath="content.fullTitle"
         }}
         {{#if model.featureImage}}
           {{image-preview src=model.featureImage title=model.featureImage alt='Image Preview'}}

@@ -36,7 +36,7 @@ export default Ember.Route.extend({
           },
           headers: { Authorization: 'bearer ' + accessToken }
         }).then(function uploadSucceeded(response) {
-          console.log(response);
+          // console.log(response);
           image.set('path', response.body.path);
           image.save();
         }).then(
@@ -46,6 +46,7 @@ export default Ember.Route.extend({
           image.rollback();
           console.error('Could not upload image.');
         });
+        return false;
       }
     },
     cancelNewArtistImage() {

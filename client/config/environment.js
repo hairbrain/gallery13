@@ -2,6 +2,8 @@
 
 var devHost = 'http://localhost:1337';
 var prodHost = 'http://localhost:1337';
+var devS3 = 'https://gallery13-dev.s3.amazonaws.com';
+var prodS3 = 'https://gallery13.s3.amazonaws.com';
 
 module.exports = function(environment) {
   var ENV = {
@@ -35,8 +37,8 @@ module.exports = function(environment) {
       'default-src': "'none'",
       'script-src':  "'self' 'unsafe-eval'", // add the domain here like analytics.google.com or whatver it is reaching there
       'font-src':    "'self'",
-      'connect-src': "'self' " + devHost,
-      'img-src':     "'self' data: " + devHost,
+      'connect-src': "'self' " + devHost + ' ' + devS3,
+      'img-src':     "'self' data: " + devHost + ' ' + devS3,
       'style-src':   "'self' 'unsafe-inline'",
       'frame-src':   "'none'"
     }
@@ -60,8 +62,8 @@ module.exports = function(environment) {
       'default-src': "'none'",
       'script-src':  "'self' 'unsafe-eval'", // add the domain here like analytics.google.com or whatver it is reaching there
       'font-src':    "'self'",
-      'connect-src': "'self' " + prodHost,
-      'img-src':     "'self' data: " + prodHost,
+      'connect-src': "'self' " + prodHost + ' ' + prodS3,
+      'img-src':     "'self' data: " + prodHost + ' ' + prodS3,
       'style-src':   "'self' 'unsafe-inline'",
       'frame-src':   "'none'"
     }

@@ -11,9 +11,16 @@ export default DS.Model.extend({
   artist: DS.belongsTo('artist'),
   // event: DS.hasMany('event'),
   // pages: DS.hasMany('page')
-
+  fullTitle: Ember.computed('artist', 'title', function () {
+    return this.get('artist').get('name') + ' - ' + this.get('title');
+  }),
   fullUrl: Ember.computed('path', function () {
-    let host = this.store.adapterFor('application').get('host');
-    return host + this.get('path');
+    let path = this.get('path');
+    if (path.indexOf('s3.amazonaws.com') > -1) {
+      return path;
+    } else {
+      let host = this.store.adapterFor('application').get('host');
+      return host + path;
+    }
   })
 });

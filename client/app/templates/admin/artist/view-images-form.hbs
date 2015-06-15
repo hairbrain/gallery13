@@ -11,7 +11,7 @@
         {{#each model.images as |image|}}
 
             <div class="image-preview-container">
-                {{image-preview src=image.fullUrl title=image.fullUrl alt=image.description}}
+                {{image-preview src=image.fullUrl title=image.title alt=image.description}}
                 <div class="border">
                     <h3>{{image.title}}</h3>
                     <p>{{image.description}}</p>
