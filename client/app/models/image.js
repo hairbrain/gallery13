@@ -16,7 +16,7 @@ export default DS.Model.extend({
   }),
   fullUrl: Ember.computed('path', function () {
     let path = this.get('path');
-    if (path.indexOf('s3.amazonaws.com') > -1) {
+    if (path && path.indexOf('s3.amazonaws.com') > -1) {
       return path;
     } else {
       let host = this.store.adapterFor('application').get('host');

@@ -6,6 +6,7 @@
   "keywords": [],
   "dependencies": {
     "bcrypt": "^0.8.3",
+    "dotenv": "^1.1.0",
     "express-jwt": "^3.0.1",
     "grunt-contrib-coffee": "~0.10.1",
     "include-all": "~0.1.3",
