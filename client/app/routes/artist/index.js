@@ -9,7 +9,7 @@ export default Ember.Route.extend({
     .then(function (model) {
       return model.content[0];
     });
-  },
+  }
   // serialize: function (model) {
   //   // this will make the URL `/posts/foo-post`
   //   //console.log('serialize...');
