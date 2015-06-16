@@ -1,7 +1,6 @@
 /**
  * Module dependencies
  */
-var util = require( 'util' );
 var actionUtil = require( './_util/actionUtil' );
 var _ = require('lodash');
 
