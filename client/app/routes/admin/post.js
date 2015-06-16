@@ -5,7 +5,7 @@ export default Ember.Route.extend({
     return 'Editing post: ' + model.get('name');
   },
   model: function(params) {
-    var model = this.store.find("post", params.post_id);
+    var model = this.store.find('post', params.post_id);
     return model;
   },
   setupController(controller, model) {

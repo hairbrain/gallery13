@@ -81,11 +81,11 @@ module.exports = {
           assocName = pluralize(camelCase(sails.models[assoc.model].globalId));
         }
 
-        if ( assoc.type === "collection" && record[ assoc.alias ] && record[ assoc.alias ].length > 0 ) {
+        if ( assoc.type === 'collection' && record[ assoc.alias ] && record[ assoc.alias ].length > 0 ) {
           if ( sideload ) json[ assocName ] = json[ assocName ].concat( record[ assoc.alias ] );
           record[ assoc.alias ] = pluck( record[ assoc.alias ], 'id' );
         }
-        if ( assoc.type === "model" && record[ assoc.alias ] ) {
+        if ( assoc.type === 'model' && record[ assoc.alias ] ) {
           if ( sideload ) json[ assocName ] = json[ assocName ].concat( record[ assoc.alias ] );
           record[ assoc.alias ] = record[ assoc.alias ].id;
         }
@@ -364,10 +364,10 @@ module.exports = {
 
     // Ensure a model can be deduced from the request options.
     var model = req.options.model || req.options.controller;
-    if ( !model ) throw new Error( util.format( 'No "model" specified in route options.' ) );
+    if ( !model ) throw new Error( util.format( 'No \'model\' specified in route options.' ) );
 
     var Model = req._sails.models[ model ];
-    if ( !Model ) throw new Error( util.format( 'Invalid route option, "model".\nI don\'t know about any models named: `%s`', model ) );
+    if ( !Model ) throw new Error( util.format( 'Invalid route option, \'model\'.\nI don\'t know about any models named: `%s`', model ) );
 
     return Model;
   },

@@ -7,7 +7,7 @@
  * @help        :: See http://links.sailsjs.org/docs/controllers
  */
 
-var safename 		= require("safename");
+var safename 		= require('safename');
 var skipperS3 	= require('skipper-s3');
 
 module.exports = {
@@ -19,17 +19,16 @@ module.exports = {
       sails.log.info('No .env file loaded, using environment variables.');
     }
 
-
-		var file = req.file("file");
+    var file = req.file('file');
     var path = req.body.path;
-    var filename = safename(req.body.name, "-");
-
+    var filename = safename(req.body.name, '-');
+    // var path = '/images/artists/' + artist;
 		//https://github.com/balderdashy/skipper
 		// sails.log.warn('S3 Key: ' +  process.env.S3_KEY);
 		sails.log.info('Uploading ' + filename + ' to S3 Bucket: ' + process.env.S3_BUCKET);
 
 		file.upload({
-      dirname: path, //"../../assets" + path,
+      dirname: path, //'../../assets' + path,
       saveAs: filename, //,
 			adapter: skipperS3,
 			key: process.env.S3_KEY,
@@ -44,8 +43,8 @@ module.exports = {
 			var uploadedFilePath = uploadedFiles[0].extra.Location;
 
 			return res.json({
-				message: uploadedFiles.length + " file(s) uploaded successfully!",
-				path: uploadedFilePath //path + "/" + filename
+				message: uploadedFiles.length + ' file(s) uploaded successfully!',
+				path: uploadedFilePath //path + '/' + filename
 			});
 		});
 

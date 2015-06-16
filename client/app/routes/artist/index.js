@@ -5,7 +5,7 @@ export default Ember.Route.extend({
   model: function(params) {
     // return this.modelFor('artist');
     return this.store
-    .find("artist", {'slug': params.artist_slug })
+    .find('artist', {'slug': params.artist_slug })
     .then(function(model) { return model.content[0]; });
   },
   // serialize: function(model) {
