@@ -100,9 +100,9 @@ function issueTokens(user, res) {
     });
 
     res.send({
-        user: user[0],
-        access_token: token,
-        expires_in: expirationTimeInMinutes * 60, // because simple auth expects seconds
+        user         : user[0],
+        access_token : token,
+        expires_in   : expirationTimeInMinutes * 60, // because simple auth expects seconds
         refresh_token: refreshToken
     });
 }

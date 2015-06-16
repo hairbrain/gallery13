@@ -29,11 +29,12 @@ module.exports = {
 
 		file.upload({
       dirname: path, //'../../assets' + path,
-      saveAs: filename, //,
+      saveAs : filename, //,
 			adapter: skipperS3,
-			key: process.env.S3_KEY,
-			secret: process.env.S3_SECRET,
-			bucket: process.env.S3_BUCKET
+			key    : process.env.S3_KEY,
+			secret : process.env.S3_SECRET,
+			bucket : process.env.S3_BUCKET
+
      }, function (err, uploadedFiles) {
 			if (err) {
 				sails.log.error(err);
@@ -44,7 +45,7 @@ module.exports = {
 
 			return res.json({
 				message: uploadedFiles.length + ' file(s) uploaded successfully!',
-				path: uploadedFilePath //path + '/' + filename
+				path   : uploadedFilePath //path + '/' + filename
 			});
 		});
 

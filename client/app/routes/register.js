@@ -11,7 +11,7 @@ export default Ember.Route.extend({
       let namespace = this.store.adapterFor('application').get('namespace');
       let url = host + '/' + namespace + '/users';
       Ember.$.ajax({
-        url: url,
+        url : url,
         type: 'POST',
         data: JSON.stringify({
           user: {

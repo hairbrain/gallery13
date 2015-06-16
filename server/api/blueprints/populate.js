@@ -44,9 +44,9 @@ module.exports = function expand( req, res ) {
     .findOne( parentPk )
     .populate( relation, {
       where: where,
-      skip: actionUtil.parseSkip( req ),
+      skip : actionUtil.parseSkip( req ),
       limit: actionUtil.parseLimit( req ),
-      sort: actionUtil.parseSort( req )
+      sort : actionUtil.parseSort( req )
     } )
     .exec( function found( err, matchingRecord ) {
       if ( err ) return res.serverError( err );

@@ -2,9 +2,11 @@ import Ember from 'ember';
 
 export default Ember.Route.extend({
   titleToken: 'Event Manager',
+
   model: function() {
     return this.store.find('event');
   },
+
   actions: {
     update: function(model) {
       // var _this = this;

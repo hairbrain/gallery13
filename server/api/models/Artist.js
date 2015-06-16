@@ -10,21 +10,21 @@ var slug = require('slug');
 module.exports = {
 
   attributes: {
-    name : { type: 'string' },
-    slug : { type: 'string' },
-    statement : { type: 'string' },
-    bio : { type: 'string' },
-    press : { type: 'string' },
+    name        : { type: 'string' },
+    slug        : { type: 'string' },
+    statement   : { type: 'string' },
+    bio         : { type: 'string' },
+    press       : { type: 'string' },
     description : { type: 'string' },
-    featureImage : { type: 'string' },
-    order : { type: 'float' },
-    images : {
+    featureImage: { type: 'string' },
+    order       : { type: 'float' },
+    images      : {
       collection: 'image',
-      via: 'artist'
+      via       : 'artist'
     },
-    exhibitions : {
+    exhibitions: {
       collection: 'exhibition',
-      via: 'artist'
+      via       : 'artist'
     }
   },
 

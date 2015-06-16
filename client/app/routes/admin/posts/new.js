@@ -2,9 +2,11 @@ import Ember from 'ember';
 
 export default Ember.Route.extend({
   titleToken: 'Create New Blog Post',
+
   model: function() {
     return this.store.createRecord('post');
   },
+
   setupController(controller, model) {
     controller.set('model', model);
     this.store.find('image').then(function(images) {
@@ -14,6 +16,7 @@ export default Ember.Route.extend({
       controller.model.set('allArtistImages', images);
     });
   },
+
   actions: {
     update: function(model) {
       var _this = this;

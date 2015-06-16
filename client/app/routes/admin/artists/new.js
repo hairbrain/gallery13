@@ -2,6 +2,7 @@ import Ember from 'ember';
 
 export default Ember.Route.extend({
   titleToken: 'Create New Artist',
+
   model: function() {
     return this.store.createRecord('artist');
   },

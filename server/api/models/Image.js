@@ -10,12 +10,12 @@ var slug = require('slug');
 
 module.exports = {
   attributes: {
-    path: { type: 'string' },
-    title: { type: 'string' },
+    path       : { type: 'string' },
+    title      : { type: 'string' },
     description: { type: 'string' },
-    slug: { type: 'string' },
-    order: { type: 'float' },
-    artist: { model: 'artist' }
+    slug       : { type: 'string' },
+    order      : { type: 'float' },
+    artist     : { model: 'artist' }
   },
   // Lifecycle Callbacks
   afterValidate: function (values, next) {

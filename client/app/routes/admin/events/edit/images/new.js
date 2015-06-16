@@ -2,9 +2,11 @@ import Ember from 'ember';
 
 export default Ember.Route.extend({
   titleToken: 'Create New Event Image',
+
   model: function() {
     return this.store.createRecord('image');
   },
+
   actions: {
     update: function(model) {
       // var _this = this;
