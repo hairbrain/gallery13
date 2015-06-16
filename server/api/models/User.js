@@ -28,7 +28,7 @@ module.exports = {
       required: true
     },
 
-    toJSON: function() {
+    toJSON: function () {
       var obj = this.toObject();
       // Remove the password object value
       delete obj.password;
@@ -38,9 +38,9 @@ module.exports = {
   },
 
   // salt the password before it gets saved
-  beforeCreate: function(user, cb) {
-    bcrypt.genSalt(10, function(err, salt) {
-      bcrypt.hash(user.password, salt, function(err, hash) {
+  beforeCreate: function (user, cb) {
+    bcrypt.genSalt(10, function (err, salt) {
+      bcrypt.hash(user.password, salt, function (err, hash) {
         if (err) {
           console.log(err);
           cb(err);

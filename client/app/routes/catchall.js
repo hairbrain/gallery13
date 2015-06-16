@@ -1,14 +1,14 @@
 import Ember from 'ember';
 
 export default Ember.Route.extend({
-  titleToken: function(model) {
+  titleToken: function (model) {
     return model.get('title');
   },
-  model: function(params) {
+  model: function (params) {
     // console.log('Catchall PARAMS, ', params);
     return this.store.find('page', { slug: params.slug });
   },
-  renderTemplate: function(controller, model) {
+  renderTemplate: function (controller, model) {
     var templateName;
     var _this = this;
 

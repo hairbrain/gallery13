@@ -3,19 +3,19 @@ import Ember from 'ember';
 export default Ember.Route.extend({
   titleToken: 'Create New Artist',
 
-  model: function() {
+  model: function () {
     return this.store.createRecord('artist');
   },
 
   actions: {
-    updateArtist: function(model) {
+    updateArtist: function (model) {
       // var _this = this;
 
       model.save();
       this.transitionTo('admin.artists');
 
       // var userId = this.session.get('user.id');
-      // var user = this.store.find('user', userId).then(function(result) {
+      // var user = this.store.find('user', userId).then(function (result) {
       //    model.set('user', result);
       //    user = result;
       //    return _this.geoGoogleService.getLatLongForAddress(model.get('address'));

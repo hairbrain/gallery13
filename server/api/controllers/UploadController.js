@@ -11,7 +11,7 @@ var safename 		= require('safename');
 var skipperS3 	= require('skipper-s3');
 
 module.exports = {
-	image: function(req, res) {
+	image: function (req, res) {
 
 		try {
       require('dotenv').load();

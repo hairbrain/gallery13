@@ -5,7 +5,7 @@ moduleForComponent('image-upload-button', 'Unit | Component | image upload butto
   // needs: ['component:pl-uploader']
 });
 
-test('it renders', function(assert) {
+test('it renders', function (assert) {
   assert.expect(2);
 
   // Creates the component instance

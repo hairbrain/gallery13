@@ -5,7 +5,7 @@ moduleFor('route:admin/artist/images/new', 'Unit | Route | admin/artist/images/n
   // needs: ['controller:foo']
 });
 
-test('it exists', function(assert) {
+test('it exists', function (assert) {
   var route = this.subject();
   assert.ok(route);
 });

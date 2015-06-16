@@ -29,7 +29,7 @@ module.exports = {
   },
 
   // Lifecycle Callbacks
-  afterValidate: function(values, next) {
+  afterValidate: function (values, next) {
     // Create slug from artist name for url
     values.slug = slug(values.name, {lower: true})
     next();

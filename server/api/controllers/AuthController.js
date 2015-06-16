@@ -21,11 +21,11 @@ var User = require('../models/User');
  */
 
 module.exports = {
-    login: function(req, res) {
+    login: function (req, res) {
 
         if (req.body.grant_type === 'password') {
 
-            User.findByUsername(req.body.username).exec(function(err, user) {
+            User.findByUsername(req.body.username).exec(function (err, user) {
                 if (err) {
                     return res.badRequest({
                         error: err
@@ -37,7 +37,7 @@ module.exports = {
                     });
                 }
 
-                bcrypt.compare(req.body.password, user[0].password, function(err, result) {
+                bcrypt.compare(req.body.password, user[0].password, function (err, result) {
                     if (err || !result) {
                         return res.badRequest({
                             error: 'invalidPassword'
@@ -80,7 +80,7 @@ module.exports = {
         }
     },
 
-    logout: function(req, res) {
+    logout: function (req, res) {
         req.logout();
         res.send({
             success: true,

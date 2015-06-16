@@ -9,7 +9,7 @@ moduleForModel('exhibition', {
   integration: true
 });
 
-test('it exists', function(assert) {
+test('it exists', function (assert) {
   var model = this.subject();
   // var store = this.store();
   assert.ok(!!model);

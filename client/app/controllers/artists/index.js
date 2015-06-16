@@ -6,14 +6,14 @@ export default Ember.Controller.extend({
   featuredArtistCaption: '',
 
   actions: {
-    showFeaturedArtistImage: function(artist) {
+    showFeaturedArtistImage: function (artist) {
       // console.log('showFeatured fired');
       // console.log(artist);
       this.set('featuredArtistImage', artist.get('featureImage'));
       this.set('featuredArtistCaption', artist.get('statement'));
       return false;
     },
-    createNew: function() {
+    createNew: function () {
       // this.store.createRecord();
       // {{debugger}}
       // var artist = this.store.createRecord('artist', {

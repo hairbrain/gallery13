@@ -1,13 +1,13 @@
 import Ember from 'ember';
 
 export default Ember.Route.extend({
-  titleToken: function(model) {
+  titleToken: function (model) {
     return model.get('title');
   },
-  model: function(params) {
+  model: function (params) {
     return this.store.find('post', { slug: params.post_slug});
   },
-  serialize: function(model) {
+  serialize: function (model) {
 
     // console.log('PostRoute.Serialize.model...');
     // console.log(model);

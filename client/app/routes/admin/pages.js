@@ -3,18 +3,18 @@ import Ember from 'ember';
 export default Ember.Route.extend({
   titleToken: 'Manage Pages',
 
-  model: function() {
+  model: function () {
     return this.store.find('page');
   },
 
   actions: {
-    delete: function(model) {
+    delete: function (model) {
       var self = this;
       return model.destroyRecord().then(
-        function() {
+        function () {
           self.transitionTo('admin.pages');
         },
-        function(reason) {
+        function (reason) {
           console.log('error deleting page, reason was: ' + reason);
           self.transitionTo('admin.pages');
         }

@@ -3,12 +3,12 @@ import Ember from 'ember';
 export default Ember.Route.extend({
   titleToken: 'Create New Event Image',
 
-  model: function() {
+  model: function () {
     return this.store.createRecord('image');
   },
 
   actions: {
-    update: function(model) {
+    update: function (model) {
       // var _this = this;
       // todo: get current event instance
 
@@ -21,7 +21,7 @@ export default Ember.Route.extend({
       this.transitionTo('events');
 
       // how-to-sane example
-      // var user = this.store.find('user', userId).then(function(result) {
+      // var user = this.store.find('user', userId).then(function (result) {
       //    model.set('user', result);
       //    user = result;
       //    return _this.geoGoogleService.getLatLongForAddress(model.get('address'));
