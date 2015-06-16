@@ -1,3 +1,5 @@
+/* global sails */
+
 /**
  * UploadController
  *
@@ -7,33 +9,40 @@
 
 var safename 		= require("safename");
 var skipperS3 	= require('skipper-s3');
-// var config 			= require('../config/environment');
 
 module.exports = {
 	image: function(req, res) {
-    var file = req.file("file");
+
+		try {
+      require('dotenv').load();
+    } catch (e) {
+      sails.log.info('No .env file loaded, using environment variables.');
+    }
+
+
+		var file = req.file("file");
     var path = req.body.path;
     var filename = safename(req.body.name, "-");
-    // var path = "/images/artists/" + artist;
+
 		//https://github.com/balderdashy/skipper
-		// sails.log.info('S3 config is:');
-		// sails.log.info(sails.config.uploadS3);
+		// sails.log.warn('S3 Key: ' +  process.env.S3_KEY);
+		sails.log.info('Uploading ' + filename + ' to S3 Bucket: ' + process.env.S3_BUCKET);
+
 		file.upload({
       dirname: path, //"../../assets" + path,
       saveAs: filename, //,
 			adapter: skipperS3,
-			key: sails.config.uploadS3.key,
-			secret: sails.config.uploadS3.secret,
-			bucket: sails.config.uploadS3.bucket
+			key: process.env.S3_KEY,
+			secret: process.env.S3_SECRET,
+			bucket: process.env.S3_BUCKET
      }, function (err, uploadedFiles) {
 			if (err) {
 				sails.log.error(err);
 				return res.send(500, err);
 			}
-			// sails.log.info('uploadedFiles:');
-			// sails.log.info(uploadedFiles);
+
 			var uploadedFilePath = uploadedFiles[0].extra.Location;
-			// sails.log.info('location is: ' + uploadedFilePath);
+
 			return res.json({
 				message: uploadedFiles.length + " file(s) uploaded successfully!",
 				path: uploadedFilePath //path + "/" + filename

@@ -53,7 +53,26 @@ process.chdir(__dirname);
     }
   }
 
-
   // Start server
-  sails.lift(rc('sails'));
+  sails.lift(rc('sails'))
+  .then(function() {
+    //Load .env variables
+    try {
+      require('dotenv').load()
+      .then(function() {
+        sails.log.info('.env file loaded.');
+        sails.log.info('S3_BUCKET is: ' + process.env.S3_BUCKET);
+      }).catch(function(err) {
+        sails.log.error('caught this error loading dotenv');
+        sails.log.error(err);
+      });
+    } catch (e2) {
+      sails.log.info('No .env file loaded, using environment variables.');
+    }
+  })
+  .catch(function(err) {
+    sails.log.error('caught this error loading dotenv');
+    sails.log.error(err);
+  });
+
 })();
