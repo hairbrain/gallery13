@@ -11,9 +11,9 @@ var safename 		= require('safename');
 var skipperS3 	= require('skipper-s3');
 
 module.exports = {
-	image: function (req, res) {
+  image: function (req, res) {
 
-		try {
+    try {
       require('dotenv').load();
     } catch (e) {
       sails.log.info('No .env file loaded, using environment variables.');
@@ -25,9 +25,9 @@ module.exports = {
     // var path = '/images/artists/' + artist;
 		// https://github.com/balderdashy/skipper
 		// sails.log.warn('S3 Key: ' +  process.env.S3_KEY);
-		sails.log.info('Uploading ' + filename + ' to S3 Bucket: ' + process.env.S3_BUCKET);
+    sails.log.info('Uploading ' + filename + ' to S3 Bucket: ' + process.env.S3_BUCKET);
 
-		file.upload({
+    file.upload({
       dirname: path, // '../../assets' + path,
       saveAs : filename,
 			adapter: skipperS3,
@@ -35,19 +35,19 @@ module.exports = {
 			secret : process.env.S3_SECRET,
 			bucket : process.env.S3_BUCKET
 
-     }, function (err, uploadedFiles) {
-			if (err) {
-				sails.log.error(err);
-				return res.send(500, err);
-			}
+    }, function (err, uploadedFiles) {
+      if (err) {
+        sails.log.error(err);
+        return res.send(500, err);
+      }
 
-			var uploadedFilePath = uploadedFiles[0].extra.Location;
+      var uploadedFilePath = uploadedFiles[0].extra.Location;
 
-			return res.json({
+      return res.json({
 				message: uploadedFiles.length + ' file(s) uploaded successfully!',
 				path   : uploadedFilePath // path + '/' + filename
 			});
-		});
+    });
 
     // Skipper handles uploads for sails.js
     // https://github.com/balderdashy/skipper
