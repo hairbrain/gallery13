@@ -10,7 +10,4 @@ export default DS.RESTAdapter.extend({
   // this is dependent on production/development environment
   // It is configured in config/environment.js
   host                : config.hostUrl
-
-
-
 });
