@@ -1,7 +1,7 @@
 import Ember from 'ember';
 
 export default Ember.Route.extend({
-  //titleToken: 'artist'
+  // titleToken: 'artist'
   model: function(params) {
     // return this.modelFor('artist');
     return this.store

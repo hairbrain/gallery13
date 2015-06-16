@@ -14,8 +14,8 @@ module.exports = {
     layout  : { type: 'string' },
     excerpt : { type: 'string' },
     body    : { type: 'string' },
-    order   : { type: 'float' }//,
-    //this needs to be M..N
+    order   : { type: 'float' }
+    // this needs to be M..N
     // images : {
     //   collection: 'image',
     //   via: 'pages'

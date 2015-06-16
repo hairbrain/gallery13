@@ -23,13 +23,13 @@ module.exports = {
     var path = req.body.path;
     var filename = safename(req.body.name, '-');
     // var path = '/images/artists/' + artist;
-		//https://github.com/balderdashy/skipper
+		// https://github.com/balderdashy/skipper
 		// sails.log.warn('S3 Key: ' +  process.env.S3_KEY);
 		sails.log.info('Uploading ' + filename + ' to S3 Bucket: ' + process.env.S3_BUCKET);
 
 		file.upload({
-      dirname: path, //'../../assets' + path,
-      saveAs : filename, //,
+      dirname: path, // '../../assets' + path,
+      saveAs : filename,
 			adapter: skipperS3,
 			key    : process.env.S3_KEY,
 			secret : process.env.S3_SECRET,
@@ -45,7 +45,7 @@ module.exports = {
 
 			return res.json({
 				message: uploadedFiles.length + ' file(s) uploaded successfully!',
-				path   : uploadedFilePath //path + '/' + filename
+				path   : uploadedFilePath // path + '/' + filename
 			});
 		});
 

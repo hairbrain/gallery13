@@ -33,7 +33,7 @@ export default Router.map(function() {
     this.route('post', { path: ':post_slug' }, function() { });
   });
 
-  //adminRouter(this);
+  // adminRouter(this);
 
   this.route('events');
   this.resource('exhibitions', function() {});
@@ -84,6 +84,6 @@ export default Router.map(function() {
       this.route('new');
     });
   });
-  //route for dynamic pages
+  // route for dynamic pages
   this.route('catchall', { path: '/*slug' });
 });

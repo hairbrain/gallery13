@@ -46,7 +46,7 @@ module.exports = {
 
     var documentIdentifier = plural ? pluralize( model.globalId ) : model.globalId;
 
-    //turn id into camelCase for ember
+    // turn id into camelCase for ember
     documentIdentifier = camelCase(documentIdentifier);
 
     var json = {};

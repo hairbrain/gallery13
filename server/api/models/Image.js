@@ -23,7 +23,7 @@ module.exports = {
     if (values.title !== null && values.title.length) {
       values.slug = slug(values.title, {lower: true});
     } else {
-      //here we should generate some default [and unique] value
+      // here we should generate some default [and unique] value
       values.slug = 'new-image';
     }
     next();

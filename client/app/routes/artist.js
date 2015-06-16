@@ -9,8 +9,8 @@ export default Ember.Route.extend({
   },
   serialize: function(model) {
     // this will make the URL `/posts/foo-post`
-    //console.log('serialize...');
-    //console.log(model);
+    // console.log('serialize...');
+    // console.log(model);
     return { artist_slug: model.get('slug') };
   }
 });

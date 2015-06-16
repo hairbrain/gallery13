@@ -15,7 +15,7 @@ export default Ember.Route.extend({
       this.transitionTo('admin.events');
     },
     delete: function(model) {
-      //var artist = model.artist;
+      // var artist = model.artist;
       model.destroyRecord();
       this.transitionTo('admin.events');
     },

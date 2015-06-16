@@ -14,15 +14,15 @@ module.exports = {
     firstName: { type: 'string' },
     lastName : { type: 'string' },
 
-    //email : { type: 'string' },
+    // email : { type: 'string' },
     username: {
       type    : 'email', // Email type will get validated by the ORM
       required: true,
       unique  : true
     },
 
-    //You might want to put this into it's own model if you want to support
-    //social logins but keep the same account
+    // You might want to put this into it's own model if you want to support
+    // social logins but keep the same account
     password: {
       type    : 'string',
       required: true
@@ -37,7 +37,7 @@ module.exports = {
     }
   },
 
-  //salt the password before it gets saved
+  // salt the password before it gets saved
   beforeCreate: function(user, cb) {
     bcrypt.genSalt(10, function(err, salt) {
       bcrypt.hash(user.password, salt, function(err, hash) {
