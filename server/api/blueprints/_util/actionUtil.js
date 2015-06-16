@@ -192,9 +192,8 @@ module.exports = {
         forEach( record[ assoc.alias ], function ( associatedInstance ) {
           AssociatedModel.subscribe( req, associatedInstance );
         } );
-      }
       // If there is an associated to-one model instance, subscribe to it
-      else if ( assoc.type === 'model' && record[ assoc.alias ] ) {
+      } else if ( assoc.type === 'model' && record[ assoc.alias ] ) {
         AssociatedModel.subscribe( req, record[ assoc.alias ] );
       }
     } );

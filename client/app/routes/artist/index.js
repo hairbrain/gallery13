@@ -6,7 +6,9 @@ export default Ember.Route.extend({
     // return this.modelFor('artist');
     return this.store
     .find('artist', {'slug': params.artist_slug })
-    .then(function (model) { return model.content[0]; });
+    .then(function (model) {
+      return model.content[0];
+    });
   },
   // serialize: function (model) {
   //   // this will make the URL `/posts/foo-post`
