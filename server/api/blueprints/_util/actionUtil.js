@@ -43,7 +43,7 @@ module.exports = {
   emberizeJSON: function ( model, records, associations, sideload ) {
     sideload = sideload || false;
 
-    var plural = Array.isArray( records ) ? true : false;
+    var plural = !!Array.isArray( records );
 
     var documentIdentifier = plural ? pluralize( model.globalId ) : model.globalId;
 
