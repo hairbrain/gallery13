@@ -26,8 +26,8 @@ export default Ember.Route.extend({
   },
   actions: {
     update: function (model) {
-      var self = this,
-        modelType = model.constructor.typeKey;
+      var self = this;
+      var modelType = model.constructor.typeKey;
 
       return model.save().then(function () {
         self.transitionAfterAction(modelType, self);
@@ -37,8 +37,8 @@ export default Ember.Route.extend({
       });
     },
     delete: function (model) {
-      var self = this,
-        modelType = model.constructor.typeKey;
+      var self = this;
+      var modelType = model.constructor.typeKey;
       return model.destroyRecord().then(function () {
         self.transitionAfterAction(modelType, self);
       }, function (reason) {
@@ -47,9 +47,9 @@ export default Ember.Route.extend({
       });
     },
     createNewImage: function () {
-      var self = this,
-          newImage = this.store.createRecord('image'),
-          artist = this.modelFor('admin/artist');
+      var self = this;
+      var newImage = this.store.createRecord('image');
+      var artist = this.modelFor('admin/artist');
 
       newImage.set('artist', artist);
       return newImage.save().then(
@@ -63,9 +63,9 @@ export default Ember.Route.extend({
       );
     },
     createNewExhibition: function () {
-      var self = this,
-        newRecord = this.store.createRecord('exhibition'),
-        artist = this.modelFor('admin/artist');
+      var self = this;
+      var newRecord = this.store.createRecord('exhibition');
+      var artist = this.modelFor('admin/artist');
 
       newRecord.set('artist', artist);
       return newRecord.save().then(

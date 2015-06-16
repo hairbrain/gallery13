@@ -1,8 +1,8 @@
 /**
  * Module dependencies
  */
-var util = require( 'util' ),
-  actionUtil = require( './_util/actionUtil' );
+var util = require( 'util' );
+var actionUtil = require( './_util/actionUtil' );
 
 /**
  * Destroy One Record

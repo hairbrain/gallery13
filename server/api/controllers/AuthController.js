@@ -55,8 +55,8 @@ module.exports = {
       if (req.headers && req.headers.authorization) {
         var parts = req.headers.authorization.split(' ');
         if (parts.length === 2) {
-          var scheme = parts[0],
-            credentials = parts[1];
+          var scheme = parts[0];
+          var credentials = parts[1];
 
           if (/^Bearer$/i.test(scheme)) {
             token = credentials;
