@@ -5,15 +5,16 @@
  * @help        :: See http://links.sailsjs.org/docs/controllers
  */
 
-var safename 		= require("safename");
-var skipperS3 	= require('skipper-s3');
-// var config 			= require('../config/environment');
+var slug = require("slug");
+// Necessary to set mode so that the period is not removed from filename extension
+slug.defaults.mode ='rfc3986';
+var skipperS3 = require('skipper-s3');
 
 module.exports = {
 	image: function(req, res) {
     var file = req.file("file");
     var path = req.body.path;
-    var filename = safename(req.body.name, "-");
+    var filename = slug(req.body.name);
     // var path = "/images/artists/" + artist;
 		//https://github.com/balderdashy/skipper
 		// sails.log.info('S3 config is:');
