@@ -17,7 +17,7 @@ module.exports = {
     return map( records, function ( record ) {
       var links = {};
       forEach( model.associations, function ( assoc ) {
-        if ( assoc.type == 'collection' ) {
+        if ( assoc.type === 'collection' ) {
           links[ assoc.alias ] = sails.config.blueprints.prefix + '/' + modelPlural + '/' + record.id + '/' + assoc.alias;
         }
       } );
