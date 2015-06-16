@@ -4,6 +4,7 @@
 var util        = require('util');
 var actionUtil  = require('./_util/actionUtil');
 var find        = require('lodash/collection/find');
+var Ember       = require('../services/Ember');
 
 /**
  * Populate (or 'expand') an association
@@ -70,7 +71,7 @@ module.exports = function expand( req, res ) {
 
       var related = Ember.linkAssociations( RelatedModel, matchingRecord[ relation ] );
 
-      json = {};
+      var json = {};
       json[ relationIdentity ] = related;
       res.ok( json );
     } );

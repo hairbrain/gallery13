@@ -3,6 +3,7 @@
  */
 var util = require( 'util' ),
   actionUtil = require( './_util/actionUtil' );
+var _ = require('lodash');
 
 /**
  * Enable sideloading. Edit config/blueprints.js and add:

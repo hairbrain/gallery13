@@ -15,6 +15,7 @@ var create        = require('lodash/object/create');
 var omit          = require('lodash/object/omit');
 var merge         = require('lodash/object/merge');
 var camelCase     = require('lodash/string/camelCase');
+var _             = require('lodash');
 
 var util      = require('util');
 var pluralize = require('pluralize');
