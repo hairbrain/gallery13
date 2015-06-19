@@ -23,9 +23,13 @@
 
  try {
    require('dotenv').load();
+
+   console.log('connecting to ' + process.env.MYSQL_HOST + ' as ' + process.env.MYSQL_USER + ' to ' + process.env.MYSQL_DB);
  } catch (e) {
-   sails.log.info('No .env file loaded, using environment variables.');
+   console.log('No .env file loaded, using environment variables.');
  }
+
+
 
 module.exports.connections = {
 

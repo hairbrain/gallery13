@@ -36,7 +36,7 @@ module.exports = function(environment) {
     ENV.contentSecurityPolicy = {
       'default-src': "'none'",
       'script-src':  "'self' 'unsafe-eval'", // add the domain here like analytics.google.com or whatver it is reaching there
-      'font-src':    "'self'",
+      'font-src':    "'self' data:",
       'connect-src': "'self' " + devHost + ' ' + devS3,
       'img-src':     "'self' data: " + devHost + ' ' + devS3,
       'style-src':   "'self' 'unsafe-inline'",
