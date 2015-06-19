@@ -1,7 +1,7 @@
 /* jshint node: true */
 
 var devHost = 'http://localhost:1337';
-var prodHost = 'http://localhost:1337';
+var prodHost = 'http://gallery.hairbrain.io';
 var devS3 = 'https://gallery13-dev.s3.amazonaws.com';
 var prodS3 = 'https://gallery13.s3.amazonaws.com';
 
