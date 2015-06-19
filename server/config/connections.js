@@ -1,3 +1,5 @@
+/* global sails */
+
 /**
  * Connections
  * (sails.config.connections)
@@ -18,6 +20,12 @@
  * For more information on configuration, check out:
  * http://sailsjs.org/#/documentation/reference/sails.config/sails.config.connections.html
  */
+
+ try {
+   require('dotenv').load();
+ } catch (e) {
+   sails.log.info('No .env file loaded, using environment variables.');
+ }
 
 module.exports.connections = {
 
@@ -46,10 +54,10 @@ module.exports.connections = {
   //otherwise dependent on your setup
   mysql: {
     adapter: 'sails-mysql',
-    host: 'localhost',
-    user: 'root',
-    password: 'plank105',
-    database: 'gallery'
+    host: process.env.MYSQL_HOST,
+    user: process.env.MYSQL_USER,
+    password: process.env.MYSQL_PASS,
+    database: process.env.MYSQL_DB
   },
 
   /***************************************************************************
