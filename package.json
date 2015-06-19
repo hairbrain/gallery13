@@ -9,7 +9,7 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "sane-cli": "0.1.0-beta.1",
-    "sane-auth": "^0.3.3"
+    "sane-auth": "^0.3.3",
+    "sane-cli": "0.1.0-beta.1"
   }
 }
