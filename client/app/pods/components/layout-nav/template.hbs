@@ -1,0 +1,19 @@
+<div class='item'>
+  <h1>Gallery 13</h1>
+</div>
+{{#link-to 'index' classNames="item"}}Home{{/link-to}}
+{{#link-to 'artists' classNames="item"}}Artists{{/link-to}}
+{{#link-to 'exhibitions' classNames="item"}}Exhibitions{{/link-to}}
+{{#link-to 'events' classNames="item"}}Events{{/link-to}}
+{{#each pages as |page|}}
+    {{#link-to 'catchall' page classNames="item"}} {{page.navLabel}} {{/link-to}}
+{{/each}}
+{{#link-to 'blog' classNames="item"}}Blog{{/link-to}}
+{{yield}}
+<div class="right menu">
+  {{#if session.isAuthenticated}}
+    <p> Welcome, {{session.user.firstName}} {{session.user.lastName}}</p>
+    {{#link-to 'admin'}}admin{{/link-to}} |
+    <a href="#" {{ action 'invalidateSession' }}>Logout</a>
+  {{/if}}
+</div>
