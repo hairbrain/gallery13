@@ -8,6 +8,7 @@ var prodS3 = 'https://gallery13.s3.amazonaws.com';
 module.exports = function(environment) {
   var ENV = {
     modulePrefix: 'client',
+    podModulePrefix: 'client/pods',
     environment: environment,
     baseURL: '/',
     locationType: 'auto',
