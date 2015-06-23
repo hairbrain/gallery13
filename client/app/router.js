@@ -86,4 +86,5 @@ export default Router.map(function () {
   });
   // route for dynamic pages
   this.route('catchall', { path: '/*slug' });
+  
 });

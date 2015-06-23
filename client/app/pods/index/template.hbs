@@ -1,0 +1,47 @@
+<style>
+.image-row {
+    /*width: 10000px;*/
+    display: -webkit-inline-box;
+    overflow: scroll;
+    overflow-wrap: normal;
+    /*border: 1px solid black;*/
+}
+
+.image-row div {
+    padding: 15px;
+    margin: 15px;
+}
+
+.border div {
+    padding: 5px;
+    margin:  5px;
+}
+
+.image-row div img {
+    height: 650px;
+    width: auto;
+}
+
+.img-thumbnail img, .img-preview {
+    /*width: 50px;*/
+    /*height: auto;*/
+    max-height: 150px;
+}
+
+</style>
+<div class="ui row">
+    <div class="twelve wide column">
+            {{#each imageData in model}}
+
+                <div class="" style="">
+                    <img src={{imageData.image}} alt={{imageData.description}} class="img-thumbnail"/>
+                    <div class="border">
+                        <h3>{{imageData.title}}</h3>
+                        <h2>{{imageData.subtitle}}</h2>
+                        <p>{{imageData.description}}</p>
+                    </div>
+                </div>
+
+            {{/each}}
+    </div>
+</div>
