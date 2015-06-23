@@ -1,21 +1,37 @@
 {{outlet}}
 <h2>User Registration</h2>
+<div class="ui centered padded grid">
+    <div class="six wide column">
+        <form class="ui form segment" {{action 'createUser' model on='submit'}}>
+          <div class="field">
+              <label for="firstName">First Name</label>
+              {{input id='firstName' placeholder='Enter your first name' class='' value=model.firstName}}
+          </div>
 
-<div>
-  <form {{action 'createUser' model on='submit' }}>
-    <div>
-      <label for="username">Username</label>
-      {{input id='username' placeholder='Enter your email' type='email' class='form-control' value=model.username}}
+          <div class="field">
+              <label for="lastName">Last Name</label>
+              {{input id='lastName' placeholder='Enter your last name' class='' value=model.lastName}}
+          </div>
+          <div class="field">
+              <label for="identification">Login</label>
+              {{input id='identification' placeholder='Enter your email' class='' value=model.username}}
+          </div>
+          <div class="field">
+              <label for="password">Password</label>
+              {{input id='password' placeholder='Enter Password' class='' type='password' value=model.password}}
+          </div>
+          <div class="ui centered ">
+              <div class="ui buttons">
+                  <button type="submit" class="ui positive button">Register</button>
+                  <div class="or"></div>
+                  {{#link-to 'index' classNames="ui button"}}Cancel{{/link-to}}
+              </div>
+          </div>
+        </form>
+        {{#if errorMessage}}
+            <div>
+                <strong>Login failed:</strong>{{errorMessage}}
+            </div>
+        {{/if}}
     </div>
-    <div>
-      <label for="password">Password</label>
-      {{input id='password' placeholder='Enter password' class='form-control' type='password' value=model.password}}
-    </div>
-    <button type="submit">Register</button>
-  </form>
-  <div>
-    {{#if model.errorMessage}}
-      <strong>Registration failed:</strong>{{model.errorMessage}}
-    {{/if}}
-  </div>
 </div>
