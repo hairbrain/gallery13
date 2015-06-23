@@ -1,0 +1,28 @@
+{{yield}}
+{{! login form; the fields must be named "identification" and "password"; the controller action is "authenticate" }}
+<div class="ui centered padded grid">
+    <div class="six wide column">
+        <form class="ui form segment" {{action 'authenticate' on='submit'}}>
+            <div class="field">
+                <label for="identification">Login</label>
+                {{input id='identification' placeholder='Enter Login' class='' value=identification}}
+            </div>
+            <div class="field">
+                <label for="password">Password</label>
+                {{input id='password' placeholder='Enter Password' class='' type='password' value=password}}
+            </div>
+            <div class="ui centered ">
+                <div class="ui buttons">
+                    <button type="submit" class="ui positive button">Login</button>
+                    <div class="or"></div>
+                    {{#link-to 'register' classNames="ui button"}} Register{{/link-to}}
+                </div>
+            </div>
+        </form>
+        {{#if errorMessage}}
+            <div>
+                <strong>Login failed:</strong>{{errorMessage}}
+            </div>
+        {{/if}}
+    </div>
+</div>

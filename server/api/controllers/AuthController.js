@@ -1,3 +1,4 @@
+/* global sails */
 var jwt = require('jsonwebtoken');
 var _ = require('lodash');
 var bcrypt = require('bcrypt');
@@ -23,7 +24,7 @@ module.exports = {
     login: function(req, res) {
 
         if (req.body.grant_type === 'password') {
-
+            sails.log.info('username is: ' + req.body.username);
             User.findByUsername(req.body.username).exec(function(err, user) {
                 if (err) {
                     return res.badRequest({
