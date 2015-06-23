@@ -2,5 +2,10 @@ import Ember from 'ember';
 
 export default Ember.Component.extend({
   tagName: 'div',
-  classNames: ['following', 'bar']
+  classNames: ['following', 'bar'],
+  actions: {
+    invalidateSession: function() {
+      this.send('invalidateSession');
+    }
+  }
 });

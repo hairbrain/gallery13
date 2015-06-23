@@ -83,6 +83,7 @@ export default Router.map(function() {
     this.route('posts', function() {
       this.route('new');
     });
+    this.route('users');
   });
   //route for dynamic pages
   this.route('catchall', { path: '/*slug' });
