@@ -3,7 +3,12 @@
     <div class="ui logo">
       <h1>Gallery 13</h1>
     </div>
-    <div class="ui floated secondary menu">
+    {{#if session.isAuthenticated}}
+    <div class="ui floated right">
+      <div class="header item">Welcome, {{session.user.firstName}} {{session.user.lastName}}</div>
+    </div>
+    {{/if}}
+    <div class="ui secondary pointing menu">
       {{!-- <div class='item'>
 
       </div> --}}
@@ -18,9 +23,8 @@
       {{yield}}
       <div class="right menu">
         {{#if session.isAuthenticated}}
-          <p> Welcome, {{session.user.firstName}} {{session.user.lastName}}</p>
-          {{#link-to 'admin'}}admin{{/link-to}} |
-          <a href="#" {{ action 'invalidateSession' }}>Logout</a>
+          {{#link-to 'admin' classNames="item"}}admin{{/link-to}}
+          <a href="#" {{ action 'invalidateSession' }} class="item">Logout</a>
         {{/if}}
       </div>
     </div>
