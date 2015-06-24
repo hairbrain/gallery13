@@ -5,7 +5,7 @@ export default Ember.Route.extend({
     return this.store.createRecord('user');
   },
   actions: {
-    createUser: function(model) {
+    createUser: function (model) {
       var _this = this;
       model.save()
       .then(function(user) {
