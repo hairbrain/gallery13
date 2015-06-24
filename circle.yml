@@ -13,6 +13,3 @@ dependencies:
     - bower i:
         pwd:
           client
-    - ember -v:
-        pwd:
-          client
