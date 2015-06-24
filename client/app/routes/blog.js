@@ -2,7 +2,8 @@ import Ember from 'ember';
 
 export default Ember.Route.extend({
   titleToken: 'Blog',
-  model: function() {
+
+  model: function () {
     return this.store.find('post');
   }
 });

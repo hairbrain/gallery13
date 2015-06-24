@@ -1,17 +1,17 @@
 import Ember from 'ember';
 
 export default Ember.Route.extend({
-  model: function() {
+  model: function () {
     return Ember.Object.create();
   },
   actions: {
-    createUser: function(model) {
+    createUser: function (model) {
       var _this = this;
       let host = this.store.adapterFor('application').get('host');
       let namespace = this.store.adapterFor('application').get('namespace');
       let url = host + '/' + namespace + '/users';
       Ember.$.ajax({
-        url: url,
+        url : url,
         type: 'POST',
         data: JSON.stringify({
           user: {
@@ -20,10 +20,10 @@ export default Ember.Route.extend({
           }
         }),
         contentType: 'application/json'
-      }).then(function(/*response*/) {
+      }).then(function (/*response*/) {
         _this.transitionTo('login');
 
-      }, function(xhr, status, error) {
+      }, function (xhr, status, error) {
         _this.set('errorMessage', error);
       });
 

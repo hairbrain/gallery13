@@ -2,10 +2,8 @@
 
 // import { moduleForComponent, test } from 'ember-qunit';
 
-// moduleForComponent('image-upload-button', 'Unit | Component | image upload button', {
-//   // Specify the other units that are required for this test
-//   // needs: ['component:pl-uploader']
-// });
+test('it renders', function (assert) {
+  assert.expect(2);
 
 // test('it renders', function (assert) {
 //   assert.expect(2);

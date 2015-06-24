@@ -4,9 +4,10 @@
 var util        = require('util');
 var actionUtil  = require('./_util/actionUtil');
 var find        = require('lodash/collection/find');
+var Ember       = require('../services/Ember');
 
 /**
- * Populate (or "expand") an association
+ * Populate (or 'expand') an association
  *
  * get /model/:parentid/relation
  * get /model/:parentid/relation/:id
@@ -19,7 +20,7 @@ var find        = require('lodash/collection/find');
  * @param {String} sort        - the order of returned records, e.g. `name ASC` or `age DESC`
  *
  * @option {String} model  - the identity of the model
- * @option {String} alias  - the name of the association attribute (aka "alias")
+ * @option {String} alias  - the name of the association attribute (aka 'alias')
  */
 
 module.exports = function expand( req, res ) {
@@ -44,9 +45,9 @@ module.exports = function expand( req, res ) {
     .findOne( parentPk )
     .populate( relation, {
       where: where,
-      skip: actionUtil.parseSkip( req ),
+      skip : actionUtil.parseSkip( req ),
       limit: actionUtil.parseLimit( req ),
-      sort: actionUtil.parseSort( req )
+      sort : actionUtil.parseSort( req )
     } )
     .exec( function found( err, matchingRecord ) {
       if ( err ) return res.serverError( err );
@@ -64,13 +65,13 @@ module.exports = function expand( req, res ) {
       var association = find( req.options.associations, {
         alias: relation
       } );
-      var relationIdentity = association.type === "model" ? association.model : association.collection;
+      var relationIdentity = association.type === 'model' ? association.model : association.collection;
       var RelatedModel = req._sails.models[ relationIdentity ];
-      if ( !RelatedModel ) throw new Error( util.format( 'Invalid route option, "model".\nI don\'t know about any models named: `%s`', relationIdentity ) );
+      if ( !RelatedModel ) throw new Error( util.format( 'Invalid route option, \'model\'.\nI don\'t know about any models named: `%s`', relationIdentity ) );
 
       var related = Ember.linkAssociations( RelatedModel, matchingRecord[ relation ] );
 
-      json = {};
+      var json = {};
       json[ relationIdentity ] = related;
       res.ok( json );
     } );
