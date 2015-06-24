@@ -17,7 +17,7 @@ export default Ember.Route.extend({
       model.destroyRecord();
       this.transitionTo('admin.events');
     },
-    cancel: function(model) {
+    cancel: function() {
       // var m = model;
       this.transitionTo('admin.events');
     }

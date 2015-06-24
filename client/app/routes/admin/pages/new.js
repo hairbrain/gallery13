@@ -8,7 +8,6 @@ export default Ember.Route.extend({
 
   actions: {
     update: function(model) {
-      var _this = this;
       //var userId = this.session.get('user.id');
       model.save();
       this.transitionTo('admin.pages');
