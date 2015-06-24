@@ -4,12 +4,16 @@
   "description": "A little marketing site, a little bit CMS and Blog, a web presence for Gallery 13 in all",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "cd client && node node_modules/.bin/ember test",
+    "lint": "eslint client/app client/tests server/api"
   },
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "sane-auth": "^0.3.3",
-    "sane-cli": "0.1.0-beta.1"
+    "sane-cli": "0.1.0-beta.1",
+    "sane-auth": "^0.3.3"
+  },
+  "devDependencies": {
+    "eslint": "^0.23.0"
   }
 }

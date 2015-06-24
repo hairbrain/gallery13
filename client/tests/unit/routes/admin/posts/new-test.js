@@ -5,7 +5,7 @@ moduleFor('route:admin/posts/new', 'Unit | Route | admin/posts/new', {
   // needs: ['controller:foo']
 });
 
-test('it exists', function(assert) {
+test('it exists', function (assert) {
   var route = this.subject();
   assert.ok(route);
 });

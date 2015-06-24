@@ -7,15 +7,15 @@
 
 module.exports = {
   attributes: {
-    name : { type: 'string' },
-    slug : { type: 'string' },
-    title : { type: 'string' },
-    navLabel : { type: 'string' },
-    layout : { type: 'string' },
+    name    : { type: 'string' },
+    slug    : { type: 'string' },
+    title   : { type: 'string' },
+    navLabel: { type: 'string' },
+    layout  : { type: 'string' },
     excerpt : { type: 'string' },
-    body : { type: 'string' },
-    order : { type: 'float' }//,
-    //this needs to be M..N
+    body    : { type: 'string' },
+    order   : { type: 'float' }
+    // this needs to be M..N
     // images : {
     //   collection: 'image',
     //   via: 'pages'

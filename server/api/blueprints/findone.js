@@ -1,8 +1,7 @@
 /**
  * Module dependencies
  */
-var util = require( 'util' ),
-  actionUtil = require( './_util/actionUtil' );
+var actionUtil = require( './_util/actionUtil' );
 
 /**
  * Enable sideloading. Edit config/blueprints.js and add:

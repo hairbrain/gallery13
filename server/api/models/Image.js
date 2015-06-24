@@ -6,16 +6,16 @@
 * @docs        :: http://sailsjs.org/#!documentation/models
 */
 
-var slug = require("slug");
+var slug = require('slug');
 
 module.exports = {
   attributes: {
-    path: { type: "string" },
-    title: { type: "string" },
-    description: { type: "string" },
-    slug: { type: "string" },
-    order: { type: "float" },
-    artist: { model: "artist" }
+    path       : { type: 'string' },
+    title      : { type: 'string' },
+    description: { type: 'string' },
+    slug       : { type: 'string' },
+    order      : { type: 'float' },
+    artist     : { model: 'artist' }
   },
   // Lifecycle Callbacks
   afterValidate: function (values, next) {
@@ -23,8 +23,8 @@ module.exports = {
     if (values.title !== null && values.title.length) {
       values.slug = slug(values.title, {lower: true});
     } else {
-      //here we should generate some default [and unique] value
-      values.slug = "new-image";
+      // here we should generate some default [and unique] value
+      values.slug = 'new-image';
     }
     next();
   }

@@ -1,0 +1,15 @@
+machine:
+  node:
+    version: 0.12.2
+dependencies:
+  pre:
+    - npm --version
+    - git --version
+    - npm install -g bower
+  override:
+    - npm i:
+        pwd:
+          client
+    - bower i:
+        pwd:
+          client

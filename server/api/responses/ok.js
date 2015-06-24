@@ -7,11 +7,9 @@
  * return res.ok(data, 'auth/login');
  *
  * @param  {Object} data
- * @param  {String|Object} options
- *          - pass string to render specified view
  */
 
-module.exports = function sendOK (data, options) {
+module.exports = function sendOK(data) {
 
   // Get access to `req`, `res`, & `sails`
   var req = this.req;

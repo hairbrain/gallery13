@@ -15,6 +15,7 @@ var create        = require('lodash/object/create');
 var omit          = require('lodash/object/omit');
 var merge         = require('lodash/object/merge');
 var camelCase     = require('lodash/string/camelCase');
+var _             = require('lodash');
 
 var util      = require('util');
 var pluralize = require('pluralize');
@@ -42,11 +43,11 @@ module.exports = {
   emberizeJSON: function ( model, records, associations, sideload ) {
     sideload = sideload || false;
 
-    var plural = Array.isArray( records ) ? true : false;
+    var plural = !!Array.isArray( records );
 
     var documentIdentifier = plural ? pluralize( model.globalId ) : model.globalId;
 
-    //turn id into camelCase for ember
+    // turn id into camelCase for ember
     documentIdentifier = camelCase(documentIdentifier);
 
     var json = {};
@@ -81,11 +82,11 @@ module.exports = {
           assocName = pluralize(camelCase(sails.models[assoc.model].globalId));
         }
 
-        if ( assoc.type === "collection" && record[ assoc.alias ] && record[ assoc.alias ].length > 0 ) {
+        if ( assoc.type === 'collection' && record[ assoc.alias ] && record[ assoc.alias ].length > 0 ) {
           if ( sideload ) json[ assocName ] = json[ assocName ].concat( record[ assoc.alias ] );
           record[ assoc.alias ] = pluck( record[ assoc.alias ], 'id' );
         }
-        if ( assoc.type === "model" && record[ assoc.alias ] ) {
+        if ( assoc.type === 'model' && record[ assoc.alias ] ) {
           if ( sideload ) json[ assocName ] = json[ assocName ].concat( record[ assoc.alias ] );
           record[ assoc.alias ] = record[ assoc.alias ].id;
         }
@@ -191,9 +192,8 @@ module.exports = {
         forEach( record[ assoc.alias ], function ( associatedInstance ) {
           AssociatedModel.subscribe( req, associatedInstance );
         } );
-      }
       // If there is an associated to-one model instance, subscribe to it
-      else if ( assoc.type === 'model' && record[ assoc.alias ] ) {
+      } else if ( assoc.type === 'model' && record[ assoc.alias ] ) {
         AssociatedModel.subscribe( req, record[ assoc.alias ] );
       }
     } );
@@ -333,7 +333,7 @@ module.exports = {
     }
 
     // Get values using the model identity as resource identifier
-    var values = req.param( camelCase(model.globalId) ) || {};
+    var values = req.param( camelCase(model.globalId) ) || {};
 
     // Omit built-in runtime config (like query modifiers)
     values = omit( values, blacklist || [] );
@@ -364,10 +364,10 @@ module.exports = {
 
     // Ensure a model can be deduced from the request options.
     var model = req.options.model || req.options.controller;
-    if ( !model ) throw new Error( util.format( 'No "model" specified in route options.' ) );
+    if ( !model ) throw new Error( util.format( 'No \'model\' specified in route options.' ) );
 
     var Model = req._sails.models[ model ];
-    if ( !Model ) throw new Error( util.format( 'Invalid route option, "model".\nI don\'t know about any models named: `%s`', model ) );
+    if ( !Model ) throw new Error( util.format( 'Invalid route option, \'model\'.\nI don\'t know about any models named: `%s`', model ) );
 
     return Model;
   },

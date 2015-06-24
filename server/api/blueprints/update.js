@@ -41,8 +41,8 @@ module.exports = function updateOneRecord( req, res ) {
 
   // Omit the path parameter `id` from values, unless it was explicitly defined
   // elsewhere (body/query):
-  //var idParamExplicitlyIncluded = ( ( req.body && req.body.id ) || req.query.id );
-  //if ( !idParamExplicitlyIncluded ) delete values.id;
+  // var idParamExplicitlyIncluded = ( ( req.body && req.body.id ) || req.query.id );
+  // if ( !idParamExplicitlyIncluded ) delete values.id;
 
   // Find and update the targeted record.
   //

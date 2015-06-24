@@ -15,7 +15,7 @@
  * ```
  */
 
-module.exports = function badRequest(data, options) {
+module.exports = function badRequest(data) {
 
   // Get access to `req`, `res`, & `sails`
   var req = this.req;
@@ -27,7 +27,7 @@ module.exports = function badRequest(data, options) {
 
   // Log error to console
   if (data !== undefined) {
-    sails.log.verbose('Sending 400 ("Bad Request") response: \n',data);
+    sails.log.verbose('Sending 400 ("Bad Request") response: \n', data);
   }
   else sails.log.verbose('Sending 400 ("Bad Request") response');
 
