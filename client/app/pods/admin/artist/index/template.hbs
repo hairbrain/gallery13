@@ -1,7 +1,56 @@
-<div class="row">
-    <div class="page-header">
-        <button class="btn btn-default" {{action 'update' model}}>Update Artist</button>
+<div class="ui grid">
+  <div class="ui row">
+    <div class="three wide column">
+      {{#link-to 'admin.artists' classNames="ui small button"}}
+        <i class="arrow left icon"></i>
+        <span>artists</span>
+      {{/link-to}}
     </div>
+    <div class="three wide column">
+        <h1>{{model.name}}</h1>
+    </div>
+    <div class="three wide column">
+      <button class="ui button" {{action 'update' model}}>
+        Update Artist
+      </button>
+    </div>
+  </div>
+  <div class="ui row">
+      <div class="sixteen wide column">
+        <div class="ui form">
+          <div class="ui dividing header">artist profile</div>
+          <div class="two fields">
+            <div class="field">
+              {{artist-card artist=model}}
+            </div>
+            <div class="field">
+              {{!-- <div class="three fields"> --}}
+                {{!-- <div class="field"> --}}
+                  <label>Name</label>
+                  {{!-- {{partial "admin/artist/form"}} --}}
+                  {{input type="text" value=model.name class=''}}
+                {{!-- </div>
+                <div class="field"> --}}
+                  <label>Order</label>
+                  {{!-- {{partial "admin/artist/form"}} --}}
+                  {{input type="text" value=model.order class=''}}
+                {{!-- </div>
+                <div class="field"> --}}
+                  <label>Featured Image</label>
+                  {{!-- {{partial "admin/artist/form"}} --}}
+                  {{ember-selectize
+                    content=controller.model.allArtistImages
+                    value=model.featureImage
+                    optionValuePath="content.fullUrl"
+                    optionLabelPath="content.fullTitle"
+                  }}
+                {{!-- </div> --}}
+              {{!-- </div> --}}
+            </div>
+          </div>
+        </div>
+    </div>
+  </div>
 </div>
 <!-- todo: change this to be just a read only list of images with a edit link that will direct the user to a route to edit that specific image and a button to add a new image. -->
 <!-- https://github.com/hairbrained/gallery13/issues/3 -->

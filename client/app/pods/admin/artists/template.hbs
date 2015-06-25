@@ -1,41 +1,18 @@
 <div class="ui grid">
   <div class="ui row">
-      <div class="four wide column">
-          <p>Artist Manager</p>
-      </div>
-      <div class="four wide column">
-        {{#link-to 'admin.artists.new' classNames="ui small button"}}
-          New Artist
-        {{/link-to}}
-      </div>
+    <div class="four wide column">
+        <p>Artist Manager</p>
+    </div>
+    <div class="four wide column">
+      {{#link-to 'admin.artists.new' classNames="ui small button"}}
+        New Artist
+      {{/link-to}}
+    </div>
   </div>
 </div>
-<div class="ui doubling cards">
+<div class="ui link cards">
   {{outlet}}
   {{#each model as |artist|}}
-      {{#link-to 'admin.artist' artist classNames='card'}}
-        <div class="content">
-          {{!-- <div class="image"> --}}
-            <img class="right floated small ui image" src="{{artist.featureImage}}">
-          {{!-- </div> --}}
-          <div class="header">{{artist.name}}</div>
-          <div class="meta">
-            <p>{{artist.images.length}} images</p>
-            <p>{{artist.exhibitions.length}} exhibitions</p>
-          </div>
-          <div class="description">
-            {{artist.description}}
-          </div>
-        </div>
-        <div class="extra content">
-          <span class="right floated">
-            {{artist.order}} in the order
-          </span>
-          <span>
-            <i class="file image outline icon"></i>
-            {{artist.images.length}} images
-          </span>
-        </div>
-      {{/link-to}}
+      {{artist-card artist=artist }}
   {{/each}}
 </div>
