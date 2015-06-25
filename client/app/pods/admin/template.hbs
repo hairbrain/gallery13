@@ -1,27 +1,27 @@
 {{#if session.isAuthenticated}}
   <div class="ui secondary pointing menu">
     {{#link-to 'admin.index' class="item"}}
-        <span class="glyphicon glyphicon-home icon-large"></span>
+        <i class="home icon"></i>
         <p>Admin Home</p>
     {{/link-to}}
     {{#link-to 'admin.artists' class="item"}}
-        <span class="glyphicon glyphicon-user icon-large"></span>
+        <i class="paint brush icon"></i>
         <p>Edit Artists</p>
     {{/link-to}}
     {{#link-to 'admin.events' class="item"}}
-        <span class="glyphicon glyphicon-calendar icon-large"></span>
+        <i class="calendar icon"></i>
         <p>Edit Events</p>
     {{/link-to}}
     {{#link-to 'admin.blog' class="item"}}
-        <span class="glyphicon glyphicon-th-list icon-large"></span>
+        <i class="list layout icon"></i>
         <p>Edit Blog</p>
     {{/link-to}}
     {{#link-to 'admin.pages' class="item"}}
-        <span class="glyphicon glyphicon-text-background icon-large"></span>
+        <i class="paragraph icon"></i>
         <p>Edit Pages</p>
     {{/link-to}}
     {{#link-to 'admin.users' class="item"}}
-        <span class="glyphicon glyphicon-sunglasses icon-large"></span>
+        <i class="users icon"></i>
         <p>Site Users</p>
     {{/link-to}}
   </div>
