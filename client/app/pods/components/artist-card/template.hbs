@@ -1,0 +1,23 @@
+
+  {{#link-to 'admin.artist' this.artist tagName="div" classNames="content"}}
+    {{!-- <div class="image"> --}}
+      <img class="right floated small ui image" src="{{this.artist.featureImage}}">
+    {{!-- </div> --}}
+    <div class="header">{{this.artist.name}}</div>
+    <div class="meta">
+      <p>{{this.artist.images.length}} images</p>
+      <p>{{this.artist.exhibitions.length}} exhibitions</p>
+    </div>
+    <div class="description">
+      {{this.artist.description}}
+    </div>
+  {{/link-to}}
+  <div class="extra content">
+    <span class="right floated">
+      {{this.artist.order}} in the order
+    </span>
+    <span>
+      <i class="file image outline icon"></i>
+      {{this.artist.images.length}} images
+    </span>
+  </div>
