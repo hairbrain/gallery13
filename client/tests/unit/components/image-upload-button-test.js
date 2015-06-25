@@ -2,8 +2,8 @@
 
 // import { moduleForComponent, test } from 'ember-qunit';
 
-test('it renders', function (assert) {
-  assert.expect(2);
+// test('it renders', function (assert) {
+//   assert.expect(2);
 
 // test('it renders', function (assert) {
 //   assert.expect(2);
