@@ -8,7 +8,7 @@ export default Ember.Route.extend({
     createUser: function (model) {
       var _this = this;
       model.save()
-      .then(function(user) {
+      .then(function(/*user*/) {
         _this.transitionTo('login');
       }).catch(function(err) {
         _this.set('errorMessage', err);
