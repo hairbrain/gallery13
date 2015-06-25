@@ -4,7 +4,7 @@
   "description": "A little marketing site, a little bit CMS and Blog, a web presence for Gallery 13 in all",
   "main": "index.js",
   "scripts": {
-    "test": "cd client && node node_modules/.bin/ember test",
+    "test": "npm run lint && cd client && node node_modules/.bin/ember test",
     "lint": "eslint client/app client/tests server/api"
   },
   "author": "",
