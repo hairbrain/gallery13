@@ -6,10 +6,11 @@ dependencies:
     - npm --version
     - git --version
     - npm install -g bower
+  override:
+    - npm i
     - npm i:
         pwd:
           client
-  override:
     - bower i:
         pwd:
           client
