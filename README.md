@@ -1,7 +1,11 @@
 # This is a project for Gallery 13
+
+[![Stories in Ready](https://badge.waffle.io/hairbrained/gallery13.svg?label=ready&title=Ready)](http://waffle.io/hairbrained/gallery13)
+[![Circle CI](https://circleci.com/gh/hairbrain/gallery13/tree/master.svg?style=svg)](https://circleci.com/gh/hairbrain/gallery13/tree/master)
+
 Gallery 13 is an art gallery in Minneapolis, MN
 
-This project is built utilizing the [sane stack](http://sanestack.com/) which is a full javascript stack built on 
+This project is built utilizing the [sane stack](http://sanestack.com/) which is a full javascript stack built on
 * backend
     * [NodeJS] (https://nodejs.org/)
     * [SailsJS] (http://sailsjs.org/)
@@ -68,4 +72,3 @@ Specify what it takes to deploy your app.
   * [ember inspector for chrome](https://chrome.google.com/webstore/detail/ember-inspector/bmdblncegkenkacieihfhpjfppoconhi)
   * [ember inspector for firefox](https://addons.mozilla.org/en-US/firefox/addon/ember-inspector/)
 
-[![Stories in Ready](https://badge.waffle.io/hairbrained/gallery13.svg?label=ready&title=Ready)](http://waffle.io/hairbrained/gallery13)
