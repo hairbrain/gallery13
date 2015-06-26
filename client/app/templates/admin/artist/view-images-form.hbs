@@ -1,28 +1,34 @@
-<div class="row">
+<div class="ui row">
     <div class="caption">
-        <h2>Artist Images</h2>
-        {{#link-to 'admin.artist.images.new' class="btn btn-default"}}New Artist Image{{/link-to}}
-        <hr>
+        {{!-- <h2>Artist Images</h2> --}}
+        {{#link-to 'admin.artist.images.new' class="ui small button"}}New Artist Image{{/link-to}}
+        {{!-- <hr> --}}
     </div>
     <div class="image-editor-container">
         {{outlet}}
     </div>
-    <div class="image-row">
+    <div class="ui cards">
         {{#each model.images as |image|}}
-
-            <div class="image-preview-container">
-                {{image-preview src=image.fullUrl title=image.title alt=image.description}}
-                <div class="border">
-                    <h3>{{image.title}}</h3>
-                    <p>{{image.description}}</p>
-                </div>
-                <div class="controls">
-                    <hr>
-                    {{#link-to 'admin.artist.images.edit' image classNames='btn btn-default'}}edit{{/link-to}}
-                    <button class="btn btn-default" {{action 'delete' image}}>delete</button>
-                </div>
+          <div class="card">
+            {{image-preview src=image.fullUrl title=image.title alt=image.description}}
+            <div class="content">
+              <div class="header">image.title</div>
+              {{!-- <div class="meta">
+                <a>Friends</a>
+              </div> --}}
+              <div class="description">
+                {{image.description}}
+              </div>
             </div>
-
+            <div class="extra content">
+              <span class="right floated">
+                <button class="ui small button" {{action 'delete' image}}>delete</button>
+              </span>
+              <span>
+                {{#link-to 'admin.artist.images.edit' image classNames='ui small button'}}edit{{/link-to}}
+              </span>
+            </div>
+          </div>
         {{/each}}
     </div>
 </div>

@@ -16,41 +16,85 @@
     </div>
   </div>
   <div class="ui row">
-      <div class="sixteen wide column">
-        <div class="ui form">
-          <div class="ui dividing header">artist profile</div>
-          <div class="two fields">
-            <div class="field">
-              {{artist-card artist=model}}
-            </div>
-            <div class="field">
-              {{!-- <div class="three fields"> --}}
-                {{!-- <div class="field"> --}}
-                  <label>Name</label>
-                  {{!-- {{partial "admin/artist/form"}} --}}
-                  {{input type="text" value=model.name class=''}}
-                {{!-- </div>
-                <div class="field"> --}}
-                  <label>Order</label>
-                  {{!-- {{partial "admin/artist/form"}} --}}
-                  {{input type="text" value=model.order class=''}}
-                {{!-- </div>
-                <div class="field"> --}}
-                  <label>Featured Image</label>
-                  {{!-- {{partial "admin/artist/form"}} --}}
-                  {{ember-selectize
-                    content=controller.model.allArtistImages
-                    value=model.featureImage
-                    optionValuePath="content.fullUrl"
-                    optionLabelPath="content.fullTitle"
-                  }}
-                {{!-- </div> --}}
-              {{!-- </div> --}}
-            </div>
+    <div class="sixteen wide column">
+      <div class="ui form">
+        <div class="ui dividing header">artist profile</div>
+        <div class="two fields">
+          <div class="field">
+            {{artist-card artist=model}}
+          </div>
+          <div class="field">
+            <label>Name</label>
+            {{input type="text" value=model.name class=''}}
+            <label>Order</label>
+            {{input type="text" value=model.order class=''}}
+            <label>Featured Image</label>
+            {{ember-selectize
+              content=controller.model.allArtistImages
+              value=model.featureImage
+              optionValuePath="content.fullUrl"
+              optionLabelPath="content.fullTitle"
+            }}
           </div>
         </div>
+      </div> {{!-- <div class="ui form"> --}}
     </div>
   </div>
+
+  <div class="ui row">
+    <div class="sixteen wide column">
+      <div class="ui form">
+        <div class="ui dividing header">artist images</div>
+        {{partial "admin/artist/view-images-form"}}
+      </div> {{!-- <div class="ui form"> --}}
+    </div>
+  </div>
+  {{!-- exhibitions section --}}
+  <div class="ui row">
+    <div class="sixteen wide column">
+      <div class="ui form">
+        <div class="ui dividing header">artist exhibitions</div>
+        {{!-- content here --}}
+      </div> {{!-- <div class="ui form"> --}}
+    </div>
+  </div>
+  {{!-- description editor --}}
+  <div class="ui row">
+    <div class="sixteen wide column">
+      <div class="ui form">
+        <div class="ui dividing header">artist description</div>
+        {{!-- content here --}}
+      </div> {{!-- <div class="ui form"> --}}
+    </div>
+  </div>
+  {{!-- statement editor --}}
+  <div class="ui row">
+    <div class="sixteen wide column">
+      <div class="ui form">
+        <div class="ui dividing header">artist statement</div>
+        {{!-- content here --}}
+      </div> {{!-- <div class="ui form"> --}}
+    </div>
+  </div>
+  {{!-- bio editor --}}
+  <div class="ui row">
+    <div class="sixteen wide column">
+      <div class="ui form">
+        <div class="ui dividing header">artist bio</div>
+        {{!-- content here --}}
+      </div> {{!-- <div class="ui form"> --}}
+    </div>
+  </div>
+  {{!-- press section --}}
+  <div class="ui row">
+    <div class="sixteen wide column">
+      <div class="ui form">
+        <div class="ui dividing header">artist press</div>
+        {{!-- content here --}}
+      </div> {{!-- <div class="ui form"> --}}
+    </div>
+  </div>
+
 </div>
 <!-- todo: change this to be just a read only list of images with a edit link that will direct the user to a route to edit that specific image and a button to add a new image. -->
 <!-- https://github.com/hairbrained/gallery13/issues/3 -->
