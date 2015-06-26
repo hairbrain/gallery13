@@ -73,6 +73,10 @@ export default Router.map(function () {
       this.route('exhibitions', function () {
         this.route('edit', { path: 'exhibition/:exhibition_id/edit'});
       });
+
+      this.route('exhibition', function() {
+        this.route('edit', { path: ':exhibition_id/edit'});
+      });
     });
 
     this.route('page', {

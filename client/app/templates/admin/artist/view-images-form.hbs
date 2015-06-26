@@ -1,21 +1,16 @@
 <div class="ui row">
     <div class="caption">
-        {{!-- <h2>Artist Images</h2> --}}
-        {{#link-to 'admin.artist.images.new' class="ui small button"}}New Artist Image{{/link-to}}
-        {{!-- <hr> --}}
+      {{#link-to 'admin.artist.images.new' class="ui small button"}}New Artist Image{{/link-to}}
     </div>
     <div class="image-editor-container">
-        {{outlet}}
+      {{outlet}}
     </div>
     <div class="ui cards">
         {{#each model.images as |image|}}
           <div class="card">
             {{image-preview src=image.fullUrl title=image.title alt=image.description}}
             <div class="content">
-              <div class="header">image.title</div>
-              {{!-- <div class="meta">
-                <a>Friends</a>
-              </div> --}}
+              <div class="header">{{image.title}}</div>
               <div class="description">
                 {{image.description}}
               </div>
