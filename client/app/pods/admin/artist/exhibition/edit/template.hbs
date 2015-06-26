@@ -1,4 +1,4 @@
-<form class="form-horizontal">
+<form class="ui form">
     <p>Editing exhibition {{model.id}}</p>
     <div class="form-group">
         <label for="title">Title</label>
@@ -31,7 +31,9 @@
         <label for="order">Order</label>
         {{input type="text" value=model.order class='form-control'}}
     </div>
-    <button class="btn btn-default" {{action 'update' model}}>Update</button>
-    <button class="btn btn-default" {{action 'delete' model}}>Delete</button>
+    <div class="ui basic segment">
+      <button class="ui small button" {{action 'update' model}}>Update</button>
+      <button class="ui small button" {{action 'delete' model}}>Delete</button>
+    </div>
 </form>
 {{outlet}}

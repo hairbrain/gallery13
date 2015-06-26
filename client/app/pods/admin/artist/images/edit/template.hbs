@@ -1,0 +1,24 @@
+<form class="ui form">
+    <div class="two fields">
+      <div class="three wide field">
+        <div class="image">
+            <img src={{model.fullUrl}} alt={{model.description}} class="ui small image" title={{model.fullUrl}} />
+        </div>
+      </div>
+      <div class="ten wide field">
+        <label for="title">Title</label>
+        {{input type="text" value=model.title class=''}}
+        <label for="path">Path</label>
+        {{input type="text" readonly="true" value=model.fullUrl class='' }}
+        <label for="description">Description</label>
+        {{input type="text" value=model.description class=''}}
+        <label for="order">Order</label>
+        {{input type="text" value=model.order class=''}}
+        <div class="ui basic segment">
+          <button class="ui small button" {{action 'update' model}}>Update</button>
+          <button class="ui small button" {{action 'delete' model}}>Delete</button>
+        </div>
+      </div>
+    </div>
+</form>
+{{outlet}}
