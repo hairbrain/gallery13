@@ -54,7 +54,7 @@
     <div class="sixteen wide column">
       <div class="ui form">
         <div class="ui dividing header">artist exhibitions</div>
-        {{!-- content here --}}
+
       </div> {{!-- <div class="ui form"> --}}
     </div>
   </div>
@@ -63,7 +63,16 @@
     <div class="sixteen wide column">
       <div class="ui form">
         <div class="ui dividing header">artist description</div>
-        {{!-- content here --}}
+        <div class="two fields">
+            <div class="field">
+                <label>Edit Here</label>
+                {{textarea value=model.description class='' rows="20"}}
+            </div>
+            <div class="field">
+                <label>Preview</label>
+                {{markdown-to-html markdown=model.description}}
+            </div>
+        </div>
       </div> {{!-- <div class="ui form"> --}}
     </div>
   </div>
@@ -72,7 +81,16 @@
     <div class="sixteen wide column">
       <div class="ui form">
         <div class="ui dividing header">artist statement</div>
-        {{!-- content here --}}
+        <div class="two fields">
+            <div class="field">
+                <label>Edit Here</label>
+                {{textarea value=model.statement class='' rows="20"}}
+            </div>
+            <div class="field">
+                <label>Preview</label>
+                {{markdown-to-html markdown=model.statement}}
+            </div>
+        </div>
       </div> {{!-- <div class="ui form"> --}}
     </div>
   </div>
@@ -81,7 +99,16 @@
     <div class="sixteen wide column">
       <div class="ui form">
         <div class="ui dividing header">artist bio</div>
-        {{!-- content here --}}
+        <div class="two fields">
+            <div class="field">
+                <label>Edit Here</label>
+                {{textarea value=model.bio class='' rows="20"}}
+            </div>
+            <div class="field">
+                <label>Preview</label>
+                {{markdown-to-html markdown=model.bio}}
+            </div>
+        </div>
       </div> {{!-- <div class="ui form"> --}}
     </div>
   </div>
@@ -90,7 +117,16 @@
     <div class="sixteen wide column">
       <div class="ui form">
         <div class="ui dividing header">artist press</div>
-        {{!-- content here --}}
+        <div class="two fields">
+            <div class="field">
+                <label>Edit Here</label>
+                {{textarea value=model.press class='' rows="20"}}
+            </div>
+            <div class="field">
+                <label>Preview</label>
+                {{markdown-to-html markdown=model.press}}
+            </div>
+        </div>
       </div> {{!-- <div class="ui form"> --}}
     </div>
   </div>
