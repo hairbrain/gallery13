@@ -1,34 +1,36 @@
-<div class="row">
-  {{#link-to 'admin.posts.new' classNames="btn btn-default"}}
-    New Post
-  {{/link-to}}
-</div>
-<div class="row">{{outlet}}</div>
-<div class="row">
-    <table class="table table-condensed">
-        <thead>
-            <th>Post Title</th>
-            <th>Slug</th>
-            <th>Date</th>
-            <th>Feature Image</th>
-            <th>excerpt</th>
-            <th>Actions</th>
-        </thead>
-        <tbody>
-        {{#each model as |post|}}
-            <tr>
-                <td>{{post.title}}</td>
-                <td>{{post.slug}}</td>
-                <td>{{ago post.date}}</td>
-                <td><img src="{{post.image}}" class="img-preview-small" /></td>
-                <td>{{post.excerpt}}</td>
-                <td>
-                    {{#link-to 'admin.post' post classNames="btn btn-default btn-sm"}}
-                        <span class="glyphicon glyphicon-edit"></span>
-                    {{/link-to}}
-                </td>
-            </tr>
-        {{/each}}
-        </tbody>
-    </table>
+<div class="ui grid">
+  <div class="ui row">
+    {{#link-to 'admin.posts.new' classNames="ui small button"}}
+      New Post
+    {{/link-to}}
+  </div>
+  <div class="ui row">{{outlet}}</div>
+  <div class="ui row">
+      <table class="ui compact table">
+          <thead>
+              <th>Post Title</th>
+              <th>Slug</th>
+              <th>Date</th>
+              <th>Feature Image</th>
+              <th>excerpt</th>
+              <th>Actions</th>
+          </thead>
+          <tbody>
+          {{#each model as |post|}}
+              <tr>
+                  <td>{{post.title}}</td>
+                  <td>{{post.slug}}</td>
+                  <td>{{ago post.date}}</td>
+                  <td><img src="{{post.image}}" class="ui mini image" /></td>
+                  <td>{{post.excerpt}}</td>
+                  <td>
+                      {{#link-to 'admin.post' post classNames="ui mini button"}}
+                          <i class="edit icon"></i>
+                      {{/link-to}}
+                  </td>
+              </tr>
+          {{/each}}
+          </tbody>
+      </table>
+  </div>
 </div>
