@@ -1,17 +1,13 @@
 <div class="ui grid">
   <div class="ui row">
-    <div class="three wide column">
+    <div class="five wide column">
       {{#link-to 'admin.artists' classNames="ui small button"}}
         <i class="arrow left icon"></i>
         <span>artists</span>
       {{/link-to}}
-    </div>
-    <div class="three wide column">
-        <h1>{{model.name}}</h1>
-    </div>
-    <div class="three wide column">
+      &nbsp;
       <button class="ui button" {{action 'update' model}}>
-        Update Artist
+          Update Artist
       </button>
     </div>
   </div>
@@ -66,11 +62,11 @@
         <div class="two fields">
             <div class="field">
                 <label>Edit Here</label>
-                {{textarea value=model.description class='' rows="20"}}
+                <div class="ui segment">{{textarea value=model.description class='' rows="20"}}</div>
             </div>
             <div class="field">
                 <label>Preview</label>
-                {{markdown-to-html markdown=model.description}}
+                <div class="ui segment">{{markdown-to-html markdown=model.description}}</div>
             </div>
         </div>
       </div> {{!-- <div class="ui form"> --}}
@@ -84,11 +80,11 @@
         <div class="two fields">
             <div class="field">
                 <label>Edit Here</label>
-                {{textarea value=model.statement class='' rows="20"}}
+                <div class="ui segment">{{textarea value=model.statement class='' rows="20"}}</div>
             </div>
             <div class="field">
                 <label>Preview</label>
-                {{markdown-to-html markdown=model.statement}}
+                <div class="ui segment">{{markdown-to-html markdown=model.statement}}</div>
             </div>
         </div>
       </div> {{!-- <div class="ui form"> --}}
@@ -102,11 +98,11 @@
         <div class="two fields">
             <div class="field">
                 <label>Edit Here</label>
-                {{textarea value=model.bio class='' rows="20"}}
+                <div class="ui segment">{{textarea value=model.bio class='' rows="20"}}</div>
             </div>
             <div class="field">
                 <label>Preview</label>
-                {{markdown-to-html markdown=model.bio}}
+                <div class="ui segment">{{markdown-to-html markdown=model.bio}}</div>
             </div>
         </div>
       </div> {{!-- <div class="ui form"> --}}
@@ -120,11 +116,11 @@
         <div class="two fields">
             <div class="field">
                 <label>Edit Here</label>
-                {{textarea value=model.press class='' rows="20"}}
+                <div class="ui segment">{{textarea value=model.press class='' rows="20"}}</div>
             </div>
             <div class="field">
                 <label>Preview</label>
-                {{markdown-to-html markdown=model.press}}
+                <div class="ui segment">{{markdown-to-html markdown=model.press}}</div>
             </div>
         </div>
       </div> {{!-- <div class="ui form"> --}}

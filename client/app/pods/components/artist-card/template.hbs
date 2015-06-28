@@ -6,7 +6,7 @@
     <p>{{this.artist.exhibitions.length}} exhibitions</p>
   </div>
   <div class="description">
-    {{this.artist.description}}
+    {{markdown-to-html markdown=this.artist.description}}
   </div>
 {{/link-to}}
 {{#link-to 'admin.artist' this.artist tagName="div" classNames="extra content"}}
