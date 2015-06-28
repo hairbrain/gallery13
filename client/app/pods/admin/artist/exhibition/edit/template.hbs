@@ -1,39 +1,34 @@
-<form class="ui form">
-    <p>Editing exhibition {{model.id}}</p>
-    <div class="form-group">
-        <label for="title">Title</label>
-        {{input type="text" value=model.title class='form-control'}}
+<div class="ui form">
+  <div class="two fields">
+    <div class="three wide field">
+        <p>Editing exhibition {{model.id}}</p>
+        <div class="image">
+          {{#if model.image}}
+            {{image-preview src=model.image title=model.image alt='Image Preview'}}
+          {{/if}}
+        </div>
     </div>
-    <div class="form-group">
-        <label for="subtitle">sub title</label>
-        {{input type="text" value=model.subtitle class='form-control'}}
+    <div class="ten wide field">
+      <label for="title">Title</label>
+      {{input type="text" value=model.title class=''}}
+      <label for="path">Subtitle</label>
+      {{input type="text" readonly="true" value=model.subtitle }}
+      <label for="description">Image</label>
+      {{ember-selectize
+      content=controller.images
+      value=model.image
+      optionValuePath="content.fullUrl"
+      optionLabelPath="content.fullTitle"
+      }}
+      <label>Description</label>
+      {{input type="text" value=model.description }}
+      <label for="order">Order</label>
+      {{input type="text" value=model.order class=''}}
+      <div class="ui basic segment">
+          <button class="ui small button" {{action 'update' model}}>Update</button>
+          <button class="ui small button" {{action 'delete' model}}>Delete</button>
+      </div>
     </div>
-    <div class="form-group">
-        <label for="image">Image</label>
-        {{!-- {{input type="text" value=model.image class='form-control'}} --}}
-        {{ember-selectize
-          content=controller.images
-          value=model.image
-          optionValuePath="content.fullUrl"
-          optionLabelPath="content.fullTitle"
-        }}
-    </div>
-
-    {{#if model.image}}
-      {{image-preview src=model.image title=model.image alt='Image Preview'}}
-    {{/if}}
-
-    <div class="form-group">
-        <label for="description">Description</label>
-        {{input type="text" value=model.description class='form-control'}}
-    </div>
-    <div class="form-group">
-        <label for="order">Order</label>
-        {{input type="text" value=model.order class='form-control'}}
-    </div>
-    <div class="ui basic segment">
-      <button class="ui small button" {{action 'update' model}}>Update</button>
-      <button class="ui small button" {{action 'delete' model}}>Delete</button>
-    </div>
-</form>
+  </div>
+</div>
 {{outlet}}
