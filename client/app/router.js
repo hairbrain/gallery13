@@ -40,7 +40,9 @@ export default Router.map(function () {
 
 
   this.route('admin', function () {
-    this.route('blog', function () { });
+    this.route('blog', function () {
+      this.route('post', function() {});
+    });
     this.route('post', { path: '/post/:post_id' }, function () { });
     this.route('pages', function () {
       this.route('edit', { path: ':page_id' });
@@ -77,6 +79,10 @@ export default Router.map(function () {
       this.route('exhibition', function() {
         this.route('edit', { path: ':exhibition_id/edit'});
       });
+      this.route('bio');
+      this.route('image');
+      this.route('press');
+      this.route('statement');
     });
 
     this.route('page', {
@@ -92,4 +98,7 @@ export default Router.map(function () {
   // route for dynamic pages
   this.route('catchall', { path: '/*slug' });
 
+  this.route('event');
+  this.route('loading');
+  this.route('user');
 });
