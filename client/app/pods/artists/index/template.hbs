@@ -1,30 +1,25 @@
-<div class="line-after">
-    <h2>Artists</h2>
+<div class="ui center aligned icon header">
+  <i class="paint brush icon"></i>
+  Artists
 </div>
-<div class="row">
-    <div class="col-xs-12" style="">
-        <div class="col-sm-4 col-sm-offset-1-no">
-            <ul class="list-unstyled artists-list">
-
-                {{#each model as |artist|}}
-                    <li {{action 'showFeaturedArtistImage' artist on='mouseEnter'}} >
-                        {{#link-to 'artist' artist}}
-                            {{artist.name}}
-                        {{/link-to}}
-                    </li>
-                {{/each}}
-
-            </ul>
-        </div>
-        <div class="col-sm-7 col-sm-offset-1">
-            <div class="featured-image">
-                <img {{bind-attr src=featuredArtistImage}} class="img-responsive"/>
-                <div class="well-sm">
-                    <p>{{markdown-to-html markdown=featuredArtistCaption}}</p>
-                </div>
+<div class="ui grid">
+  <div class="eight wide column">
+      <!-- http://beta.semantic-ui.com/elements/list.html -->
+      <div class="ui  list">
+        {{#each model as |artist|}}
+            <div {{action 'showFeaturedArtistImage' artist on='mouseEnter'}} class="item">
+              {{#link-to 'artist' artist}}
+                {{artist.name}}
+              {{/link-to}}
             </div>
-            {{outlet}}
-        </div>
-
+        {{/each}}
+      </div>
+  </div>
+  <div class="eight wide column">
+    <div class="ui container">
+      <img class="ui large  image" src="{{featuredArtistImage}}" alt="">
+      <p>{{markdown-to-html markdown=featuredArtistCaption}}</p>
     </div>
+    {{outlet}}
+  </div>
 </div>
