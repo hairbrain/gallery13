@@ -1,11 +1,10 @@
 <div class="ui center aligned icon header">
-  <i class="paint brush icon"></i>
   Artists
 </div>
 <div class="ui grid">
-  <div class="eight wide column">
-      <!-- http://beta.semantic-ui.com/elements/list.html -->
-      <div class="ui  list">
+  <div class="four wide column">
+    <!-- http://beta.semantic-ui.com/elements/list.html -->
+      <div class="ui link list">
         {{#each model as |artist|}}
             <div {{action 'showFeaturedArtistImage' artist on='mouseEnter'}} class="item">
               {{#link-to 'artist' artist}}
@@ -15,7 +14,7 @@
         {{/each}}
       </div>
   </div>
-  <div class="eight wide column">
+  <div class="twelve wide column">
     <div class="ui container">
       <img class="ui large  image" src="{{featuredArtistImage}}" alt="">
       <p>{{markdown-to-html markdown=featuredArtistCaption}}</p>

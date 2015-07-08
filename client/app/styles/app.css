@@ -1,0 +1,10 @@
+.scrolled {
+  max-height: 500px;
+  overflow: hidden;
+  overflow-y: scroll;
+}
+
+/*.scrolled .horizontal {*/
+    /*overflow-y: auto;*/
+    /*overflow-x: scroll;*/
+/*}*/

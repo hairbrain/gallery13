@@ -11,6 +11,7 @@ module.exports = {
 
   attributes: {
     name        : { type: 'string' },
+    subtitle    : { type: 'string' },
     slug        : { type: 'string' },
     statement   : { type: 'string' },
     bio         : { type: 'string' },
