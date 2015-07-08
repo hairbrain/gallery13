@@ -1,8 +1,18 @@
-<div class="featured-image">
-    <img {{bind-attr src=path}} class="img-responsive"/>
-    <div class="well-sm">
-        <p>{{title}}</p>
-        <p>{{description}}</p>
+<div class="ui card">
+  <div class="image">
+    <img src="{{model.path}}" alt="{{model.description}}">
+  </div>
+  <div class="content">
+    <a class="header">{{model.title}}</a>
+    <div class="meta">
+      <span class="date">by {{model.artist.name}}</span>
     </div>
+    <div class="description">
+      {{model.description}}
+    </div>
+  </div>
+  <div class="extra content">
+    {{model.fullTitle}}
+  </div>
 </div>
 {{outlet}}

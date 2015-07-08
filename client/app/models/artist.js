@@ -2,6 +2,7 @@ import DS from 'ember-data';
 
 export default DS.Model.extend({
   name        : DS.attr('string'),
+  subtitle    : DS.attr('string'),
   slug        : DS.attr('string'),
   statement   : DS.attr('string'),
   bio         : DS.attr('string'),
