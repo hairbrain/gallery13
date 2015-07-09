@@ -1,4 +1,30 @@
-<h2>EVENTS</h2>
-<p>This would should a lit of events, where we can show more detail than we have on the home page.</p>
-<p>This is a good opportunity to take a lot of the tet contained in the feature image and put it in plain text for search engines (that can't read text inside of images)</p>
-{{outlet}}
+<div class="ui centered grid">
+  <div class="fourteen wide column">
+    <h2>EVENTS</h2>
+  </div>
+  <div class="fourteen wide column">
+    <div class="ui feed">
+    {{#each model as |event|}}
+      <div class="event">
+        <div class="label">
+          <img src="{{event.image}}">
+        </div>
+        <div class="content">
+          <div class="summary">
+            <a class="user">
+              {{event.title}}
+            </a>
+            <div class="date">
+              {{ago event.date}}
+            </div>
+            {{event.subtitle}}
+          </div>
+          <div class="meta">
+            {{event.description}}
+          </div>
+        </div>
+      </div>
+    {{/each}}
+    </div>
+  </div>
+</div>
