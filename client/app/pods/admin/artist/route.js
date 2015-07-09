@@ -5,9 +5,8 @@ export default Ember.Route.extend({
     return 'Editing: ' + model.get('name');
   },
   model: function (params) {
-    console.log(params);
-    var artist = this.store.find('artist', params.artist_id);
-    return artist;
+    //console.log(params);
+    return this.store.find('artist', params.artist_id);
   },
   setupController(controller, model) {
     controller.set('model', model);

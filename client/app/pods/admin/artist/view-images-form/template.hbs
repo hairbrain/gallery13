@@ -2,12 +2,9 @@
     <div class="caption">
       {{#link-to 'admin.artist.images.new' class="ui small button"}}New Artist Image{{/link-to}}
     </div>
-    <div class="image-editor-container">
-      {{outlet}}
-    </div>
-    <div class="ui cards">
+    <div class="ui four cards">
         {{#each model.images as |image|}}
-          <div class="card">
+          <div class="ui card">
             {{image-preview src=image.fullUrl title=image.title alt=image.description}}
             <div class="content">
               <div class="header">{{image.title}}</div>
@@ -16,9 +13,6 @@
               </div>
             </div>
             <div class="extra content">
-              <span class="right floated">
-                <button class="ui small button" {{action 'delete' image}}>delete</button>
-              </span>
               <span>
                 {{#link-to 'admin.artist.images.edit' image classNames='ui small button'}}edit{{/link-to}}
               </span>
