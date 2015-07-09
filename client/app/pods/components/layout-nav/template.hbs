@@ -18,7 +18,7 @@
       {{/each}}
       {{#link-to 'blog' classNames="item"}}Blog{{/link-to}}
       {{yield}}
-      <div class="right menu">
+      <div class="right pointing menu">
         {{#if session.isAuthenticated}}
           {{#link-to 'admin' classNames="item"}}admin{{/link-to}}
           <a href="#" {{ action 'invalidateSession' }} class="item">Logout</a>

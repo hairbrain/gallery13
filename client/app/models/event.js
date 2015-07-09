@@ -5,6 +5,10 @@ export default DS.Model.extend({
   subtitle   : DS.attr('string'),
   description: DS.attr('string'),
   image      : DS.attr('string'),
-  order      : DS.attr('number')
-  // images     : DS.hasMany('image')
+  order      : DS.attr('number'),
+  date : DS.attr('date', {
+    defaultValue: function () {
+      return new Date();
+    }
+  }),
 });
