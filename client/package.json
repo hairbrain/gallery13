@@ -37,6 +37,7 @@
     "ember-cli-uglify": "1.0.1",
     "ember-data": "1.0.0-beta.16.1",
     "ember-export-application-global": "^1.0.2",
+    "ember-pikaday": "0.8.0",
     "ember-plupload": "0.6.12"
   },
   "dependencies": {
