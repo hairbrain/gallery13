@@ -1,2 +1,166 @@
-<h1>Edit Artist: {{model.name}}</h1>
-{{outlet}}
+<div class="ui internally celled grid">
+  <div class="four wide column">
+    <div class="ui sticky">
+      <div class="ui raised segment">
+        {{#link-to 'admin.artists' classNames="ui small button"}}
+          <i class="arrow left icon"></i>
+          artists
+        {{/link-to}}
+        {{#artist-card artist=model}}
+          <button class="ui small button" {{action 'update' model}}>
+            Update Artist
+          </button>
+        {{/artist-card}}
+      </div>
+    </div>
+  </div>
+  <div class="twelve wide column">
+    {{!-- start of accordion here --}}
+    <div class="ui segment">
+      {{outlet}}
+      <div class="ui styled fluid accordion">
+        {{!-- start of profile tab --}}
+        <div class="active title">
+          <i class="dropdown icon"></i>
+          artist profile
+        </div>
+        <div class="active content">
+          <div class="ui form">
+            <div class="ui dividing header">artist profile</div>
+            <!--<div class="two fields">-->
+            <div class="field">
+              <label>Name</label>
+              {{input type="text" value=model.name class=''}}
+              <label>Subtitle</label>
+              {{input type="text" value=model.subtitle class=''}}
+              <label>Order</label>
+              {{input type="text" value=model.order class=''}}
+              <label>Featured Image</label>
+              {{ember-selectize
+              content=controller.model.allArtistImages
+              value=model.featureImage
+              optionValuePath="content.fullUrl"
+              optionLabelPath="content.fullTitle"
+              }}
+            </div>
+            <!--</div>-->
+          </div>
+        </div>
+        {{!-- start of art/images tab --}}
+        <div class="title">
+          <i class="dropdown icon"></i>
+          artist art
+        </div>
+        <div class="content">
+
+          <div class="ui dividing header">artist images</div>
+          {{partial "admin/artist/view-images-form"}}
+        </div>
+        {{!-- start of exhibitions tab --}}
+        <div class="title">
+          <i class="dropdown icon"></i>
+          exhibitions
+        </div>
+        <div class="content">
+          <div class="ui form">
+            <div class="ui dividing header">artist exhibitions</div>
+            {{partial "admin/artist/view-exhibitions"}}
+          </div> {{!-- <div class="ui form"> --}}
+        </div>
+        {{!-- start of artist description tab --}}
+        <div class="title">
+          <i class="dropdown icon"></i>
+          description
+        </div>
+        <div class="content">
+          <div class="ui form">
+            <div class="ui dividing header">artist description</div>
+            <div class="two fields">
+              <div class="field">
+                <label>Edit Here</label>
+                <div class="ui segment">{{textarea value=model.description class='' rows="20"}}</div>
+              </div>
+              <div class="field">
+                <label>Preview</label>
+                <div class="ui segment">{{markdown-to-html markdown=model.description}}</div>
+              </div>
+            </div>
+          </div> {{!-- <div class="ui form"> --}}
+        </div>
+        {{!-- start of artist bio tab --}}
+        <div class="title">
+          <i class="dropdown icon"></i>
+          biography
+        </div>
+        <div class="content">
+          <div class="ui form">
+            <div class="ui dividing header">artist bio</div>
+            <div class="two fields">
+              <div class="field">
+                <label>Edit Here</label>
+                <div class="ui segment">{{textarea value=model.bio class='' rows="20"}}</div>
+              </div>
+              <div class="field">
+                <label>Preview</label>
+                <div class="ui segment">{{markdown-to-html markdown=model.bio}}</div>
+              </div>
+            </div>
+          </div> {{!-- <div class="ui form"> --}}
+        </div>
+        {{!-- start of artist statement tab --}}
+        <div class="title">
+          <i class="dropdown icon"></i>
+          statement
+        </div>
+        <div class="content">
+          <div class="ui form">
+            <div class="ui dividing header">artist statement</div>
+            <div class="two fields">
+              <div class="field">
+                <label>Edit Here</label>
+                <div class="ui segment">{{textarea value=model.statement class='' rows="20"}}</div>
+              </div>
+              <div class="field">
+                <label>Preview</label>
+                <div class="ui segment">{{markdown-to-html markdown=model.statement}}</div>
+              </div>
+            </div>
+          </div> {{!-- <div class="ui form"> --}}
+        </div>
+        {{!-- start of artist press tab --}}
+        <div class="title">
+          <i class="dropdown icon"></i>
+          press
+        </div>
+        <div class="content">
+          <div class="ui form">
+            <div class="ui dividing header">artist press</div>
+            <div class="two fields">
+              <div class="field">
+                <label>Edit Here</label>
+                <div class="ui segment">{{textarea value=model.press class='' rows="20"}}</div>
+              </div>
+              <div class="field">
+                <label>Preview</label>
+                <div class="ui segment">{{markdown-to-html markdown=model.press}}</div>
+              </div>
+            </div>
+          </div> {{!-- <div class="ui form"> --}}
+        </div>
+      </div>
+      <script>
+        $().ready(function() {
+          $('.ui.accordion')
+            .accordion()
+          ;
+          $('.ui.sticky')
+            .sticky({
+              context: '.ui.accordion'
+            })
+          ;
+        });
+      </script>
+    </div>
+    {{!-- end of accordion here --}}
+  </div>
+</div>
