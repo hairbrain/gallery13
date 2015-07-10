@@ -1,67 +1,80 @@
-<form class="form-horizontal">
-    <div class="form-group">
-        <label for="" class="col-sm-2 control-label">Title</label>
-        <div class="col-sm-10">
-            {{input value=title class="form-control" placeholder="Title"}}
-        </div>
+<div class="ui form">
+  <div class="field">
+    <div class="fields">
+      <div class="twelve wide field">
+        <label>Title</label>
+        {{input value=model.title class="form-control" placeholder="Title"}}
+      </div>
+      <div class="four wide field">
+        <label>Order</label>
+        {{input value=model.order placeholder="enter a weighted order value"}}
+      </div>
     </div>
-    <div class="form-group">
-        <label for="" class="col-sm-2 control-label">Name</label>
-        <div class="col-sm-10">
-            {{input value=name class="form-control" placeholder="a friendly name for this page"}}
-        </div>
+  </div>
+  <div class="four fields">
+    <div class="field">
+      <label for="" class="">Name</label>
+      <div class="">
+        {{input value=model.name class="form-control" placeholder="a friendly name for this page"}}
+      </div>
     </div>
-    <div class="form-group">
-        <label for="" class="col-sm-2 control-label">slug (last portion of url)</label>
-        <div class="col-sm-10">
-            {{input value=slug class="form-control" placeholder="url-for-this-page"}}
-        </div>
+    <div class="field">
+      <label for="" class="">slug (last portion of url)</label>
+      {{input value=model.slug class="form-control" placeholder="url-for-this-page"}}
     </div>
-    <div class="form-group">
-        <label for="" class="col-sm-2 control-label">Navigation Label</label>
-        <div class="col-sm-10">
-            {{input value=navLabel class="form-control" placeholder="Short and sweet"}}
-        </div>
+    <div class="field">
+      <label for="" class="">Navigation Label</label>
+      {{input value=model.navLabel class="form-control" placeholder="Short and sweet"}}
     </div>
-    <div class="form-group">
-        <label for="" class="col-sm-2 control-label">order</label>
-        <div class="col-sm-10">
-            {{textarea value=order class="form-control" placeholder="a number"}}
+    <div class="field">
+      <label for="" class="">Layout</label>
+      <div class="">
+        <div class="ui selection dropdown">
+          <input type="hidden" name="gender">
+          {{input type="hidden" value=model.layout}}
+          <div class="default text">{{model.layout}}</div>
+          <i class="dropdown icon"></i>
+          <div class="menu">
+            <div class="item" data-value="standard">standard</div>
+            <div class="item" data-value="two-column">Two Column</div>
+            <div class="item" data-value="two-column-image-left">Two Column - image right</div>
+            <div class="item" data-value="two-column-image-right">Two Column - image left</div>
+            <!--<div class="item" data-value="two-column-rotator-right">Two Column - rotator left</div>-->
+            <!--<div class="item" data-value="two-column-rotator-right">Two Column - rotator left</div>-->
+          </div>
         </div>
+        <script>
+          $().ready(function() {
+            $('.ui.dropdown')
+              .dropdown({
+                maxSelections: 1
+              })
+            ;
+          });
+        </script>
+      </div>
     </div>
-    <div class="form-group">
-        <label for="" class="col-sm-2 control-label">Layout</label>
-        <div class="col-sm-10">
-            {{input value=layout class="form-control" placeholder="standard-layout"}}
-            {{#button-select selected=layout class="btn-group" role="group"}}
-                {{#button-option value='standard' class='btn btn-default btn-sm'}}Standard{{/button-option}}
-                {{#button-option value='two-column' class='btn btn-default btn-sm'}}2 Column{{/button-option}}
-                {{#button-option value='two-column-image-right' class='btn btn-default btn-sm'}}2 Column - Image Right{{/button-option}}
-                {{#button-option value='two-column-image-left' class='btn btn-default btn-sm'}}2 Column - Image Left{{/button-option}}
-                {{#button-option value='two-column-rotator-right' class='btn btn-default btn-sm'}}2 Column - Rotator Right{{/button-option}}
-                {{#button-option value='two-column-rotator-left' class='btn btn-default btn-sm'}}2 Column - Rotator Left{{/button-option}}
-            {{/button-select}}
-
-        </div>
+  </div>
+  <div class="two fields">
+    <div class="field">
+      <label>Edit excerpt:</label>
+      <div class="ui segment">{{textarea value=model.excerpt class='' rows="20"}}</div>
     </div>
-    <div class="form-group">
-        <label for="" class="col-sm-2 control-label">excerpt</label>
-        <div class="col-sm-10">
-            {{textarea value=excerpt class="form-control" placeholder="a cute little summary for the page (get your markdown on)"}}
-        </div>
+    <div class="field">
+      <label>Excerpt Preview</label>
+      <div class="ui segment">{{markdown-to-html markdown=model.excerpt}}</div>
     </div>
-    <div class="form-group">
-        <label for="" class="col-sm-2 control-label">body</label>
-        <div class="col-sm-10">
-            {{textarea value=body class="form-control" placeholder="this is where the meat of things goes. (get your markdown on here too)" cols="80" rows="6"}}
-        </div>
+  </div>
+  <div class="two fields">
+    <div class="field">
+      <label>Edit body of post:</label>
+      <div class="ui segment">{{textarea value=model.body class='' style="height:100%;"}}</div>
     </div>
-    <div class="form-group">
-        <label for="" class="col-sm-2 control-label">body preview</label>
-        <div class="col-sm-10">
-            <div>{{markdown-to-html markdown=body}}</div>
-        </div>
+    <div class="field">
+      <label>Body Preview</label>
+      <div class="ui segment">{{markdown-to-html markdown=model.body}}</div>
     </div>
-    <button class="btn btn-default" {{action 'update' model}}>Done Editing</button>
-    <button class="btn btn-default" {{action 'delete' model}}>Delete page</button>
-</form>
+  </div>
+  <button class="ui small button" {{action 'update' model}}>Save</button>
+  <button class="ui small button" {{action 'delete' model}}>Delete page</button>
+</div>
