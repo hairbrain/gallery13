@@ -1,7 +1,7 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
-  featuredArtistImage: '/images/artists/greggreen/The_Battle_of_Rabbit_Skenia.jpg',
+  featuredArtistImage: '',
 
   featuredArtistCaption: '',
 
