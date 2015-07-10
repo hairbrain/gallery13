@@ -2,11 +2,9 @@ import Ember from 'ember';
 
 export default Ember.Controller.extend({
   featuredArtistImage: '',
-
   featuredArtistCaption: '',
-
   actions: {
-    showFeaturedArtistImage: function (artist) {
+    showFeaturedArtistImage: function(artist) {
       // console.log('showFeatured fired');
       // console.log(artist);
       this.set('featuredArtistImage', artist.get('featureImage'));
