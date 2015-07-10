@@ -1,15 +1,55 @@
-<div class="row">
-    <div class="image-row col-xs-12" style="">
-        {{#each imageData in model}}
-            <div class="" style="">
-                <img {{bind-attr src=imageData.image}} {{bind-attr alt=imageData.description}} class="img-thumbnail"/>
-                <div {{bind-attr class=":border"}}>
-                    <h3>{{imageData.title}}</h3>
-                    <h2>{{imageData.subtitle}}</h2>
-                    <p>{{imageData.description}}</p>
-                </div>
+<div class="ui padded grid">
+  <div class="sixteen wide column" style="overflow: hidden !important;">
+    <div class="ui horizontal scrolled list">
+      {{#each model as |exhibition|}}
+        <div class="item">
+          <div class="ui card">
+            <div class="image">
+              <img class="" src="{{exhibition.image}}" alt="{{exhibition.description}}">
             </div>
+            <div class="content">
+              <a class="header">{{exhibition.title}}</a>
+              <div class="meta">
+                <span class="date">{{exhibition.subtitle}}</span>
+              </div>
+              <div class="description">
+                {{exhibition.description}}
+              </div>
+            </div>
+            {{#if session.isAuthenticated}}
+              <div class="extra content">
+                {{#link-to 'admin.artist' exhibition.artist classNames=""}}edit{{/link-to}}
+              </div>
+            {{/if}}
 
-        {{/each}}
+          </div>
+        </div>
+      {{/each}}
     </div>
+
+    <div class="horizontal scrolled outer">
+
+      <div class="horizontal scrolled inner">
+
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+
+      </div>
+
+    </div>
+
+
+
+  </div>
 </div>

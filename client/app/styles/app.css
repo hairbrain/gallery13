@@ -1,10 +1,24 @@
-.scrolled {
-  max-height: 500px;
-  overflow: hidden;
-  overflow-y: scroll;
+.horizontal.scrolled {
+    width: 100%;
+    display: inline-flex !important;
+    overflow: scroll;
 }
 
-/*.scrolled .horizontal {*/
-    /*overflow-y: auto;*/
-    /*overflow-x: scroll;*/
-/*}*/
+.horizontal.scrolled.outer {
+  width: 100%;
+  margin: auto;
+  overflow-y: hidden;
+  overflow-x: scroll
+}
+
+.horizontal.scrolled.inner {
+  float: left;
+  margin: auto;
+  overflow-y: hidden;
+  overflow-x: scroll;
+  display: inline-flex;
+}
+
+.horizontal.scrolled > .item {
+  float: left
+}
