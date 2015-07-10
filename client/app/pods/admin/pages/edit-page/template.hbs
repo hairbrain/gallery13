@@ -58,11 +58,20 @@
   <div class="two fields">
     <div class="field">
       <label>Edit excerpt:</label>
-      <div class="ui segment">{{textarea value=model.excerpt class='' rows="20"}}</div>
+      <div class="ui segment">
+
+        {{textarea value=model.excerpt class='' rows="20"}}
+
+        {{!em-markdown-editor content=model.excerpt}}
+      </div>
     </div>
     <div class="field">
       <label>Excerpt Preview</label>
-      <div class="ui segment">{{markdown-to-html markdown=model.excerpt}}</div>
+      <div class="ui segment">
+        {{markdown-to-html markdown=model.excerpt}}
+
+
+      </div>
     </div>
   </div>
   <div class="two fields">

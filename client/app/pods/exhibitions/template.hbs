@@ -1,14 +1,17 @@
-<div class="ui padded grid">
+<div class="ui bordered grid">
   <div class="sixteen wide column" style="overflow: hidden !important;">
     <div class="ui horizontal scrolled list">
       {{#each model as |exhibition|}}
         <div class="item">
-          <div class="ui card">
-            <div class="image">
-              <img class="" src="{{exhibition.image}}" alt="{{exhibition.description}}">
-            </div>
+          <div class="ui segment">
+
+            <!--<div class="ui basic segment">-->
+            <!--</div>-->
             <div class="content">
-              <a class="header">{{exhibition.title}}</a>
+              <div class="ui large image">
+                <img class="" src="{{exhibition.image}}" alt="{{exhibition.description}}">
+              </div>
+              <div class="header">{{exhibition.title}}</div>
               <div class="meta">
                 <span class="date">{{exhibition.subtitle}}</span>
               </div>
@@ -16,40 +19,11 @@
                 {{exhibition.description}}
               </div>
             </div>
-            {{#if session.isAuthenticated}}
-              <div class="extra content">
-                {{#link-to 'admin.artist' exhibition.artist classNames=""}}edit{{/link-to}}
-              </div>
-            {{/if}}
-
           </div>
         </div>
       {{/each}}
     </div>
-
-    <div class="horizontal scrolled outer">
-
-      <div class="horizontal scrolled inner">
-
-        <div class="item"></div>
-        <div class="item"></div>
-        <div class="item"></div>
-
-        <div class="item"></div>
-        <div class="item"></div>
-        <div class="item"></div>
-        <div class="item"></div>
-        <div class="item"></div>
-        <div class="item"></div>
-        <div class="item"></div>
-        <div class="item"></div>
-        <div class="item"></div>
-
-      </div>
-
+    <div class="ui basic segment">
     </div>
-
-
-
   </div>
 </div>
