@@ -13,7 +13,7 @@ module.exports = {
     navLabel: { type: 'string' },
     layout  : { type: 'string' },
     excerpt : { type: 'string' },
-    body    : { type: 'string' },
+    body    : { type: 'text' },
     order   : { type: 'float' }
     // this needs to be M..N
     // images : {
