@@ -2,9 +2,9 @@
   <div class="">
     <h2>New Image</h2>
 
-    <div class="form-group">
+    <div class="">
       <label for="title">Title</label>
-      {{input type="text" value=model.title class='form-control'}}
+      {{input type="text" value=model.title class=''}}
     </div>
     <div class="form-group">
       <label for="description">Description</label>
@@ -17,7 +17,7 @@
     <div class="form-group">
       {{#if controller.model.url}}
         {{image-preview src=controller.model.url title=controller.model.file.name alt='Preview of Image to Upload'}}
-        <p>{{model.path}}</p>
+        <p>{{controller.model.url}}</p>
       {{/if}}
     </div>
     <div class="ui basic segment two fields">

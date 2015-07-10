@@ -6,6 +6,9 @@
 {{#link-to 'artist.bio' this}}biography{{/link-to}} |
 {{#link-to 'artist.statement' this}}statement{{/link-to}} |
 {{#link-to 'artist.press' this}}press{{/link-to}}
+{{#if session.isAuthenticated}}
+| {{#link-to 'admin.artist' model classNames="item"}}edit{{/link-to}}
+{{/if}}
 <hr>
 <div class="ui two column grid">
   <div class="six wide column">

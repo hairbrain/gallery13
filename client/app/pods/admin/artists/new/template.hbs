@@ -1,7 +1,5 @@
-<div class="container">
-    <div class="page-header">
-        <h2>Create Artist</h2>
-    </div>
-    {{partial "admin/artist/form"}}
-    <button class="btn btn-default" {{action 'updateArtist' model}}>Update Artist</button>
+<div class="ui grid">
+  <h2 class="header">Create Artist</h2>
+  {{partial "admin/artist/form"}}
+  <button class="ui small button" {{action 'updateArtist' model}}>Update Artist</button>
 </div>
