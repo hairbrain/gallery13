@@ -1,15 +1,15 @@
 <div class="line-after">
     <h2>Manage Pages</h2>
 </div>
-<div class="row">
-    {{#link-to 'admin.pages.new' classNames='btn btn-sm btn-default'}}Create new page{{/link-to}}
+<div class="ui buttons container">
+    {{#link-to 'admin.pages.new' classNames='ui small button'}}Create new page{{/link-to}}
 </div>
-<div class="row">
+<div class="ui padded grid">
     {{outlet}}
 </div>
-<div class="row">
-    <div class="col-xs-12" style="">
-        <table class="table table-condensed">
+<div class="ui padded grid">
+    <div class="col-xs-sixteen wide column" style="">
+        <table class="ui striped table">
             <thead>
             <tr>
                 <th>title</th>
@@ -25,32 +25,32 @@
             <tbody>
             {{#each model as |page|}}
                 <tr>
-                    <th>
+                    <td>
                         <p>{{page.title}}</p>
-                    </th>
-                    <th>
+                    </td>
+                    <td>
                         <p>{{page.slug}}</p>
-                    </th>
-                    <th>
+                    </td>
+                    <td>
                         <p>{{page.navLabel}}</p>
-                    </th>
-                    <th>
+                    </td>
+                    <td>
                         <p>{{page.layout}}</p>
-                    </th>
-                    <th>
+                    </td>
+                    <td>
                         <p>{{page.excerpt}}</p>
-                    </th>
-                    <!--<th>-->
+                    </td>
+                    <!--<td>-->
                         <!--<p>{{page.body}}</p>-->
-                    <!--</th>-->
-                    <th>
+                    <!--</td>-->
+                    <td>
                         <p>{{page.order}}</p>
-                    </th>
-                    <th>
-                        {{#link-to 'admin.pages.edit' page classNames='btn btn-sm btn-default'}}
-                            <span class="glyphicon glyphicon-edit"></span>
+                    </td>
+                    <td>
+                        {{#link-to 'admin.pages.edit' page classNames='ui icon button'}}
+                            <i class="edit icon"></i>
                         {{/link-to}}
-                    </th>
+                    </td>
                 </tr>
             {{/each}}
             </tbody>
