@@ -1,0 +1,35 @@
+<div class="ui grid">
+  <div class="sixteen wide column">
+    <div class="ui six cards">
+    {{#each model as |image|}}
+      <div class="ui card">
+        <div class="image">
+          <img src="{{image.path}}">
+        </div>
+        <div class="content">
+          <div class="meta">
+            <h2>{{image.fullTitle}}</h2>
+            <span class="date">{{image.description}}</span>
+          </div>
+          <div class="ui divider"></div>
+          <div class="description">
+            <div class="ui form">
+              <div class="field">
+                <div class="ui action input">
+                  {{input type="text" value=image.path readonly="true"}}
+                  <a target="_blank" href="{{image.path}}" class="ui icon button">
+                    <i class="search icon"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="extra content">
+          # {{image.order}} in order
+        </div>
+      </div>
+    {{/each}}
+    </div>
+  </div>
+</div>
