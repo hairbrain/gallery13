@@ -94,6 +94,7 @@ export default Router.map(function () {
       this.route('new');
     });
     this.route('users');
+    this.route('images');
   });
   // route for dynamic pages
   this.route('catchall', { path: '/*slug' });
