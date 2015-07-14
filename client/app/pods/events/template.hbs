@@ -1,30 +1,27 @@
 <div class="ui centered grid">
-  <div class="fourteen wide column">
-    <h2>EVENTS</h2>
-  </div>
-  <div class="fourteen wide column">
-    <div class="ui feed">
-    {{#each model as |event|}}
-      <div class="event">
-        <div class="label">
-          <img src="{{event.image}}">
-        </div>
-        <div class="content">
-          <div class="summary">
-            <a class="user">
-              {{event.title}}
-            </a>
-            <div class="date">
-              {{ago event.date}}
+
+  <div class="eight wide column">
+    <div class="ui middle aligned selection list">
+      {{#each model as |event|}}
+        {{#link-to 'events.list' event tagName="div" class="item"}}
+          <img class="ui small image" src="{{event.image}}">
+          <div class="content">
+            <div class="header">{{event.title}}</div>
+            <div class="meta">
+              {{event.subtitle}}
             </div>
-            {{event.subtitle}}
+            <div class="description">
+              {{{markdown-to-html markdown=post.excerpt}}}
+            </div>
+            <div class="extra content">
+              <span class="">{{ago event.date}}</span>
+            </div>
           </div>
-          <div class="meta">
-            {{event.description}}
-          </div>
-        </div>
-      </div>
-    {{/each}}
+        {{/link-to}}
+      {{/each}}
     </div>
+  </div>
+  <div class="eight wide column">
+    {{outlet}}
   </div>
 </div>

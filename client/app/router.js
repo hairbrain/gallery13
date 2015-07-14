@@ -36,7 +36,10 @@ export default Router.map(function () {
 
   // adminRouter(this);
 
-  this.route('events');
+  this.route('events', function() {
+    this.route('list', { path: ':event_slug' }, function() {});
+
+  });
   this.route('exhibitions', function () {});
 
 
@@ -62,6 +65,10 @@ export default Router.map(function () {
         });
       });
       this.route('new');
+
+      this.route('list', {
+        path: ':event_slug'
+      });
     });
 
     this.route('artists', function () {
