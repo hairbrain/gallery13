@@ -5,7 +5,11 @@ export default Ember.Route.extend({
     return model.get('title');
   },
   model: function (params) {
-    return this.store.find('post', { slug: params.post_slug});
+    return this.store.find('post', { slug: params.post_slug})
+      .then(function(records) {
+        "use strict";
+        return records.get('firstObject');
+      });
   },
   serialize: function (model) {
 

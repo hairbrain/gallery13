@@ -6,13 +6,13 @@ var Router = Ember.Router.extend({
 });
 
 export default Router.map(function () {
-  this.resource('index', { path: '/'}, function () {});
+  this.route('index', { path: '/'}, function () {});
 
   this.route('login');
   this.route('register');
 
-  this.resource('event', function () {});
-  this.resource('user', function () {});
+  this.route('event', function () {});
+  this.route('user', function () {});
   this.route('artists', function () {
     this.route('new');
   });
@@ -29,14 +29,15 @@ export default Router.map(function () {
     });
   });
 
-  this.resource('blog', function () {
+
+  this.route('blog', function () {
     this.route('post', { path: ':post_slug' }, function () { });
   });
 
   // adminRouter(this);
 
   this.route('events');
-  this.resource('exhibitions', function () {});
+  this.route('exhibitions', function () {});
 
 
   this.route('admin', function () {

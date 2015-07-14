@@ -1,23 +1,25 @@
-<div class="row">
-    <div class="col-md-12">
-        <div class="col-md-4 text-left">
-            <h1>Blog</h1>
-            <ul class="list-unstyled blog-list">
-                {{#each model as |post|}}
-                    <li>
-                        {{#link-to 'blog.post.index' post}}
-                            <p>{{post.title}}&nbsp;<small class="text-muted">by {{post.author}} {{ago post.date}}</small></p>
-                            <p>{{{markdown-to-html markdown=post.excerpt}}}</p>
-                        {{/link-to}}
-                        <hr>
-                    </li>
-                {{/each}}
-            </ul>
-        </div>
-        <div class="col-md-8">
-            <div class="post-content">
-                {{outlet}}
+<div class="ui grid">
+  <div class="eight wide column">
+
+    <div class="ui middle aligned selection list">
+      {{#each model as |post|}}
+        {{#link-to 'blog.post.index' post tagName="div" class="item"}}
+          <img class="ui small image" src="{{post.image}}">
+          <div class="content">
+            <div class="header">{{post.title}}</div>
+            <div class="meta">
+              by {{post.author}} <span class="date">{{ago post.date}}</span>
             </div>
-        </div>
+            <div class="description">
+              {{{markdown-to-html markdown=post.excerpt}}}
+            </div>
+          </div>
+        {{/link-to}}
+      {{/each}}
     </div>
+  </div>
+  <div class="eight wide column">
+    {{outlet}}
+  </div>
 </div>
+
