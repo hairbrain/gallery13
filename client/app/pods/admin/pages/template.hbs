@@ -47,9 +47,14 @@
                         <p>{{page.order}}</p>
                     </td>
                     <td>
+                      <div class="ui buttons">
                         {{#link-to 'admin.pages.edit' page classNames='ui icon button'}}
-                            <i class="edit icon"></i>
+                          <i class="edit icon"></i>
                         {{/link-to}}
+                        {{#link-to 'catchall' page classNames='ui icon button'}}
+                          <i class="eye icon"></i>
+                        {{/link-to}}
+                      </div>
                     </td>
                 </tr>
             {{/each}}

@@ -1,15 +1,10 @@
-<div class="dynamic-page-content">
-    <div class="row">
-        <div class=" col-xs-12 line-after text-right">
-            <h1>{{model.title}}</h1>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-6">
-            <div class="text-muted">{{{markdown-to-html markdown=model.excerpt}}}</div>
-        </div>
-        <div class="col-md-6">
-            {{{markdown-to-html markdown=model.body}}}
-        </div>
-    </div>
+<div class="ui grid">
+  <div class="sixteen wide column">
+    {{#if session.isAuthenticated}}
+      {{#link-to 'admin.pages.edit' model classNames="floated right"}}edit{{/link-to}}
+    {{/if}}
+    <h1 class="ui header">{{model.title}}</h1>
+  </div>
+  <div class="eight wide column">{{{markdown-to-html markdown=model.excerpt}}}</div>
+  <div class="eight wide column">{{{markdown-to-html markdown=model.body}}}</div>
 </div>

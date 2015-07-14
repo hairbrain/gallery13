@@ -12,7 +12,7 @@ module.exports = {
     title   : { type: 'string' },
     navLabel: { type: 'string' },
     layout  : { type: 'string' },
-    excerpt : { type: 'string' },
+    excerpt : { type: 'text' },
     body    : { type: 'text' },
     order   : { type: 'float' }
     // this needs to be M..N

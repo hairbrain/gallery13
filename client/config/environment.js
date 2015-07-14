@@ -36,14 +36,17 @@ module.exports = function(environment) {
 
     ENV.contentSecurityPolicy = {
       'default-src': "'none'",
-      'script-src':  "'self' 'unsafe-eval'", // add the domain here like analytics.google.com or whatver it is reaching there
+      // add the domain here like analytics.google.com or data: or 'self'
+      'script-src':  "'self' 'unsafe-eval' 'https://www.google.com' ''",
       'font-src':    "'self' data:",
       'connect-src': "'self' " + devHost + ' ' + devS3,
       'img-src':     "'self' data: " + devHost + ' ' + devS3,
       'style-src':   "'self' 'unsafe-inline'",
-      'frame-src':   "'none'"
+      'frame-src':   "'www.google.com'",
+      'media-src': "'https://www.google.com"
     }
   }
+
 
   if (environment === 'test') {
     // Testem prefers this...
@@ -61,12 +64,14 @@ module.exports = function(environment) {
     ENV.hostUrl = prodHost;
     ENV.contentSecurityPolicy = {
       'default-src': "'none'",
-      'script-src':  "'self' 'unsafe-eval'", // add the domain here like analytics.google.com or whatver it is reaching there
-      'font-src':    "'self'",
-      'connect-src': "'self' " + prodHost + ' ' + prodS3,
-      'img-src':     "'self' data: " + prodHost + ' ' + prodS3,
+      // add the domain here like analytics.google.com or data: or 'self'
+      'script-src':  "'self' 'unsafe-eval' 'https://www.google.com' ''",
+      'font-src':    "'self' data:",
+      'connect-src': "'self' " + devHost + ' ' + devS3,
+      'img-src':     "'self' data: " + devHost + ' ' + devS3,
       'style-src':   "'self' 'unsafe-inline'",
-      'frame-src':   "'none'"
+      'frame-src':   "'www.google.com'",
+      'media-src': "'https://www.google.com"
     }
   }
 
