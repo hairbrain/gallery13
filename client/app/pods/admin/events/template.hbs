@@ -9,6 +9,7 @@
   <div class="sixteen wide column">
     <table class="ui celled striped table">
       <thead>
+        <th>Slug</th>
         <th>Title</th>
         <th>Subtitle</th>
         <th>Description</th>
@@ -20,6 +21,7 @@
       <tbody>
       {{#each model as |event|}}
         <tr>
+          <td>{{event.slug}}</td>
           <td>{{event.title}}</td>
           <td>{{event.subtitle}}</td>
           <td>{{event.description}}</td>
@@ -27,7 +29,7 @@
           <td>{{event.date}}</td>
           <td>{{event.order}}</td>
           <td>
-            {{#link-to 'admin.events.edit' event classNames='ui small button'}}
+            {{#link-to 'admin.events.edit' event classNames='ui icon button'}}
               <i class="edit icon"></i>
             {{/link-to}}
 

@@ -1,0 +1,18 @@
+<div class="ui segment">
+  <div class="ui massive image">
+    <img src="{{model.image}}">
+  </div>
+  <div class="content">
+    <a class="header">{{model.title}}</a>
+    <div class="meta">
+      <span class="date">{{ago model.date}}</span>
+    </div>
+    <div class="description">
+      {{model.description}}
+    </div>
+  </div>
+  <div class="extra content">
+
+  </div>
+</div>
+{{outlet}}

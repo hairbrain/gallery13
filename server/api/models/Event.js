@@ -8,6 +8,7 @@
 module.exports = {
 
   attributes: {
+    slug        : { type: 'string' },
     title       : { type: 'string' },
     subtitle    : { type: 'string' },
     description : { type: 'string' },
