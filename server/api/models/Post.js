@@ -12,8 +12,8 @@ module.exports = {
     slug   : { type: 'string' },
     date   : { type: 'date' },
     image  : { type: 'string' },
-    excerpt: { type: 'string' },
-    body   : { type: 'string' },
+    excerpt: { type: 'text' },
+    body   : { type: 'text' },
     author : { type: 'string' }
   }
 };

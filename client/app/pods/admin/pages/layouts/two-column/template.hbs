@@ -1,8 +1,12 @@
 <div class="ui grid">
+  {{#if session.isAuthenticated}}
+    <div class="center aligned sixteen wide column">
+      {{#link-to 'admin.pages.edit' model classNames="ui icon button"}}
+        <i class="edit icon"></i>
+      {{/link-to}}
+    </div>
+  {{/if}}
   <div class="sixteen wide column">
-    {{#if session.isAuthenticated}}
-      {{#link-to 'admin.pages.edit' model classNames="floated right"}}edit{{/link-to}}
-    {{/if}}
     <h1 class="ui header">{{model.title}}</h1>
   </div>
   <div class="eight wide column">{{{markdown-to-html markdown=model.excerpt}}}</div>
