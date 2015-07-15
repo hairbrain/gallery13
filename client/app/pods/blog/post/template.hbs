@@ -1,25 +1,27 @@
-<div class="ui grid">
-  {{#if session.isAuthenticated}}
-    <div class="center aligned sixteen wide column">
-      {{#link-to 'admin.post' model classNames="ui icon button"}}
-        <i class="edit icon"></i>
-      {{/link-to}}
-    </div>
-  {{/if}}
+{{#sticky-post}}
+  <div class="ui grid">
+    {{#if session.isAuthenticated}}
+      <div class="center aligned sixteen wide column">
+        {{#link-to 'admin.post' model classNames="ui icon button"}}
+          <i class="edit icon"></i>
+        {{/link-to}}
+      </div>
+    {{/if}}
     <div class="sixteen wide column">
-        <h1>{{model.title}}</h1>
-        <h2>&nbsp;by {{model.author}}&nbsp;&nbsp;<small class="text-muted">{{ago model.date}}</small></h2>
-        <hr>
+      <h1>{{model.title}}</h1>
+      <h2>&nbsp;by {{model.author}}&nbsp;&nbsp;<small class="text-muted">{{ago model.date}}</small></h2>
+      <hr>
     </div>
     <div class="eight wide column">
-        <div class="intro lead">
-            {{{markdown-to-html markdown=model.excerpt}}}
-        </div>
+      <div class="intro lead">
+        {{{markdown-to-html markdown=model.excerpt}}}
+      </div>
     </div>
     <div class="eight wide column">
-        <img class="ui medium image" src="{{model.image}}"/>
+      <img class="ui medium image" src="{{model.image}}"/>
     </div>
     <div class="sixteen wide column">
-        {{{markdown-to-html markdown=model.body}}}
+      {{{markdown-to-html markdown=model.body}}}
     </div>
-</div>
+  </div>
+{{/sticky-post}}
