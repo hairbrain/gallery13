@@ -10,7 +10,7 @@ var slug = require('slug');
 
 module.exports = {
   attributes: {
-    path       : { type: 'string' },
+    path       : { type: 'text' },
     title      : { type: 'string' },
     description: { type: 'string' },
     slug       : { type: 'string' },
