@@ -9,9 +9,11 @@ export default Ember.Route.extend({
   afterModel: function(events, transition) {
     //console.log(transition.targetName);
     //console.log(this.routeName);
-    if(transition.targetName === this.routeName + '.index') {
+    if (transition.targetName === this.routeName + '.index') {
 
-      this.transitionTo('events.list', events.get('firstObject'));
+      if (events.length > 0) {
+        this.transitionTo('events.list', events.get('firstObject'));
+      }
 
     }
   }
