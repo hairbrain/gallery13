@@ -2,10 +2,11 @@
     <div class="caption">
       {{#link-to 'admin.artist.images.new' class="ui small button"}}New Artist Image{{/link-to}}
     </div>
-    <div class="ui four cards">
+    {{#if model.images}}
+      <div class="ui four cards">
         {{#each model.images as |image|}}
           <div class="ui card">
-            {{image-preview src=image.fullUrl title=image.title alt=image.description}}
+            {{image-preview src=image.path title=image.title alt=image.description}}
             <div class="content">
               <div class="header">{{image.title}}</div>
               <div class="description">
@@ -19,5 +20,6 @@
             </div>
           </div>
         {{/each}}
-    </div>
+      </div>
+    {{/if}}
 </div>

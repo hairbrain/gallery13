@@ -23,7 +23,11 @@
     <div class="ui basic segment two fields">
       {{#unless controller.model.url}}
         <div class="two wide field">
-          {{image-upload-button action='queueImage'}}
+          {{!-- {{image-upload-button action='queueImage'}} --}}
+          {{#if showFilePicker}}
+            {{ember-filepicker pickerOptions=pickerOptions multiple=true onSelection='fileSelected' onClose='onClose' onError='onError'}}
+          {{/if}}
+          <button {{action 'showPicker'}}>Choose Images</button>
         </div>
       {{/unless}}
       <div class="four wide field">
