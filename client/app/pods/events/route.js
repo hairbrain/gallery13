@@ -7,14 +7,10 @@ export default Ember.Route.extend({
     return this.store.find('event', { sort: 'order asc' });
   },
   afterModel: function(events, transition) {
-    //console.log(transition.targetName);
-    //console.log(this.routeName);
     if (transition.targetName === this.routeName + '.index') {
-
-      if (events.length > 0) {
+      if (events.get('length') > 0) {
         this.transitionTo('events.list', events.get('firstObject'));
       }
-
     }
   }
 });

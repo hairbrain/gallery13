@@ -42,8 +42,8 @@ module.exports = function(environment) {
       'connect-src': "'self' " + devHost + ' ' + devS3,
       'img-src':     "'self' data: " + devHost + ' ' + devS3,
       'style-src':   "'self' 'unsafe-inline'",
-      'frame-src':   "'www.google.com'",
-      'media-src': "'https://www.google.com"
+      'frame-src':   "'https://www.google.com'",
+      'media-src': "'https://www.google.com'"
     }
   }
 
@@ -70,8 +70,8 @@ module.exports = function(environment) {
       'connect-src': "'self' " + devHost + ' ' + devS3,
       'img-src':     "'self' data: " + devHost + ' ' + devS3,
       'style-src':   "'self' 'unsafe-inline'",
-      'frame-src':   "'www.google.com'",
-      'media-src': "'https://www.google.com"
+      'frame-src':   "'https://www.google.com'",
+      'media-src': "'https://www.google.com'"
     }
   }
 
