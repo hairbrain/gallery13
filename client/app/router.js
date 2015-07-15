@@ -6,7 +6,7 @@ var Router = Ember.Router.extend({
 });
 
 export default Router.map(function () {
-  this.route('index', { path: '/'}, function () {});
+  // this.route('index', { path: '/'}, function () {});
 
   this.route('login');
   this.route('register');
@@ -14,7 +14,7 @@ export default Router.map(function () {
   this.route('event', function () {});
   this.route('user', function () {});
   this.route('artists', function () {
-    this.route('new');
+    // this.route('new');
   });
   this.resource('artist', { path: '/artist/:artist_slug' }, function () {
     // this.route('index', { path: '/artist/:artist_slug' });
