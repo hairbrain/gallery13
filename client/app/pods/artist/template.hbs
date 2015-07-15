@@ -2,10 +2,10 @@
 <div class="meta">{{model.subtitle}}</div>
 {{#link-to 'artists'}}all artists{{/link-to}} |
     <!--todo: add links here to sub routes -->
-{{#link-to 'artist.index' this}}artist{{/link-to}} |
-{{#link-to 'artist.bio' this}}biography{{/link-to}} |
-{{#link-to 'artist.statement' this}}statement{{/link-to}} |
-{{#link-to 'artist.press' this}}press{{/link-to}}
+{{#link-to 'artist.index' controller.model}}artist{{/link-to}} |
+{{#link-to 'artist.bio' model}}biography{{/link-to}} |
+{{#link-to 'artist.statement' model}}statement{{/link-to}} |
+{{#link-to 'artist.press' model}}press{{/link-to}}
 {{#if session.isAuthenticated}}
 | {{#link-to 'admin.artist' model classNames="item"}}edit{{/link-to}}
 {{/if}}

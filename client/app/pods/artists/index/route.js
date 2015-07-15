@@ -4,7 +4,7 @@ export default Ember.Route.extend({
   titleToken: '',
   setupController(controller, model) {
     //debugger;
-    if (model.length > 0) {
+    if (model.get('length') > 0) {
       controller.set('model', model);
       var firstArtist = model.get('firstObject');
       controller.set('featuredArtistImage', firstArtist.get('featureImage'));

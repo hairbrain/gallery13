@@ -5,7 +5,7 @@ export default Ember.Component.extend({
   classNames: ['following', 'bar'],
   actions: {
     invalidateSession: function() {
-      this.send('invalidateSession');
+      this.sendAction();
     }
   }
 });

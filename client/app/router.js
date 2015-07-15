@@ -101,7 +101,12 @@ export default Router.map(function () {
     this.route('posts', function () {
       this.route('new');
     });
-    this.route('users');
+    this.route('users', function() {
+      this.route('edit', {
+        path: '/user/:user_id/edit'
+      });
+      this.route('new');
+    });
     this.route('images');
   });
   // route for dynamic pages
