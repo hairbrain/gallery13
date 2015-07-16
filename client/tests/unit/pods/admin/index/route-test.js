@@ -1,3 +1,4 @@
+
 import { moduleFor, test } from 'ember-qunit';
 
 moduleFor('route:admin/index.hbs', 'Unit | Route | admin/index.hbs', {
