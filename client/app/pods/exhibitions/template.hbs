@@ -1,0 +1,29 @@
+<div class="ui bordered grid">
+  <div class="sixteen wide column" style="overflow: hidden !important;">
+    <div class="ui horizontal scrolled list">
+      {{#each model as |exhibition|}}
+        <div class="item">
+          <div class="ui segment">
+
+            <!--<div class="ui basic segment">-->
+            <!--</div>-->
+            <div class="content">
+              <div class="ui large image">
+                <img class="" src="{{exhibition.image}}" alt="{{exhibition.description}}">
+              </div>
+              <div class="header">{{exhibition.title}}</div>
+              <div class="meta">
+                <span class="date">{{exhibition.subtitle}}</span>
+              </div>
+              <div class="description">
+                {{exhibition.description}}
+              </div>
+            </div>
+          </div>
+        </div>
+      {{/each}}
+    </div>
+    <div class="ui basic segment">
+    </div>
+  </div>
+</div>

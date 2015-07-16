@@ -1,0 +1,30 @@
+{{outlet}}
+<h1>Users List</h1>
+{{#link-to 'admin.users.new' classNames="ui small button"}}
+  <i class="new icon"></i>Create new User
+{{/link-to}}
+<table class="ui celled striped table">
+  <thead>
+  <tr>
+    <th>name</th>
+    <th>Email / Username</th>
+    <th>Actions</th>
+  </tr>
+  </thead>
+  <tbody>
+  {{#each model as |user|}}
+    <tr>
+      <td class="">
+        <i class="user icon"></i> {{user.fullName}}
+      </td>
+      <td>{{user.username}}</td>
+      <td class="right aligned collapsing">
+        {{#link-to 'admin.users.edit' user classNames="ui icon button"}}
+          <i class="edit icon"></i>
+        {{/link-to}}
+      </td>
+    </tr>
+  {{/each}}
+  </tbody>
+</table>
+

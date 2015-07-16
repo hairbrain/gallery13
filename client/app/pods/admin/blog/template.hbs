@@ -1,0 +1,38 @@
+<div class="ui grid">
+  <div class="ui row">
+    {{#link-to 'admin.posts.new' classNames="ui small button"}}
+      New Post
+    {{/link-to}}
+  </div>
+  <div class="ui row">{{outlet}}</div>
+  <div class="ui row">
+      <table class="ui compact table">
+          <thead>
+              <th>Post Title</th>
+              <th>Slug</th>
+              <th>Date</th>
+              <th>Author</th>
+              <th>Feature Image</th>
+              <th>excerpt</th>
+              <th>Actions</th>
+          </thead>
+          <tbody>
+          {{#each model as |post|}}
+              <tr>
+                  <td>{{post.title}}</td>
+                  <td>{{post.slug}}</td>
+                  <td>{{ago post.date}}</td>
+                <td>{{post.author}}</td>
+                  <td><img src="{{post.image}}" class="ui mini image" /></td>
+                  <td>{{post.excerpt}}</td>
+                  <td>
+                      {{#link-to 'admin.post' post classNames="ui icon button"}}
+                          <i class="edit icon"></i>
+                      {{/link-to}}
+                  </td>
+              </tr>
+          {{/each}}
+          </tbody>
+      </table>
+  </div>
+</div>

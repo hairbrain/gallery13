@@ -1,0 +1,30 @@
+<div class="ui grid">
+  <div class="eight wide column" >
+    <div class="ui segment" id="left-column">
+      <div class="ui middle aligned selection list" >
+        {{#each model as |post|}}
+          {{#link-to 'blog.post.index' post tagName="div" class="item"}}
+            <img class="ui small image" src="{{post.image}}">
+            <div class="content">
+              <div class="header">{{post.title}}</div>
+              <div class="meta">
+                by {{post.author}} <span class="date">{{ago post.date}}</span>
+              </div>
+              <div class="description">
+                {{{markdown-to-html markdown=post.excerpt}}}
+              </div>
+            </div>
+          {{/link-to}}
+        {{/each}}
+      </div>
+    </div>
+  </div>
+  <div class="eight wide column">
+    <div class="ui grid">
+      <div class="sixteen wide column">
+        {{outlet}}
+      </div>
+    </div>
+  </div>
+</div>
+

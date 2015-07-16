@@ -1,0 +1,51 @@
+<div class="ui form">
+  <div class="">
+    <h2>New Image</h2>
+
+    <div class="">
+      <label for="title">Title</label>
+      {{input type="text" value=model.title class=''}}
+    </div>
+    <div class="form-group">
+      <label for="description">Description</label>
+      {{input type="text" value=model.description class='form-control'}}
+    </div>
+    <div class="form-group">
+      <label for="order">Order</label>
+      {{input type="text" value=model.order class='form-control'}}
+    </div>
+    <div class="form-group">
+      {{#if controller.model.url}}
+        {{image-preview src=controller.model.url title=controller.model.file.name alt='Preview of Image to Upload'}}
+        <p>{{controller.model.url}}</p>
+      {{/if}}
+    </div>
+    <div class="ui basic segment six fields">
+      {{#unless controller.model.url}}
+        <div class="two wide field">
+          {{!-- {{image-upload-button action='queueImage'}} --}}
+          {{#if showFilePicker}}
+            {{ember-filepicker
+              pickerOptions=pickerOptions
+              multiple=true
+              onSelection='fileSelected'
+              onClose='onClose'
+              onError='onError'
+              accept=".jpg,.jpeg,.gif,.png"
+              readAs="readAsDataURL"
+            }}
+          {{/if}}
+          <button class="ui small button" {{action 'showPicker'}}>Choose Images</button>
+        </div>
+      {{/unless}}
+      <div class="four wide field">
+        <div class="ui buttons">
+          <button class="ui small button" {{action 'saveArtistImage' model}}>Save</button>
+          <div class="or"></div>
+          <button class="ui small button" {{action 'cancelNewArtistImage' model}}>Cancel</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{{outlet}}

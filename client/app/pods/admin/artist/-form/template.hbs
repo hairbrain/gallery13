@@ -1,0 +1,27 @@
+<form class="ui form">
+  <div class="form-group">
+    <label for="identification">Name</label>
+    {{input type="text" value=model.name class='form-control'}}
+  </div>
+  <div class="form-group">
+    <label for="identification">subtitle</label>
+    {{input type="text" value=model.subtitle class='form-control'}}
+  </div>
+  <div class="form-group">
+    <label for="featureImage">Featured Image</label>
+    {{ember-selectize
+      content=controller.model.allArtistImages
+      value=model.featureImage
+      optionValuePath="content.fullUrl"
+      optionLabelPath="content.fullTitle"
+    }}
+    {{#if model.featureImage}}
+      {{image-preview src=model.featureImage title=model.featureImage alt='Image Preview'}}
+      <p>{{model.featureImage}}</p>
+    {{/if}}
+  </div>
+  <div class="form-group">
+    <label for="order">Order</label>
+    {{input type="text" value=model.order class='form-control'}}
+  </div>
+</form>

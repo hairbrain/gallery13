@@ -8,6 +8,8 @@
  * For more information on configuration, check out:
  * http://sailsjs.org/#/documentation/reference/sails.config/sails.config.http.html
  */
+var skipper = require('skipper');
+skipper.limit = 52428800;
 
 module.exports.http = {
 
@@ -54,10 +56,10 @@ module.exports.http = {
   *                                                                           *
   ****************************************************************************/
 
-    // myRequestLogger: function (req, res, next) {
-    //     console.log("Requested :: ", req.method, req.url);
-    //     return next();
-    // }
+     //myRequestLogger: function (req, res, next) {
+     //    console.log("Requested :: ", req.method, req.url);
+     //    return next();
+     //},
 
 
   /***************************************************************************
@@ -69,7 +71,7 @@ module.exports.http = {
   *                                                                          *
   ***************************************************************************/
 
-    // bodyParser: require('skipper')
+     bodyParser: skipper
 
   // },
 

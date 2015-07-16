@@ -1,0 +1,27 @@
+<div class="ui centered grid">
+
+  <div class="eight wide column">
+    <div class="ui middle aligned selection list">
+      {{#each model as |event|}}
+        {{#link-to 'events.list' event tagName="div" class="item"}}
+          <img class="ui small image" src="{{event.image}}">
+          <div class="content">
+            <div class="header">{{event.title}}</div>
+            <div class="meta">
+              {{event.subtitle}}
+            </div>
+            <div class="description">
+              {{{markdown-to-html markdown=post.excerpt}}}
+            </div>
+            <div class="extra content">
+              <span class="">{{ago event.date}}</span>
+            </div>
+          </div>
+        {{/link-to}}
+      {{/each}}
+    </div>
+  </div>
+  <div class="eight wide column">
+    {{outlet}}
+  </div>
+</div>

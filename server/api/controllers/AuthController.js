@@ -1,7 +1,8 @@
+/* global sails */
 var jwt = require('jsonwebtoken');
 var _ = require('lodash');
 var bcrypt = require('bcrypt');
-var User = require('../models/User');
+// var User = require('../models/User');
 
 /**
  * AuthController

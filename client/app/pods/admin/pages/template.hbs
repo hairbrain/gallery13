@@ -1,0 +1,66 @@
+<div class="line-after">
+    <h2>Manage Pages</h2>
+</div>
+<div class="ui buttons container">
+    {{#link-to 'admin.pages.new' classNames='ui small button'}}Create new page{{/link-to}}
+</div>
+<div class="ui padded grid">
+    {{outlet}}
+</div>
+<div class="ui padded grid">
+    <div class="col-xs-sixteen wide column" style="">
+        <table class="ui striped table">
+            <thead>
+            <tr>
+                <th>title</th>
+                <th>slug</th>
+                <th>nav label</th>
+                <th>layout</th>
+                <th>excerpt</th>
+                <!--<th>body</th>-->
+                <th>order</th>
+                <th>actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            {{#each model as |page|}}
+                <tr>
+                    <td>
+                        <p>{{page.title}}</p>
+                    </td>
+                    <td>
+                        <p>{{page.slug}}</p>
+                    </td>
+                    <td>
+                        <p>{{page.navLabel}}</p>
+                    </td>
+                    <td>
+                        <p>{{page.layout}}</p>
+                    </td>
+                    <td>
+                        <p>{{page.excerpt}}</p>
+                    </td>
+                    <!--<td>-->
+                        <!--<p>{{page.body}}</p>-->
+                    <!--</td>-->
+                    <td>
+                        <p>{{page.order}}</p>
+                    </td>
+                    <td>
+                      <div class="ui buttons">
+                        {{#link-to 'admin.pages.edit' page classNames='ui icon button'}}
+                          <i class="edit icon"></i>
+                        {{/link-to}}
+                        {{#link-to 'catchall' page classNames='ui icon button'}}
+                          <i class="eye icon"></i>
+                        {{/link-to}}
+                      </div>
+                    </td>
+                </tr>
+            {{/each}}
+            </tbody>
+        </table>
+
+
+    </div>
+</div>

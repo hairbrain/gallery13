@@ -1,0 +1,27 @@
+<h1 class="ui header">{{model.name}}</h1>
+<div class="meta">{{model.subtitle}}</div>
+{{#link-to 'artists'}}all artists{{/link-to}} |
+    <!--todo: add links here to sub routes -->
+{{#link-to 'artist.index' controller.model}}artist{{/link-to}} |
+{{#link-to 'artist.bio' model}}biography{{/link-to}} |
+{{#link-to 'artist.statement' model}}statement{{/link-to}} |
+{{#link-to 'artist.press' model}}press{{/link-to}}
+{{#if session.isAuthenticated}}
+| {{#link-to 'admin.artist' model classNames="item"}}edit{{/link-to}}
+{{/if}}
+<hr>
+<div class="ui two column grid">
+  <div class="six wide column">
+    <h2 class="ui header">{{this.name}}</h2>
+    <div class="ui tiny images scrolled">
+      {{#each image in model.images}}
+          {{#link-to 'artist.image' image class="ui link image" tagName="a"}}
+              <img src="{{image.path}}" alt="{{image.description}}">
+          {{/link-to}}
+      {{/each}}
+    </div>
+  </div>
+  <div class="ten wide column">
+      {{outlet}}
+  </div>
+</div>

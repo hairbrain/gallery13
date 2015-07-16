@@ -1,0 +1,58 @@
+<div class="ui form">
+<div class="ten wide column" style="">
+  <div class="item">
+    <label >Slug</label>
+    <div class="col-sm-10">
+      {{input value=model.slug class="form-control" placeholder="the last part of the url"}}
+    </div>
+  </div>
+    <div class="item">
+        <label >Title</label>
+        <div class="col-sm-10">
+            {{input value=model.title class="form-control" placeholder="the title"}}
+        </div>
+    </div>
+    <div class="item">
+      <label >Subtitle</label>
+      {{input value=model.subtitle class="form-control" placeholder="the subtitle"}}
+    </div>
+    <div class="item">
+      <label >description</label>
+      {{input value=model.description class="form-control" placeholder="this event is going to be so great."}}
+    </div>
+    <div class="item">
+      <label >Featured Image</label>
+      {{ember-selectize
+        content=controller.model.allArtistImages
+        value=model.image
+        optionValuePath="content.fullUrl"
+        optionLabelPath="content.fullTitle"
+      }}
+    </div>
+  <div class="item">
+    <label >date</label>
+    {{pikaday-input value=model.date format="MM/DD/YYYY" useUTC=false placeholder="The date of the event."}}
+  </div>
+    <div class="item">
+      <label >order</label>
+      {{input value=model.order class="form-control" placeholder="a number"}}
+    </div>
+    <button class="ui small button" {{action 'update' model}}>Update</button>
+    <button class="ui small button" {{action 'delete' model}}>Delete</button>
+    <button class="ui small button" {{action 'cancel' model}}>Cancel</button>
+</div>
+<div class="col-xs-9" style="">
+    {{#link-to 'admin.events.edit.images.new' classNames='ui small button btn-sm'}}New Image{{/link-to}}
+    <ul>
+    {{#each model.images as |image|}}
+        <li>
+            <div>
+                {{image.title}}
+                <hr>
+                <img src="{{image.path}}" class="img-responsive img-preview" />
+            </div>
+        </li>
+    {{/each}}
+    </ul>
+</div>
+</div>

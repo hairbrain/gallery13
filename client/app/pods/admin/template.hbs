@@ -1,0 +1,31 @@
+{{#if session.isAuthenticated}}
+  <div class="ui pointing menu">
+    {{#link-to 'admin.artists' class="item"}}
+        <i class="paint brush icon"></i>
+        <p>Edit Artists</p>
+    {{/link-to}}
+    {{#link-to 'admin.events' class="item"}}
+        <i class="calendar icon"></i>
+        <p>Edit Events</p>
+    {{/link-to}}
+    {{#link-to 'admin.blog' class="item"}}
+        <i class="list layout icon"></i>
+        <p>Edit Blog</p>
+    {{/link-to}}
+    {{#link-to 'admin.pages' class="item"}}
+        <i class="paragraph icon"></i>
+        <p>Edit Pages</p>
+    {{/link-to}}
+    {{#link-to 'admin.users' class="item"}}
+        <i class="users icon"></i>
+        <p>Site Users</p>
+    {{/link-to}}
+    {{#link-to 'admin.images' class="item"}}
+      <i class="camera retro icon"></i>
+      <p>Site Images</p>
+    {{/link-to}}
+  </div>
+  {{outlet}}
+{{else}}
+  {{login-panel}}
+{{/if}}

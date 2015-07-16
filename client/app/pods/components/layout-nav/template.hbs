@@ -1,0 +1,29 @@
+<div class="ui grid container">
+  <div class="column">
+    <div class="ui logo">
+      <h1>Gallery 13</h1>
+    </div>
+    {{#if session.isAuthenticated}}
+    <div class="ui floated right">
+      <div class="header item">Welcome, {{session.user.firstName}} {{session.user.lastName}}</div>
+    </div>
+    {{/if}}
+    <div class="ui secondary pointing menu">
+      {{#link-to 'index' classNames="item"}}Home{{/link-to}}
+      {{#link-to 'artists' classNames="item"}}Artists{{/link-to}}
+      {{#link-to 'exhibitions' classNames="item"}}Exhibitions{{/link-to}}
+      {{#link-to 'events' classNames="item"}}Events{{/link-to}}
+      {{#each pages as |page|}}
+          {{#link-to 'catchall' page classNames="item"}} {{page.navLabel}} {{/link-to}}
+      {{/each}}
+      {{#link-to 'blog' classNames="item"}}Blog{{/link-to}}
+      {{yield}}
+      <div class="right pointing menu">
+        {{#if session.isAuthenticated}}
+          {{#link-to 'admin' classNames="item"}}admin{{/link-to}}
+          <a href="#" {{ action 'invalidateSession' }} class="item">Logout</a>
+        {{/if}}
+      </div>
+    </div>
+  </div>
+</div>

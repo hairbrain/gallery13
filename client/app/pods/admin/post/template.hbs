@@ -1,0 +1,74 @@
+<div class="ui grid">
+  <div class="ui row">
+    <div class="column">
+      <button class="ui small button" {{action 'cancel' model}}>Cancel</button>
+      <button class="ui small button" {{action 'update' model}}>Save</button>
+      <button class="ui small button" {{action 'delete' model}}>Delete</button>
+    </div>
+  </div>
+  <div class="six wide column">
+    <div class="ui form">
+      <!--<div class="fields">-->
+        <div class="field">
+          <label>Title</label>
+          {{input value=model.title placeholder="Title"}}
+        </div>
+        <div class="field">
+          <label>Author</label>
+          {{input value=model.author placeholder="your name here"}}
+        </div>
+        <div class="field">
+          <label>slug (part of url)</label>
+          {{input value=model.slug placeholder="url-for-this-page"}}
+        </div>
+        <div class="field">
+          <label>Date</label>
+          {{pikaday-input value=model.date format="MM/DD/YYYY" useUTC=false placeholder="The date you want for this post."}}
+        </div>
+      <!--</div>-->
+      <!--<div class="two fields">-->
+        <div class="field">
+          <label>Featured Image</label>
+          {{ember-selectize
+            content=controller.model.allArtistImages
+            value=model.image
+            optionValuePath="content.fullUrl"
+            optionLabelPath="content.fullTitle"
+          }}
+          <p>{{model.image}}</p>
+        </div>
+        <div class="field">
+          {{#if model.image}}
+            {{image-preview src=model.image title=model.image alt='Image Preview'}}
+          {{/if}}
+        </div>
+      <!--</div>-->
+
+    </div>
+  </div>
+  <div class="ten wide column">
+    <div class="ui form">
+      <div class="two fields">
+        <div class="field">
+          <label>Excerpt</label>
+          {{textarea value=model.excerpt class='form-control' rows="20"}}
+        </div>
+        <div class="field">
+          <label>Preview</label>
+          {{markdown-to-html markdown=model.excerpt}}
+        </div>
+      </div>
+      <div class="two fields">
+        <div class="field">
+          <label>Body</label>
+          {{textarea value=model.body class='form-control' rows="30"}}
+        </div>
+        <div class="field">
+          <label>Preview</label>
+          {{markdown-to-html markdown=model.body}}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{{outlet}}

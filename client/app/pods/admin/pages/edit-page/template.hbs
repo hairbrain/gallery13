@@ -1,0 +1,89 @@
+<div class="ui form">
+  <div class="field">
+    <div class="fields">
+      <div class="twelve wide field">
+        <label>Title</label>
+        {{input value=model.title class="form-control" placeholder="Title"}}
+      </div>
+      <div class="four wide field">
+        <label>Order</label>
+        {{input value=model.order placeholder="enter a weighted order value"}}
+      </div>
+    </div>
+  </div>
+  <div class="four fields">
+    <div class="field">
+      <label for="" class="">Name</label>
+      <div class="">
+        {{input value=model.name class="form-control" placeholder="a friendly name for this page"}}
+      </div>
+    </div>
+    <div class="field">
+      <label for="" class="">slug (last portion of url)</label>
+      {{input value=model.slug class="form-control" placeholder="url-for-this-page"}}
+    </div>
+    <div class="field">
+      <label for="" class="">Navigation Label</label>
+      {{input value=model.navLabel class="form-control" placeholder="Short and sweet"}}
+    </div>
+    <div class="field">
+      <label for="" class="">Layout</label>
+      <div class="">
+        <div class="ui selection dropdown">
+          <input type="hidden" name="gender">
+          {{input type="hidden" value=model.layout}}
+          <div class="default text">{{model.layout}}</div>
+          <i class="dropdown icon"></i>
+          <div class="menu">
+            <div class="item" data-value="standard">standard</div>
+            <div class="item" data-value="two-column">Two Column</div>
+            <div class="item" data-value="two-column-image-left">Two Column - image right</div>
+            <div class="item" data-value="two-column-image-right">Two Column - image left</div>
+            <!--<div class="item" data-value="two-column-rotator-right">Two Column - rotator left</div>-->
+            <!--<div class="item" data-value="two-column-rotator-right">Two Column - rotator left</div>-->
+          </div>
+        </div>
+        <script>
+          $().ready(function() {
+            $('.ui.dropdown')
+              .dropdown({
+                maxSelections: 1
+              })
+            ;
+          });
+        </script>
+      </div>
+    </div>
+  </div>
+  <div class="two fields">
+    <div class="field">
+      <label>Edit excerpt:</label>
+      <div class="ui segment">
+
+        {{textarea value=model.excerpt class='' rows="20"}}
+
+        {{!em-markdown-editor content=model.excerpt}}
+      </div>
+    </div>
+    <div class="field">
+      <label>Excerpt Preview</label>
+      <div class="ui segment">
+        {{markdown-to-html markdown=model.excerpt}}
+
+
+      </div>
+    </div>
+  </div>
+  <div class="two fields">
+    <div class="field">
+      <label>Edit body of post:</label>
+      <div class="ui segment">{{textarea value=model.body class='' style="height:100%;"}}</div>
+    </div>
+    <div class="field">
+      <label>Body Preview</label>
+      <div class="ui segment">{{markdown-to-html markdown=model.body}}</div>
+    </div>
+  </div>
+  <button class="ui small button" {{action 'update' model}}>Save</button>
+  <button class="ui small button" {{action 'delete' model}}>Delete page</button>
+</div>

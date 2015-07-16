@@ -9,3 +9,5 @@
 # Editor/IDE files
 /.idea
 *sublime-*
+
+npm-debug.log

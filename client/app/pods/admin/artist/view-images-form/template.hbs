@@ -1,0 +1,25 @@
+<div class="ui row">
+    <div class="caption">
+      {{#link-to 'admin.artist.images.new' class="ui small button"}}New Artist Image{{/link-to}}
+    </div>
+    {{#if model.images}}
+      <div class="ui four cards">
+        {{#each model.images as |image|}}
+          <div class="ui card">
+            {{image-preview src=image.path title=image.title alt=image.description}}
+            <div class="content">
+              <div class="header">{{image.title}}</div>
+              <div class="description">
+                {{image.description}}
+              </div>
+            </div>
+            <div class="extra content">
+              <span>
+                {{#link-to 'admin.artist.images.edit' image classNames='ui small button'}}edit{{/link-to}}
+              </span>
+            </div>
+          </div>
+        {{/each}}
+      </div>
+    {{/if}}
+</div>

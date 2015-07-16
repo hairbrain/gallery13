@@ -6,15 +6,15 @@ var Router = Ember.Router.extend({
 });
 
 export default Router.map(function () {
-  this.resource('index', { path: '/'}, function () {});
+  this.route('index', { path: '/'}, function () {});
 
   this.route('login');
   this.route('register');
 
-  this.resource('event', function () {});
-  this.resource('user', function () {});
+  this.route('event', function () {});
+  this.route('user', function () {});
   this.route('artists', function () {
-    this.route('new');
+    // this.route('new');
   });
   this.resource('artist', { path: '/artist/:artist_slug' }, function () {
     // this.route('index', { path: '/artist/:artist_slug' });
@@ -29,20 +29,25 @@ export default Router.map(function () {
     });
   });
 
-  this.resource('blog', function () {
+
+  this.route('blog', function () {
     this.route('post', { path: ':post_slug' }, function () { });
   });
 
   // adminRouter(this);
 
-  this.route('events');
-  this.resource('exhibitions', function () {});
+  this.route('events', function() {
+    this.route('list', { path: ':event_slug' }, function() {});
+
+  });
+  this.route('exhibitions', function () {});
 
 
   this.route('admin', function () {
-    this.route('blog', function () { });
+    this.route('blog', function () {
+      this.route('post', function() {});
+    });
     this.route('post', { path: '/post/:post_id' }, function () { });
-
     this.route('pages', function () {
       this.route('edit', { path: ':page_id' });
       this.route('new');
@@ -60,12 +65,17 @@ export default Router.map(function () {
         });
       });
       this.route('new');
+
+      this.route('list', {
+        path: ':event_slug'
+      });
     });
 
     this.route('artists', function () {
       this.route('new');
     });
     this.route('artist', { path: '/artist/:artist_id' }, function () {
+      //this.route('index', function () {});
       this.route('images', function () {
         this.route('new');
         this.route('edit', { path: '/image/:image_id/edit' });
@@ -73,6 +83,14 @@ export default Router.map(function () {
       this.route('exhibitions', function () {
         this.route('edit', { path: 'exhibition/:exhibition_id/edit'});
       });
+
+      this.route('exhibition', function() {
+        this.route('edit', { path: ':exhibition_id/edit'});
+      });
+      this.route('bio');
+      this.route('image');
+      this.route('press');
+      this.route('statement');
     });
 
     this.route('page', {
@@ -83,7 +101,18 @@ export default Router.map(function () {
     this.route('posts', function () {
       this.route('new');
     });
+    this.route('users', function() {
+      this.route('edit', {
+        path: '/user/:user_id/edit'
+      });
+      this.route('new');
+    });
+    this.route('images');
   });
   // route for dynamic pages
   this.route('catchall', { path: '/*slug' });
+
+  this.route('event');
+  this.route('loading');
+  this.route('user');
 });
