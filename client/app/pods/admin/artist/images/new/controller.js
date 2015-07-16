@@ -1,3 +1,4 @@
+/* global filepicker */
 import Ember from 'ember';
 
 export default Ember.ObjectController.extend({
@@ -29,7 +30,7 @@ export default Ember.ObjectController.extend({
             "use strict";
             console.error(err);
           },
-          function(progressPercent) {
+          function(/*progressPercent*/) {
             "use strict";
             //console.log(progressPercent);
           }
@@ -43,7 +44,7 @@ export default Ember.ObjectController.extend({
     onClose: function() {
       this.send('hidePicker');
     },
-    onError: function(error) {
+    onError: function(/*error*/) {
       this.send('hidePicker');
     }
   }
