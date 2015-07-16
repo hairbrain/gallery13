@@ -7,7 +7,6 @@ dependencies:
     - git --version
     - npm install -g bower
   override:
-    - npm i
     - npm i:
         pwd:
           client

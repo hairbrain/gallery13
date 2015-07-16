@@ -1,3 +1,4 @@
+/* global sails */
 var jwt = require('jsonwebtoken');
 var _ = require('lodash');
 var bcrypt = require('bcrypt');
