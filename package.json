@@ -4,7 +4,7 @@
   "description": "A little marketing site, a little bit CMS and Blog, a web presence for Gallery 13 in all",
   "main": "index.js",
   "scripts": {
-    "init": "npm i && cd server/ && npm i && cd ../client && npm i && bower i"
+    "init": "npm i && cd server/ && npm i && cd ../client && npm i && bower i",
     "clean": "rm -rf ./node_modules/ && npm i && cd client && rm -rf ./node_modules/ ./bower_components && npm i && bower i && cd ../server && rm -rf ./node_modules && npm i",
     "test": "cd client && node node_modules/.bin/ember test",
     "lint": "eslint client/app client/tests server/api",
