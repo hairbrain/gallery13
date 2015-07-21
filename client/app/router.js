@@ -1,8 +1,41 @@
+/* global Ember, location, document */
+
 import Ember from 'ember';
 import config from './config/environment';
 
 var Router = Ember.Router.extend({
   location: config.locationType
+});
+
+Router.reopen({
+  notifyGoogleAnalytics: function() {
+    var url = this.get('url');
+    // the following call is based on how the ember-cli-document-title addin is setting the title here:
+    // https://github.com/kimroen/ember-cli-document-title/blob/master/vendor/document-title/document-title.js#L65
+    var renderer = this.container.lookup('renderer:-dom');
+    Ember.run.next(function() {
+      "use strict";
+      var title = Ember.get(renderer, '_dom.document.title');
+      if (config.googleAnalyticsId) {
+
+        //set the google analytics page
+        ga('set', {
+          page: url,
+          title: title
+        });
+
+       //send the google analytics pageview event
+        return ga('send', 'pageview', {
+          'page': url,
+          'title': title
+        });
+      } else {
+        console.info('ga-disabled: setpage : %s => %s', url, title);
+        console.info('ga-disabled: pageview : %s => %s', url, title);
+      }
+
+    });
+  }.on('didTransition')
 });
 
 export default Router.map(function () {
@@ -21,7 +54,7 @@ export default Router.map(function () {
     this.route('bio');
     this.route('statement');
     this.route('press');
-    this.route('image', { path: '/image/:slug' });
+    this.route('image', { path: '/art/:slug' });
     this.route('edit', function () {
       this.route('image', {
         path: '/edit-image/:image_id'

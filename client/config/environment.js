@@ -1,15 +1,19 @@
 /* jshint node: true */
 
-var devHost = 'http://localhost:1337';
-var prodHost = 'http://gallery.hairbrain.io';
-var devS3 = 'https://gallery13-dev.s3.amazonaws.com';
-var prodS3 = 'https://gallery13.s3.amazonaws.com';
+const DEBUG_GA = false;
+const GA_ID= 'UA-12392326-1';
+
+const HOST_DEV = 'http://localhost:1337';
+const HOST_PROD = 'http://gallery.hairbrain.io';
+const S3_DEV = 'https://gallery13-dev.s3.amazonaws.com';
+const S3_PROD = 'https://gallery13.s3.amazonaws.com';
 
 module.exports = function(environment) {
   var ENV = {
     modulePrefix: 'client',
     podModulePrefix: 'client/pods',
     environment: environment,
+    isProduction: (this.environment === 'production'),
     baseURL: '/',
     locationType: 'auto',
     filepickerKey: 'AE6BMl44qQ4i8X7IDFok5z',
@@ -27,7 +31,10 @@ module.exports = function(environment) {
   };
 
   if (environment === 'development') {
-    ENV.hostUrl = devHost;
+    ENV.hostUrl = HOST_DEV;
+    if (DEBUG_GA) {
+      ENV.googleAnalyticsId = GA_ID;
+    }
     //ENV.APP.LOG_RESOLVER = true;
     //ENV.APP.LOG_ACTIVE_GENERATION = true;
     // ENV.APP.LOG_TRANSITIONS = true;
@@ -37,17 +44,15 @@ module.exports = function(environment) {
     ENV.contentSecurityPolicy = {
       'default-src': "'none'",
       // add the domain here like analytics.google.com or data: or 'self'
-      'script-src':  "'self' 'unsafe-eval' 'https://www.google.com' ''",
+      'script-src':  "'self' 'unsafe-eval' 'unsafe-inline' www.google.com www.google-analytics.com",
       'font-src':    "'self' data:",
-      'connect-src': "'self' " + devHost + ' ' + devS3,
-      'img-src':     "'self' data: " + devHost + ' ' + devS3,
+      'connect-src': "'self' " + HOST_DEV + ' ' + S3_DEV,
+      'img-src':     "'self' data: " + HOST_DEV + ' ' + S3_DEV + ' www.google-analytics.com',
       'style-src':   "'self' 'unsafe-inline'",
-      'frame-src':   "'https://www.google.com'",
-      'media-src': "'https://www.google.com'"
+      'frame-src':   "www.google.com",
+      'media-src':   "www.google.com"
     }
   }
-
-
   if (environment === 'test') {
     // Testem prefers this...
     ENV.baseURL = '/';
@@ -61,17 +66,19 @@ module.exports = function(environment) {
   }
 
   if (environment === 'production') {
-    ENV.hostUrl = prodHost;
+    ENV.hostUrl = HOST_PROD;
+    ENV.googleAnalyticsId = GA_ID;
+
     ENV.contentSecurityPolicy = {
       'default-src': "'none'",
       // add the domain here like analytics.google.com or data: or 'self'
-      'script-src':  "'self' 'unsafe-eval' 'https://www.google.com' ''",
+      'script-src':  "'self' 'unsafe-eval' 'unsafe-inline'  www.google.com www.google-analytics.com",
       'font-src':    "'self' data:",
-      'connect-src': "'self' " + devHost + ' ' + devS3,
-      'img-src':     "'self' data: " + devHost + ' ' + devS3,
+      'connect-src': "'self' " + HOST_PROD + ' ' + S3_PROD,
+      'img-src':     "'self' data: " + HOST_PROD + ' ' + S3_PROD + ' www.google-analytics.com',
       'style-src':   "'self' 'unsafe-inline'",
-      'frame-src':   "'https://www.google.com'",
-      'media-src': "'https://www.google.com'"
+      'frame-src':   "www.google.com",
+      'media-src':   "www.google.com"
     }
   }
 
