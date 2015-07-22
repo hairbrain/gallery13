@@ -8,13 +8,13 @@
 module.exports = {
   attributes: {
     name    : { type: 'string' },
-    slug    : { type: 'string' },
+    slug    : { type: 'string', index: true },
     title   : { type: 'string' },
     navLabel: { type: 'string' },
     layout  : { type: 'string' },
     excerpt : { type: 'text' },
     body    : { type: 'text' },
-    order   : { type: 'float' }
+    order   : { type: 'float', index: true }
     // this needs to be M..N
     // images : {
     //   collection: 'image',

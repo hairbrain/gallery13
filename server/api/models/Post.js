@@ -9,8 +9,8 @@ module.exports = {
 
   attributes: {
     title  : { type: 'string' },
-    slug   : { type: 'string' },
-    date   : { type: 'date' },
+    slug   : { type: 'string', index: true },
+    date   : { type: 'date', index: true },
     image  : { type: 'string' },
     excerpt: { type: 'text' },
     body   : { type: 'text' },

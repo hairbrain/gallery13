@@ -8,13 +8,13 @@
 module.exports = {
 
   attributes: {
-    slug        : { type: 'string' },
+    slug        : { type: 'string', index: true },
     title       : { type: 'string' },
     subtitle    : { type: 'string' },
     description : { type: 'string' },
     image       : { type: 'string' },
-    order       : { type: 'float' },
-    date        : { type: 'date' }
+    order       : { type: 'float', index: true },
+    date        : { type: 'date', index: true }
   }
 };
 

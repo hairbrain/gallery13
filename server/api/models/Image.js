@@ -13,9 +13,9 @@ module.exports = {
     path       : { type: 'text' },
     title      : { type: 'string' },
     description: { type: 'string' },
-    slug       : { type: 'string' },
-    order      : { type: 'float' },
-    artist     : { model: 'artist' }
+    slug       : { type: 'string', index: true },
+    order      : { type: 'float', index: true },
+    artist     : { model: 'artist', index: true }
   },
   // Lifecycle Callbacks
   afterValidate: function (values, next) {
