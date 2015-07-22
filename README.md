@@ -1,6 +1,6 @@
 # This is a project for Gallery 13
 
-[![Stories in Ready](https://badge.waffle.io/hairbrained/gallery13.svg?label=ready&title=Ready)](http://waffle.io/hairbrained/gallery13)
+[![Stories in Ready](https://badge.waffle.io/hairbrain/gallery13.svg?label=ready&title=Ready)](http://waffle.io/hairbrain/gallery13)
 [![Circle CI](https://circleci.com/gh/hairbrain/gallery13/tree/master.svg?style=svg)](https://circleci.com/gh/hairbrain/gallery13/tree/master)
 
 Gallery 13 is an art gallery in Minneapolis, MN
