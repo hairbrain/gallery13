@@ -11,8 +11,8 @@ module.exports = {
     subtitle   : { type: 'string' },
     description: { type: 'string' },
     image      : { type: 'string' },
-    order      : { type: 'float' },
-    artist     : { model: 'artist' }
+    order      : { type: 'float', index: true },
+    artist     : { model: 'artist', index: true }
   }
 };
 

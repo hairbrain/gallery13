@@ -12,13 +12,13 @@ module.exports = {
   attributes: {
     name        : { type: 'string' },
     subtitle    : { type: 'string' },
-    slug        : { type: 'string' },
+    slug        : { type: 'string', index: true },
     statement   : { type: 'string' },
     bio         : { type: 'string' },
     press       : { type: 'string' },
     description : { type: 'string' },
     featureImage: { type: 'string' },
-    order       : { type: 'float' },
+    order       : { type: 'float', index: true },
     images      : {
       collection: 'image',
       via       : 'artist'

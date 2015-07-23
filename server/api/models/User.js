@@ -18,13 +18,14 @@ module.exports = {
     username: {
       type    : 'email', // Email type will get validated by the ORM
       required: true,
-      unique  : true
+      unique  : true,
+      index: true
     },
 
     // You might want to put this into it's own model if you want to support
     // social logins but keep the same account
     password: {
-      type    : 'string',
+      type    : 'string'
       //required: true
     },
     //JM removing this here to simply admin based editing of users.
