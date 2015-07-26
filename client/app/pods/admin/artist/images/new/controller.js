@@ -16,14 +16,16 @@ export default Ember.ObjectController.extend({
       var self = this;
 
       data.forEach(function (upload){
-
         //get a filepicker instance here.
         filepicker.read(upload, {base64encode: true},
           function(data) {
             "use strict";
-            //console.log(data);
-            let image = self.store.createRecord('image', { artist: self.get('model')});
-            image.set('path', 'data:image/jpeg;base64,' + data);
+            let image = self.store.createRecord('image', {
+              artist: self.get('model'),
+              title: upload.filename,
+              description: self.get('model').get('slug'),
+              path: 'data:' + upload.mimetype + ';base64,' + data
+            });
             image.save();
           },
           function(err) {

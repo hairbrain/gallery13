@@ -1,12 +1,13 @@
 /* jshint node: true */
 
+var devProtocol = 'http://';
+var devHost = 'localhost:1337';
+var prodProtocol = 'http://';
+var prodHost = 'gallery.hairbrain.io';
+var devS3 = 'gallery13-dev.s3.amazonaws.com';
+var prodS3 = 'gallery13.s3.amazonaws.com';
 const DEBUG_GA = false;
 const GA_ID= 'UA-12392326-1';
-
-const HOST_DEV = 'http://localhost:1337';
-const HOST_PROD = 'http://gallery.hairbrain.io';
-const S3_DEV = 'https://gallery13-dev.s3.amazonaws.com';
-const S3_PROD = 'https://gallery13.s3.amazonaws.com';
 
 module.exports = function(environment) {
   var ENV = {
@@ -35,6 +36,7 @@ module.exports = function(environment) {
     if (DEBUG_GA) {
       ENV.googleAnalyticsId = GA_ID;
     }
+    ENV.hostUrl = devProtocol + devHost;
     //ENV.APP.LOG_RESOLVER = true;
     //ENV.APP.LOG_ACTIVE_GENERATION = true;
     // ENV.APP.LOG_TRANSITIONS = true;
@@ -44,13 +46,13 @@ module.exports = function(environment) {
     ENV.contentSecurityPolicy = {
       'default-src': "'none'",
       // add the domain here like analytics.google.com or data: or 'self'
-      'script-src':  "'self' 'unsafe-eval' 'unsafe-inline' www.google.com www.google-analytics.com",
+      'script-src':  "'self' 'unsafe-eval' 'unsafe-inline' www.google.com www.google-analytics.com api.filepicker.io",
       'font-src':    "'self' data:",
-      'connect-src': "'self' " + HOST_DEV + ' ' + S3_DEV,
-      'img-src':     "'self' data: " + HOST_DEV + ' ' + S3_DEV + ' www.google-analytics.com',
+      'connect-src': "'self' www.filepicker.io " + devHost + ' ' + devS3,
+      'img-src':     "'self' data: " + devHost + ' ' + devS3 + ' www.google-analytics.com filepicker.io s3.amazonaws.com',
       'style-src':   "'self' 'unsafe-inline'",
-      'frame-src':   "www.google.com",
-      'media-src':   "www.google.com"
+      'frame-src':   "www.google.com *.filepicker.io",
+      'media-src': "www.google.com"
     }
   }
   if (environment === 'test') {
@@ -66,19 +68,19 @@ module.exports = function(environment) {
   }
 
   if (environment === 'production') {
-    ENV.hostUrl = HOST_PROD;
+    ENV.hostUrl = prodProtocol + prodHost;
     ENV.googleAnalyticsId = GA_ID;
 
     ENV.contentSecurityPolicy = {
       'default-src': "'none'",
       // add the domain here like analytics.google.com or data: or 'self'
-      'script-src':  "'self' 'unsafe-eval' 'unsafe-inline'  www.google.com www.google-analytics.com",
+      'script-src':  "'self' 'unsafe-eval' 'unsafe-inline' www.google.com www.google-analytics.com api.filepicker.io",
       'font-src':    "'self' data:",
-      'connect-src': "'self' " + HOST_PROD + ' ' + S3_PROD,
-      'img-src':     "'self' data: " + HOST_PROD + ' ' + S3_PROD + ' www.google-analytics.com',
+      'connect-src': "'self' www.filepicker.io " + prodHost + ' ' + prodS3,
+      'img-src':     "'self' data: " + prodHost + ' ' + prodS3 + ' www.google-analytics.com filepicker.io s3.amazonaws.com',
       'style-src':   "'self' 'unsafe-inline'",
-      'frame-src':   "www.google.com",
-      'media-src':   "www.google.com"
+      'frame-src':   "www.google.com *.filepicker.io",
+      'media-src': "www.google.com"
     }
   }
 
