@@ -1,10 +1,22 @@
-/* global require, module */
-
+/* global require, module, process */
+var env = process.env.EMBER_ENV;
+var config = require('./config/environment')(env);
 var EmberApp = require('ember-cli/lib/broccoli/ember-app');
 
 var app = new EmberApp({
   hinting: false
 });
+
+if (config.googleAnalyticsId) {
+  app.options.inlineContent = {
+    'google-analytics' : {
+      file: './ga.js',
+        postProcess: function(content) {
+        return content.replace(/\{\{GOOGLE_ANALYTICS_ID\}\}/g, config.googleAnalyticsId);
+      }
+    }
+  }
+}
 
 // Use `app.import` to add additional libraries to the generated
 // output files.
