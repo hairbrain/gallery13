@@ -32,7 +32,6 @@ module.exports = function(environment) {
   };
 
   if (environment === 'development') {
-    ENV.hostUrl = HOST_DEV;
     if (DEBUG_GA) {
       ENV.googleAnalyticsId = GA_ID;
     }
@@ -49,7 +48,7 @@ module.exports = function(environment) {
       'script-src':  "'self' 'unsafe-eval' 'unsafe-inline' www.google.com www.google-analytics.com api.filepicker.io",
       'font-src':    "'self' data:",
       'connect-src': "'self' www.filepicker.io " + devHost + ' ' + devS3,
-      'img-src':     "'self' data: " + devHost + ' ' + devS3 + ' www.google-analytics.com filepicker.io s3.amazonaws.com',
+      'img-src':     "'self' data: " + devHost + ' ' + devS3 + ' www.google-analytics.com filepicker.io www.filepicker.io s3.amazonaws.com',
       'style-src':   "'self' 'unsafe-inline'",
       'frame-src':   "www.google.com *.filepicker.io",
       'media-src': "www.google.com"
