@@ -80,16 +80,18 @@ module.exports = {
       values.slug = slug(values.title);
       sails.log.debug('new image slug: ', values.slug);
     } else {
-      if (values.slug == '') {
+      if (values.slug && values.slug == '') {
         values.slug = slug(newImageSlug);
       } else {
-        values.slug = slug(values.slug);
+        if (values.slug != null) {
+          values.slug = slug(values.slug);
+        }
       }
     }
 
     //here we check the path field to see if it is set to a filepicker.io url
     //if so, upload the linked file to S3 and update the values.path value to the new url
-    if (values.path.indexOf('s3.amazonaws.com') > -1) {
+    if (values.path.indexOf('s3.amazonaws.com') == -1) {
       sails.log.debug('found image path not uploaded to S3 yet');
       /*
           Here we have a image that's been uploaded from filepicker.io
@@ -108,7 +110,6 @@ module.exports = {
       //http://stackoverflow.com/questions/18264346/how-to-load-an-image-from-url-into-buffer-in-nodejs
 
       var request = require('request').defaults({ encoding: null });
-      request
       request.get(values.path, function (err, res, body) {
         if(err) {
           sails.log.debug('caught err calling getimage:', err);
