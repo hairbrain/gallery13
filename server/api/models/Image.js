@@ -80,10 +80,12 @@ module.exports = {
       values.slug = slug(values.title);
       sails.log.debug('new image slug: ', values.slug);
     } else {
-      if (values.slug == '') {
+      if (values.slug && values.slug == '') {
         values.slug = slug(newImageSlug);
       } else {
-        values.slug = slug(values.slug);
+        if (values.slug != null) {
+          values.slug = slug(values.slug);
+        }
       }
     }
 
