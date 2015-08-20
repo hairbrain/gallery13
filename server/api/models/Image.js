@@ -74,26 +74,34 @@ module.exports = {
   afterValidate: function (values, next) {
     "use strict";
     // Create slug from image title for url
-    if (values.title !== null && values.title.length) {
-      var fileInfo = path.parse(values.title);
-      values.slug = slug(path.basename(fileInfo.name, fileInfo.ext), {lower: true});
+    //todo: generate default [and unique] value for image records
+    var newImageSlug = 'new-image';
+    if (values.title !== null && values.title.length && (values.slug == '' || values.slug == newImageSlug)) {
+      values.slug = slug(values.title);
       sails.log.debug('new image slug: ', values.slug);
     } else {
-      //todo: generate default [and unique] value for image records
-      values.slug = 'new-image';
+      if (values.slug == '') {
+        values.slug = slug(newImageSlug);
+      } else {
+        values.slug = slug(values.slug);
+      }
     }
 
     //here we check the path field to see if it is set to a filepicker.io url
     //if so, upload the linked file to S3 and update the values.path value to the new url
-    if (values.path.indexOf('filepicker.io') > -1) {
-
+    if (values.path.indexOf('s3.amazonaws.com') > -1) {
+      sails.log.debug('found image path not uploaded to S3 yet');
       /*
           Here we have a image that's been uploaded from filepicker.io
           Because we dont want to use filepicker as our CDN, we're going to
           download the image in memory and upload it to AWS S3 then if successful update our image.path
        */
 
-      sails.log.debug('found filepicker.io path on image');
+      //calculate a new slug based on the input filename
+      var fileInfo = path.parse(values.title);
+      values.slug = slug(path.basename(fileInfo.name, fileInfo.ext), {lower: true});
+      sails.log.debug('new image slug: ', values.slug);
+
       //sails.log.debug('values are: ', values);
 
       //here we need to load the image into a buffer from the url we have
@@ -125,14 +133,12 @@ module.exports = {
             //return uploadS3('', body, values);
             next();
           });
-
       })
       .on('error', function(err) {
         sails.log.debug('catch err calling getimage:');
         sails.log.error(err);
         next();
       });
-
     } else {
       next();
     }
