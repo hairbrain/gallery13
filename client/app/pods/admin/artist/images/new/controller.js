@@ -14,30 +14,16 @@ export default Ember.ObjectController.extend({
     },
     fileSelected: function(data) {
       var self = this;
-
+      //console.log('file selected data:', data);
       data.forEach(function (upload){
+        //console.info('upload: ', upload);
 
-        //get a filepicker instance here.
-        filepicker.read(upload, {base64encode: true},
-          function(data) {
-            "use strict";
-            //console.log(data);
-            let image = self.store.createRecord('image', { artist: self.get('model')});
-            image.set('path', 'data:image/jpeg;base64,' + data);
-            image.save();
-          },
-          function(err) {
-            "use strict";
-            console.error(err);
-          },
-          function(/*progressPercent*/) {
-            "use strict";
-            //console.log(progressPercent);
-          }
-        );
-
-        //let image = self.store.createRecord('image', { artist: self.get('model')});
-        //image.set('path', upload.url);
+        let image = self.store.createRecord('image', {
+          artist: self.get('model'),
+          title: upload.filename,
+          path: upload.url
+        });
+        image.save();
       });
       this.send('hidePicker');
     },
