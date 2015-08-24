@@ -56,9 +56,11 @@ module.exports.policies = {
     "find": true,
     "findone": true
   },
-  UploadController: { },
+  UploadController: {
+    //nothing should be allowed when not logged in
+  },
   UserController: {
-    "create": true
+    //nothing should be allowed when not logged in
   },
   AppController: {
     "serve": true

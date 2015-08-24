@@ -42,7 +42,6 @@ export default Router.map(function () {
   this.route('index', { path: '/'}, function () {});
 
   this.route('login');
-  this.route('register');
 
   this.route('event', function () {});
   this.route('user', function () {});
